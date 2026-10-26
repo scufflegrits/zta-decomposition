@@ -18,6 +18,18 @@ For a self-contained introductory review, read the [ZTA Project Guide](zta-proje
 - [Equipment assessment](procurement/macsec-equipment-assessment.md), [compatibility findings](procurement/hardware-compatibility.md), [vendor research](references/vendor-research.md), and [standards references](references/standards.md).
 - [Open engineering questions](architecture/open-questions.md) and [implementation roadmap](architecture/roadmap.md).
 
+## Repository layout
+
+| Location | Contents |
+|---|---|
+| `architecture/` | Architecture views, decisions, open questions and implementation roadmap |
+| `pillars/` | Responsibilities and control references for each of the seven pillars |
+| `controls/` | Authoritative control definitions; MACsec includes detailed requirements and verification procedures |
+| `procurement/` | Equipment assessments and compatibility findings awaiting verification |
+| `references/` | Standards references and vendor research |
+| `standards/` | Documentation, traceability and Mermaid conventions; diagram verification record |
+| `tools/` and `tests/` | Documentation auditor and regression tests |
+
 ## Seven pillars
 
 <!-- zta-table: id=TBL-ZT-PILLARS; parent=ROOT; lineage=ROOT -->
@@ -48,11 +60,19 @@ Virtualization stays vendor-neutral. MACsec on every wired Ethernet port is a re
 
 `Required` records an established requirement; `Proposed` an unfinished design; `Verify` an unconfirmed capability; `Validated` requires reviewed test evidence. Nothing in this scaffold asserts a validated installation.
 
-Run the standard-library auditor and its regression tests:
+From the repository root, run the auditor and its regression tests with Python 3.10 or newer. These checks require only the Python standard library:
 
 ```bash
 python3 tools/audit_zta.py --root . --report audit-report.md
 python3 -m unittest discover -s tests -v
 ```
 
-See [auditor usage and limits](tools/README.md). The report is generated output. The original [handoff](zta-decomposition-handoff.md) and [Mermaid guide](mermaid-best-practices-r1.0.5.md) are preserved as provenance; the modular documents are the working definitions. This directory is not currently an initialized Git repository; version-control initialization and review workflows remain setup tasks.
+See [auditor usage and limits](tools/README.md). The report is generated output. The original [handoff](zta-decomposition-handoff.md) and [Mermaid guide](mermaid-best-practices-r1.0.5.md) are preserved as provenance; the modular documents are the working definitions.
+
+Maintain diagrams using the [project Mermaid standard r1.0.6](standards/mermaid-best-practices-r1.0.6.md), including CSS named colors. All four maintained Mermaid blocks rendered successfully to SVG and PNG and were visually reviewed on October 25, 2026. Title/edge crossings remain to be refined before publication, and the intended presentation viewer remains untested. See the [diagram verification record](standards/diagram-verification.md) for scope and findings. The documentation auditor does not parse or render Mermaid, and neither check validates security controls.
+
+## Version control
+
+The Git repository is initialized. The `master` branch tracks `main/master`, where `main` is the remote name. The configured remote is [scufflegrits/zta-decomposition](https://github.com/scufflegrits/zta-decomposition), using `git@github.com:scufflegrits/zta-decomposition.git` for fetch and push.
+
+Review changes before committing and run the documentation auditor and regression tests above. Engineering ownership acceptance and the review workflow remain setup tasks.
