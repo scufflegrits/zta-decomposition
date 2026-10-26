@@ -27,7 +27,8 @@ For a self-contained introductory review, read the [ZTA Project Guide](zta-proje
 
 - [Architecture overview](architecture/overview.md), [physical topology](architecture/physical-topology.md), [site-local design](architecture/logical-topology.md), and [control overlay](architecture/seven-pillar-control-overlay.md).
 - [Architecture decisions](architecture/decisions/README.md) and [documentation conventions](standards/documentation-conventions.md).
-- [Management briefing](zta-management-briefing.md), [MACsec delivery use case](zta-macsec-use-case.md), and [manual Jira traceability](standards/manual-jira-traceability.md).
+- [ZTA decomposition briefing](zta-decomposition-briefing.md), [MACsec delivery use case](zta-macsec-use-case.md), and [manual Jira traceability](standards/manual-jira-traceability.md).
+- [Questions and critical review](zta-decomposition-faq.md) for program leadership, engineering, architecture and delivery teams.
 - [MACsec overview](controls/macsec/overview.md), [requirements](controls/macsec/requirements.md), and [verification plan](controls/macsec/verification.md).
 - [Equipment assessment](procurement/macsec-equipment-assessment.md), [compatibility findings](procurement/hardware-compatibility.md), [vendor research](references/vendor-research.md), and [standards references](references/standards.md).
 - [Implementation records](implementation/macsec.md), [customer acceptance decisions](acceptance/macsec.md), and [record rules](standards/implementation-acceptance.md).
@@ -86,7 +87,7 @@ python3 tools/audit_zta.py --root . --report audit-report.md
 python3 -m unittest discover -s tests -v
 ```
 
-See [auditor usage and limits](tools/README.md). The report is generated output. The original [handoff](zta-decomposition-handoff.md) and supplied [Mermaid guide](references/guides/mermaid-best-practices-r1.0.6.md) are source references; the modular documents are the working definitions.
+See [auditor usage and limits](tools/README.md). The report is generated output. The original [handoff](zta-decomposition-handoff.md) and supplied [Mermaid CSS r1.0.7 guide](references/guides/mermaid-best-practices-CSS-r1.0.7.md) are source references; the modular documents are the working definitions.
 
 Maintain diagrams using the [project Mermaid standard r1.0.6](standards/mermaid-best-practices-r1.0.6.md), including CSS named colors. The four network and project-guide Mermaid blocks rendered successfully to SVG and PNG and were visually reviewed on October 25, 2026. Title/edge crossings remain to be refined before publication, and the intended presentation viewer remains untested. See the [diagram verification record](standards/diagram-verification.md) for scope and findings, including the taxonomy review. The documentation auditor does not parse or render Mermaid, and neither check validates security controls.
 

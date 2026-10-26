@@ -1,7 +1,7 @@
 ---
 schema_version: 1
 id: DOC-SCRATCH-TABLE-DECOMPOSITION
-title: Scratch — Following one cell down through the tables
+title: ZTA decomposition tree — From pillars to evidence and acceptance
 document_type: guide
 parent: ROOT
 lineage: [ROOT]
@@ -12,7 +12,7 @@ implementation_status: not-applicable
 baseline_date: '2026-10-25'
 ---
 
-# Scratch — Following one cell down through the tables
+# ZTA decomposition tree — From pillars to evidence and acceptance
 
 Read from top to bottom. **The bold ID cell is the one we pull down.** That ID becomes the parent of every row in the next table. The other rows remain available for their own separate expansions.
 

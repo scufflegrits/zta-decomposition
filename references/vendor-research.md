@@ -66,8 +66,8 @@ https://docs.paloaltonetworks.com/ngfw/administration/ngfw-clustering/ngfw-clust
 
 ### Project authoring reference
 
-**REF-011 — Mermaid code conventions, supplied as r1.0.6**
-User-supplied [Mermaid guide](guides/mermaid-best-practices-r1.0.6.md), preserved as imported source material. The previous root-level r1.0.5 guide was intentionally removed. The [project standard](../standards/mermaid-best-practices-r1.0.6.md) supplies the authoritative CSS named-color override. Replacement with an updated guide is tracked in [TODO](../TODO.md).
+**REF-011 — Mermaid code conventions, embedded CSS edition r1.0.7**
+User-supplied [Mermaid CSS r1.0.7 guide](guides/mermaid-best-practices-CSS-r1.0.7.md), received October 25, 2026 and preserved as imported source material. It replaces the supplied r1.0.6 import, which was removed; the earlier root-level r1.0.5 guide was also intentionally removed. The [project standard](../standards/mermaid-best-practices-r1.0.6.md) retains the mandatory CSS named-color rule and applies the new edition to new diagrams. Existing diagrams retain their recorded render findings until edited and reviewed.
 
 ### Reference maintenance requirements
 

@@ -25,7 +25,8 @@ The repository is a proposed engineering baseline. MACsec is the most developed 
 | Find the project entry points | [README](README.md) |
 | Follow the working process | This guide |
 | Understand the architecture and traceability | [Project guide](zta-project-guide.md) |
-| Explain the value to management | [Management briefing](zta-management-briefing.md) |
+| Explain the project approach and benefits | [ZTA decomposition briefing](zta-decomposition-briefing.md) |
+| Prepare for questions and critical review | [ZTA decomposition FAQ](zta-decomposition-faq.md) |
 | See one branch expanded into tables and stories | [MACsec use case](zta-macsec-use-case.md#how-one-table-expands-into-the-next) |
 | Look up a document or its owner | [Document index](index.md) |
 | Review actual protection and customer decisions | [Implementation register](implementation/macsec.md) and [acceptance register](acceptance/macsec.md) |

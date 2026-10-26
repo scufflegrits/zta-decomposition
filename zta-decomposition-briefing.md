@@ -1,7 +1,7 @@
 ---
 schema_version: 1
 id: DOC-ZTA-MANAGEMENT-BRIEFING
-title: Using zta-decomposition to Support Program ZTA Delivery
+title: ZTA decomposition briefing — Supporting program delivery
 document_type: guide
 parent: ROOT
 lineage: [ROOT]
@@ -12,11 +12,13 @@ implementation_status: unvalidated
 baseline_date: '2026-10-25'
 ---
 
-# Using zta-decomposition to Support Program ZTA Delivery
+# ZTA decomposition briefing — Supporting program delivery
 
-**Management proposal:** Use this repository as an engineering foundation for implementing practical Zero Trust protections through the program’s AGIIL delivery process, with Confluence providing program visibility and Jira coordinating execution. Implement protections without reducing required functionality or imposing undue process; document limitations and obtain customer disposition against the applicable contract SOW requirements, following [ADR-014](architecture/decisions/ADR-014.md).
+**Purpose:** This briefing describes how zta-decomposition can support practical Zero Trust delivery through the program’s AGIIL process, with Confluence providing program visibility and Jira coordinating execution. The approach aims to preserve required functionality and avoid undue process while documenting implemented protections, limitations and customer disposition against the applicable contract SOW requirements, following [ADR-014](architecture/decisions/ADR-014.md).
 
 The project already organizes the proposed architecture around seven Zero Trust pillars, documents architectural constraints, and establishes identifiers linking controls, requirements and verification procedures. It provides a starting point for turning Statement of Work obligations into work that teams can estimate, execute and demonstrate.
+
+The [FAQ](zta-decomposition-faq.md) addresses expected questions and critical review from program leadership, architecture, engineering and delivery teams, including whether the existing Confluence/Jira process already meets these needs.
 
 The [MACsec delivery use case](zta-macsec-use-case.md) demonstrates this approach with proposed SOW-001 wording, a mapping to existing requirements and tests, suggested Jira story groups, and the evidence needed for acceptance. Its [table expansion walkthrough](zta-macsec-use-case.md#how-one-table-expands-into-the-next) shows how selecting a pillar row leads to controls, then requirements, tests and evidence. SOW-001 is an illustrative obligation, not an approved contract line item.
 
@@ -79,12 +81,12 @@ A research story can finish with a documented finding that a capability is unsup
 
 ## How the tools work together
 
-- **Confluence:** Management briefing, architecture summaries, decisions and delivery dashboards, linked to authoritative engineering records.
+- **Confluence:** Program briefings, architecture summaries, decisions and delivery dashboards, linked to authoritative engineering records.
 - **Jira:** Epics, stories, dependencies, ownership, acceptance criteria and links to delivered artifacts.
 - **Repository:** Versioned architecture, stable identifiers, requirements, test procedures and automated documentation checks.
 - **Approved evidence storage:** Durable artifacts with access controls, linked to test results and the exact implementation version tested.
 
-**Recommended first increment:** Select one SOW obligation and one representative access scenario. Map the obligation, confirm hardware and design inputs, create the linked story set, implement the selected controls, and demonstrate reviewed evidence.
+**Suggested starting point:** Select one SOW obligation and one representative access scenario. Map the obligation, confirm hardware and design inputs, create the linked story set, implement the selected controls, and demonstrate reviewed evidence.
 
 ## Manual Jira traceability available now
 
@@ -98,13 +100,13 @@ Use [How to use this project](HOW-TO-USE.md) for the working process and its sin
 
 ## Documented outcomes and customer acceptance
 
-Management can review three separate conclusions for each identified scope: **what was implemented**, **what was verified**, and **what the customer accepted**. The implementation record links configurations and test artifacts while recording hardware limits, functional/workflow impacts, residual risk and alternatives. The acceptance record links the designated authority's dated decision and supporting artifact.
+Reviewers can see three separate conclusions for each identified scope: **what was implemented**, **what was verified**, and **what the customer accepted**. The implementation record links configurations and test artifacts while recording hardware limits, functional/workflow impacts, residual risk and alternatives. The acceptance record links the designated authority's dated decision and supporting artifact.
 
 For example, MACsec may be implemented and verified on selected supported switch/router links while unsupported ports retain their existing connectivity. The customer can accept the documented limitation. The unsupported ports remain recorded as Not implemented and Not executed; acceptance never labels them encrypted or technically passed. No percentage of ZTA coverage determines acceptance.
 
 The repository now provides the record structure and consistency checks. No actual implementation or customer acceptance records have been populated. The [use-case outcome example](zta-macsec-use-case.md#implementation-and-customer-disposition-example) is explicitly hypothetical.
 
-**Management value:** Here is what we delivered, how we verified it, any approved exceptions or unresolved gaps, and the acceptance decision against the applicable contract Statement of Work (SOW) requirements. The current repository supplies that review structure; actual deployment evidence and customer decisions must be recorded as work occurs.
+**Intended outcome:** A clear record of what was delivered, how it was verified, any approved exceptions or unresolved gaps, and the acceptance decision against the applicable contract Statement of Work (SOW) requirements. The current repository supplies that review structure; actual deployment evidence and customer decisions must be recorded as work occurs.
 
 ## Appendix A — Walking the MACsec traceability path
 

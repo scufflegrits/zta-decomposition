@@ -33,9 +33,10 @@ Start with the [README](README.md), [project guide](zta-project-guide.md), or [v
 | Document | ID | Owner (ownership status) | Document status |
 |---|---|---|---|
 | [How to use this project](HOW-TO-USE.md) | DOC-ZTA-HOW-TO-USE | Architecture / Security Engineering (proposed) | draft |
-| [Scratch — Following one cell down through the tables](scratch-table-decomposition.md) | DOC-SCRATCH-TABLE-DECOMPOSITION | Architecture / Security Engineering (proposed) | draft |
+| [ZTA decomposition briefing — Supporting program delivery](zta-decomposition-briefing.md) | DOC-ZTA-MANAGEMENT-BRIEFING | Architecture / Security Engineering (proposed) | draft |
+| [ZTA decomposition — Questions and critical review](zta-decomposition-faq.md) | DOC-ZTA-FAQ | Architecture / Security Engineering (proposed) | draft |
+| [ZTA decomposition tree — From pillars to evidence and acceptance](zta-decomposition-tree.md) | DOC-SCRATCH-TABLE-DECOMPOSITION | Architecture / Security Engineering (proposed) | draft |
 | [MACsec delivery use case — From SOW to reviewed evidence](zta-macsec-use-case.md) | DOC-ZTA-MACSEC-USE-CASE | Architecture / Security Engineering (proposed) | draft |
-| [Using zta-decomposition to Support Program ZTA Delivery](zta-management-briefing.md) | DOC-ZTA-MANAGEMENT-BRIEFING | Architecture / Security Engineering (proposed) | draft |
 | [ZTA Project Guide — Layout, Flow and Engineering Traceability](zta-project-guide.md) | DOC-ZTA-GUIDE | Architecture / Security Engineering (proposed) | draft |
 
 ## Architecture
@@ -153,7 +154,7 @@ Start with the [README](README.md), [project guide](zta-project-guide.md), or [v
 
 Preserved source material is excluded from metadata and internal-link auditing. Its examples do not declare project entities.
 
-- [references/guides/mermaid-best-practices-r1.0.6.md](references/guides/mermaid-best-practices-r1.0.6.md)
+- [references/guides/mermaid-best-practices-CSS-r1.0.7.md](references/guides/mermaid-best-practices-CSS-r1.0.7.md)
 - [zta-decomposition-handoff.md](zta-decomposition-handoff.md)
 
 ## Generated reports

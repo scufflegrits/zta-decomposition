@@ -14,7 +14,7 @@ baseline_date: '2026-10-25'
 
 # MACsec delivery use case — From SOW to reviewed evidence
 
-This worked example supports the [management briefing](zta-management-briefing.md). It shows how zta-decomposition can supply engineering content for the program’s AGIIL delivery process, Confluence and Jira.
+This worked example supports the [ZTA decomposition briefing](zta-decomposition-briefing.md). It shows how zta-decomposition can supply engineering content for the program’s AGIIL delivery process, Confluence and Jira.
 
 **Example status:** SOW-001 below is illustrative wording for this use case, not an approved contractual requirement. The SOW mapping, backlog and acceptance workflow are proposed. Referenced controls, requirements and tests already exist in the repository; selected hardware, Jira issues, executed tests and evidence do not.
 

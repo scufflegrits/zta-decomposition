@@ -75,7 +75,7 @@ Use text statuses; optional color cues may aid presentation but cannot replace t
 
 ## Registers and templates
 
-The [MACsec implementation register](../implementation/macsec.md) and [acceptance register](../acceptance/macsec.md) contain the source records once work occurs. Their fenced templates are examples of column structure, not declarations. The [use case](../zta-macsec-use-case.md#implementation-and-customer-disposition-example) and [scratch tree](../scratch-table-decomposition.md#implementation-and-customer-disposition-view) show fictional outcomes separately. No fabricated implementation, evidence or acceptance rows are populated in the source registers.
+The [MACsec implementation register](../implementation/macsec.md) and [acceptance register](../acceptance/macsec.md) contain the source records once work occurs. Their fenced templates are examples of column structure, not declarations. The [use case](../zta-macsec-use-case.md#implementation-and-customer-disposition-example) and [ZTA decomposition tree](../zta-decomposition-tree.md#implementation-and-customer-disposition-view) show fictional outcomes separately. No fabricated implementation, evidence or acceptance rows are populated in the source registers.
 
 ## Audit limits
 
