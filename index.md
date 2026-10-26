@@ -115,6 +115,7 @@ Start with the [README](README.md), [project guide](zta-project-guide.md), or [v
 |---|---|---|---|
 | [Standards and framework references](references/standards.md) | DOC-REF-STANDARDS | Security Architecture (proposed) | draft |
 | [Research register](references/vendor-research.md) | DOC-REF-RESEARCH | Architecture / Network Engineering (proposed) | draft |
+| [ZTA decomposition entity relationship diagram](zta-decomposition-erDiagram.md) | DOC-ZTA-ERD | Architecture / Security Engineering (proposed) | draft |
 
 ## Standard
 
@@ -124,7 +125,7 @@ Start with the [README](README.md), [project guide](zta-project-guide.md), or [v
 | [Documentation and traceability conventions](standards/documentation-conventions.md) | DOC-STD-DOCS | Documentation Engineering (proposed) | draft |
 | [Implementation and customer acceptance records](standards/implementation-acceptance.md) | DOC-STD-DELIVERY | Architecture / Security Engineering (proposed) | draft |
 | [Manual Jira traceability](standards/manual-jira-traceability.md) | DOC-STD-JIRA | Documentation Engineering / Engineering leads (proposed) | draft |
-| [Mermaid Best Practices — Project Standard r1.0.6](standards/mermaid-best-practices-r1.0.6.md) | DOC-STD-MERMAID | Documentation Engineering (proposed) | draft |
+| [ZTA Project Mermaid Standard](standards/mermaid-best-practices-zta.md) | DOC-STD-MERMAID | Documentation Engineering (proposed) | draft |
 
 ## Tooling
 
@@ -155,6 +156,7 @@ Start with the [README](README.md), [project guide](zta-project-guide.md), or [v
 Preserved source material is excluded from metadata and internal-link auditing. Its examples do not declare project entities.
 
 - [references/guides/mermaid-best-practices-CSS-r1.0.7.md](references/guides/mermaid-best-practices-CSS-r1.0.7.md)
+- [references/guides/mermaid-best-practices-r1.0.7.md](references/guides/mermaid-best-practices-r1.0.7.md)
 - [zta-decomposition-handoff.md](zta-decomposition-handoff.md)
 
 ## Generated reports

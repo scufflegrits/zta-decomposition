@@ -87,9 +87,9 @@ python3 tools/audit_zta.py --root . --report audit-report.md
 python3 -m unittest discover -s tests -v
 ```
 
-See [auditor usage and limits](tools/README.md). The report is generated output. The original [handoff](zta-decomposition-handoff.md) and supplied [Mermaid CSS r1.0.7 guide](references/guides/mermaid-best-practices-CSS-r1.0.7.md) are source references; the modular documents are the working definitions.
+See [auditor usage and limits](tools/README.md). The report is generated output. The original [handoff](zta-decomposition-handoff.md) and supplied [Mermaid code conventions r1.0.7 guide](references/guides/mermaid-best-practices-r1.0.7.md) are source references; the modular documents are the working definitions.
 
-Maintain diagrams using the [project Mermaid standard r1.0.6](standards/mermaid-best-practices-r1.0.6.md), including CSS named colors. The four network and project-guide Mermaid blocks rendered successfully to SVG and PNG and were visually reviewed on October 25, 2026. Title/edge crossings remain to be refined before publication, and the intended presentation viewer remains untested. See the [diagram verification record](standards/diagram-verification.md) for scope and findings, including the taxonomy review. The documentation auditor does not parse or render Mermaid, and neither check validates security controls.
+Maintain diagrams using the [ZTA project Mermaid standard](standards/mermaid-best-practices-zta.md), including CSS named colors. The four network and project-guide Mermaid blocks rendered successfully to SVG and PNG and were visually reviewed on October 25, 2026. Title/edge crossings remain to be refined before publication, and the intended presentation viewer remains untested. See the [diagram verification record](standards/diagram-verification.md) for scope and findings, including the taxonomy review. The documentation auditor does not parse or render Mermaid, and neither check validates security controls.
 
 ## Version control
 

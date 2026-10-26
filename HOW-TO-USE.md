@@ -106,6 +106,6 @@ python3 tools/generate_index.py --root . --check
 git diff --check
 ```
 
-Run `python3 -m unittest discover -s tests -v` when changing auditor or tooling behavior. Render and visually inspect edited Mermaid blocks under the [diagram standard](standards/mermaid-best-practices-r1.0.6.md). Review the complete diff, stage the intended source and index changes, then commit and push through the agreed workflow. The generated audit report is local output. See [tool usage and limits](tools/README.md) for the checks' exact scope.
+Run `python3 -m unittest discover -s tests -v` when changing auditor or tooling behavior. Render and visually inspect edited Mermaid blocks under the [diagram standard](standards/mermaid-best-practices-zta.md). Review the complete diff, stage the intended source and index changes, then commit and push through the agreed workflow. The generated audit report is local output. See [tool usage and limits](tools/README.md) for the checks' exact scope.
 
 The [TODO](TODO.md) tracks documentation maintenance; the [roadmap](architecture/roadmap.md) tracks broader engineering sequencing. Record adoption agreements in the checklist above and link to them from those trackers.

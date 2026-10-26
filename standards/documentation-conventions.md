@@ -88,14 +88,14 @@ Control tables may include `Jira epic`; requirement and test tables may include 
 
 ## Repository maintenance
 
-Use UTF-8 Markdown, relative links, stable heading anchors and explicit source/review dates. Record vendor findings in the [research register](../references/vendor-research.md) with version and applicability details. Never infer capability from equipment class alone. Maintain ADRs for material decisions. Follow the [Mermaid standard r1.0.6](mermaid-best-practices-r1.0.6.md) for diagrams.
+Use UTF-8 Markdown, relative links, stable heading anchors and explicit source/review dates. Record vendor findings in the [research register](../references/vendor-research.md) with version and applicability details. Never infer capability from equipment class alone. Maintain ADRs for material decisions. Follow the [ZTA project Mermaid standard](mermaid-best-practices-zta.md) for diagrams.
 
 ## Mermaid colors
 
 All maintained project Mermaid diagrams must use built-in CSS named colors, such as `white`, `steelblue`, and `darkslategray`, instead of hexadecimal color values. This applies to theme configuration and every explicit node, edge, subgraph and CSS style declaration. Preserve semantic color roles and readable contrast when choosing named colors.
 
-This project rule supersedes conflicting hexadecimal-color guidance in source examples. The supplied guide is stored in `references/guides/`; the previous root-level guide was intentionally removed. The original handoff remains unchanged as provenance. The override is also recorded in the [project Mermaid standard r1.0.6](mermaid-best-practices-r1.0.6.md).
+This project rule supersedes conflicting hexadecimal-color guidance in source examples. The supplied guide is stored in `references/guides/`; the previous root-level guide was intentionally removed. The original handoff remains unchanged as provenance. The override is also recorded in the [ZTA project Mermaid standard](mermaid-best-practices-zta.md).
 
-For new diagrams follow the supplied [embedded CSS r1.0.7 guide](../references/guides/mermaid-best-practices-CSS-r1.0.7.md): put custom appearance rules in `config.themeCSS` using CSS named colors and attach semantic classes with `class` statements. Use diagram-specific selectors and render checks. Existing diagrams retain their earlier styling and verification records until an authorized edit or migration; replacing the source guide does not itself modify them.
+For new diagrams follow the supplied [Mermaid code conventions r1.0.7 guide](../references/guides/mermaid-best-practices-r1.0.7.md) and the local [ZTA project Mermaid standard](mermaid-best-practices-zta.md), including its intended-preview legibility rule. Prefer native `themeVariables`, `classDef`, and `class` styling; use custom CSS only when required and verified in the intended viewer. The CSS edition remains an alternate source, not the governing convention. Existing diagrams retain their earlier styling and verification records until edited and reviewed.
 
 Run the [auditor](../tools/README.md) before review. The auditor supports a documented Markdown subset and declared relationships; it cannot infer a missing architecture concept from arbitrary prose. Record unknown engineering inputs in [open questions](../architecture/open-questions.md).
