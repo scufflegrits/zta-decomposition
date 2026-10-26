@@ -15,7 +15,7 @@ baseline_date: '2026-10-25'
 
 # Documentation taxonomy
 
-Use the [complete index](index.md) to find a file, the [project guide](zta-project-guide.md) for an introduction, and this map to understand where new work belongs.
+Use [How to use this project](HOW-TO-USE.md) for the working process, the [complete index](index.md) to find a file, the [project guide](zta-project-guide.md) for an architectural introduction, and this map to understand where new work belongs.
 
 ## Documentation map
 
@@ -62,7 +62,7 @@ flowchart TB
 | Document type | Location | Purpose |
 |---|---|---|
 | `navigation` | Root documents and the decision index | Entry points, catalog and taxonomy |
-| `guide` | `zta-project-guide.md` | An introductory explanation spanning multiple areas |
+| `guide` | Root-level workflow, architecture, briefing and use-case guides | Practical workflow, architectural introduction, program value and worked examples |
 | `architecture` | `architecture/` | Views, boundaries, open design inputs and roadmap |
 | `decision` | `architecture/decisions/` | Stable decisions and rationale |
 | `pillar` | `pillars/` | Responsibility areas and authoritative control references |

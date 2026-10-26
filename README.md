@@ -19,12 +19,15 @@ This repository documents a proposed two-site Zero Trust Architecture organized 
 
 ## Start here
 
+Read [How to use this project](HOW-TO-USE.md) for the working process, proposed roles and the single [program adoption checklist](HOW-TO-USE.md#program-adoption-checklist).
+
 Browse the complete [document index](index.md) or the [visual taxonomy](taxonomy.md). Outstanding documentation work is tracked in [TODO](TODO.md).
 
 For a self-contained introductory review, read the [ZTA Project Guide](zta-project-guide.md), with network and MACsec traceability diagrams.
 
 - [Architecture overview](architecture/overview.md), [physical topology](architecture/physical-topology.md), [site-local design](architecture/logical-topology.md), and [control overlay](architecture/seven-pillar-control-overlay.md).
 - [Architecture decisions](architecture/decisions/README.md) and [documentation conventions](standards/documentation-conventions.md).
+- [Management briefing](zta-management-briefing.md), [MACsec delivery use case](zta-macsec-use-case.md), and [manual Jira traceability](standards/manual-jira-traceability.md).
 - [MACsec overview](controls/macsec/overview.md), [requirements](controls/macsec/requirements.md), and [verification plan](controls/macsec/verification.md).
 - [Equipment assessment](procurement/macsec-equipment-assessment.md), [compatibility findings](procurement/hardware-compatibility.md), [vendor research](references/vendor-research.md), and [standards references](references/standards.md).
 - [Open engineering questions](architecture/open-questions.md) and [implementation roadmap](architecture/roadmap.md).
@@ -88,4 +91,4 @@ Maintain diagrams using the [project Mermaid standard r1.0.6](standards/mermaid-
 
 The Git repository is initialized. The `master` branch tracks `main/master`, where `main` is the remote name. The configured remote is [scufflegrits/zta-decomposition](https://github.com/scufflegrits/zta-decomposition), using `git@github.com:scufflegrits/zta-decomposition.git` for fetch and push.
 
-Review changes before committing and run the documentation auditor and regression tests above. Engineering ownership acceptance and the review workflow remain setup tasks.
+Review changes before committing and run the documentation auditor and regression tests above. Program adoption agreements are tracked in the [central checklist](HOW-TO-USE.md#program-adoption-checklist).

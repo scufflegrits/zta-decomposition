@@ -21,9 +21,9 @@ baseline_date: '2026-10-24'
 
 <!-- zta-table: id=TBL-MGMT-CONTROL; parent=ZT-05; lineage=ROOT>ZT-05 -->
 
-| Parent ID | Control ID | Control | Status |
-|---|---|---|---|
-| ZT-05 | NET-06 | Local-only non-routed management VLANs | Required |
+| Parent ID | Control ID | Control | Status | Jira epic |
+|---|---|---|---|---|
+| ZT-05 | NET-06 | Local-only non-routed management VLANs | Required |  |
 
 Management VLANs are local, isolated and non-routed at each site. Do not route production into management, provide ISR or WAN routes, or extend a management VLAN between sites.
 

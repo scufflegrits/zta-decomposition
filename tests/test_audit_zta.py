@@ -56,6 +56,85 @@ class AuditorTests(unittest.TestCase):
     def test_valid_hierarchy(self):
         self.assertEqual([], self.run_audit().issues)
 
+    def jira_requirement(self, value):
+        return hierarchy() + table('TBL-JIRA', 'NET-04', 'ROOT>ZT-05>NET-04',
+                                   'Requirement ID', [['NET-04', 'MAC-002', value]], ['Jira stories'])
+
+    def test_jira_columns_are_optional_and_may_be_empty(self):
+        self.assertEqual([], self.run_audit(self.jira_requirement('')).issues)
+        self.assertEqual([], self.run_audit(hierarchy()).issues)
+
+    def test_multiple_jira_stories_and_context_path(self):
+        links = ('[ZTA-101](https://jira.example.invalid/jira/browse/ZTA-101), '
+                 '[TEAM_2-102](http://jira.internal:8080/browse/TEAM_2-102)')
+        self.assertEqual([], self.run_audit(self.jira_requirement(links)).issues)
+
+    def test_jira_invalid_reference_formats(self):
+        invalid = [
+            'ZTA-101', '-', 'TBD', '`ZTA-101`',
+            '`[ZTA-101](https://jira.example.invalid/browse/ZTA-101)`',
+            '[zta-101](https://jira.example.invalid/browse/zta-101)',
+            '[ZTA-101](https://jira.example.invalid/browse/ZTA-102)',
+            '[ZTA-101](https://jira.example.invalid/board/ZTA-101)',
+            '[ZTA-101](ftp://jira.example.invalid/browse/ZTA-101)',
+            '[ZTA-101](https:///browse/ZTA-101)',
+            '[ZTA-101](https://jira.example.invalid:bad/browse/ZTA-101)',
+            '[ZTA-101](https://user:password@jira.example.invalid/browse/ZTA-101)',
+            '[ZTA-101](https://jira.example.invalid/browse/ZTA-101?filter=1)',
+            '[ZTA-101](https://jira.example.invalid/browse/ZTA-101#comment)',
+            '[ZTA-101](https://jira.example.invalid/browse/ZTA-101),',
+            '[ZTA-101](https://jira.example.invalid/browse/ZTA-101) research',
+            '[ZTA-101][story]',
+        ]
+        for value in invalid:
+            with self.subTest(value=value):
+                self.assertIn('jira-link', self.codes(self.jira_requirement(value)))
+
+    def test_jira_duplicate_in_cell(self):
+        link = '[ZTA-101](https://jira.example.invalid/browse/ZTA-101)'
+        self.assertIn('jira-link', self.codes(self.jira_requirement(f'{link}, {link}')))
+
+    def test_shared_story_and_destination_conflicts_across_documents(self):
+        first = '[ZTA-101](https://jira.example.invalid/browse/ZTA-101)'
+        other = self.root / 'other.md'
+        text = document('DOC-OTHER') + table('TBL-OTHER', 'NET-04', 'ROOT>ZT-05>NET-04',
+                    'Requirement ID', [['NET-04', 'MAC-003', first]], ['Jira stories'])
+        other.write_text(text)
+        self.assertEqual([], self.run_audit(self.jira_requirement(first)).issues)
+        other.write_text(text.replace('jira.example.invalid', 'other.example.invalid'))
+        result = self.run_audit()
+        issue = next(issue for issue in result.issues if issue.code == 'jira-conflict')
+        self.assertEqual(other, issue.path)
+        self.assertIn('MAC-003', other.read_text().splitlines()[issue.line - 1])
+
+    def test_jira_url_normalization(self):
+        first = '[ZTA-101](https://JIRA.example.invalid:443/browse/ZTA-101)'
+        text = self.jira_requirement(first) + table('TBL-OTHER', 'NET-04', 'ROOT>ZT-05>NET-04',
+                    'Requirement ID', [['NET-04', 'MAC-003', first.replace('JIRA.example.invalid:443', 'jira.example.invalid')]], ['Jira stories'])
+        self.assertEqual([], self.run_audit(text).issues)
+
+    def test_jira_columns_match_entity_kind(self):
+        text = self.jira_requirement('').replace('Jira stories', 'Jira epic')
+        self.assertIn('jira-column', self.codes(text))
+        text = hierarchy().replace('| Control ID |', '| Control ID | Jira epic |').replace(
+            '|---|---|\n| ZT-05 | NET-04 |',
+            '|---|---|---|\n| ZT-05 | NET-04 | [ZTA-100](https://jira.example.invalid/browse/ZTA-100) |')
+        self.assertEqual([], self.run_audit(text).issues)
+
+    def test_jira_story_does_not_replace_validation_evidence(self):
+        text = hierarchy() + table('TBL-JIRA', 'NET-04', 'ROOT>ZT-05>NET-04', 'Requirement ID',
+                    [['NET-04', 'MAC-002', 'Validated', '[ZTA-101](https://jira.example.invalid/browse/ZTA-101)']],
+                    ['Status', 'Jira stories'])
+        self.assertIn('validated-evidence', self.codes(text))
+
+    def test_evidence_can_reference_verification_story(self):
+        (self.root / 'result.txt').write_text('Fixture execution results')
+        text = hierarchy() + table('TBL-EVIDENCE', 'TEST-003', 'ROOT>ZT-05>NET-04>MAC-001>TEST-003',
+                    'Evidence ID', [['TEST-003', 'EVD-001', '[result](result.txt)', 'Pass', 'Reviewer',
+                    '[ZTA-106](https://jira.example.invalid/browse/ZTA-106)']],
+                    ['Artifact', 'Result', 'Reviewer', 'Verification stories'])
+        self.assertEqual([], self.run_audit(text).issues)
+
     def test_duplicate_document_id_across_files(self):
         (self.root / 'other.md').write_text(DOC)
         self.assertIn('duplicate-id', self.codes())

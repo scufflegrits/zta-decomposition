@@ -78,6 +78,10 @@ Use Required, Proposed, Verify or Validated. A required objective may separately
 
 Use a `References` column with comma-separated entity IDs for machine-checked relationships; prose links support navigation. Use a `Decomposition` column with a relative Markdown file link when a row promises further decomposition. The auditor requires that target document to exist and declare the row ID as its parent. External links and prose mentions do not create hierarchy edges.
 
+## Manual Jira references
+
+Control tables may include `Jira epic`; requirement and test tables may include `Jira stories`; evidence tables may include `Verification stories`. These optional columns contain direct issue-key links, with comma-separated links for multiple issues. Blank cells are allowed until actual work is created. Jira references supplement the existing engineering hierarchy and never substitute for evidence. See the [manual Jira standard](manual-jira-traceability.md) for syntax, local checks, the reciprocal-reference template and review responsibilities.
+
 ## Repository maintenance
 
 Use UTF-8 Markdown, relative links, stable heading anchors and explicit source/review dates. Record vendor findings in the [research register](../references/vendor-research.md) with version and applicability details. Never infer capability from equipment class alone. Maintain ADRs for material decisions. Follow the [Mermaid standard r1.0.6](mermaid-best-practices-r1.0.6.md) for diagrams.

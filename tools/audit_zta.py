@@ -25,6 +25,13 @@ REF_DEF = re.compile(r'^\s{0,3}\[([^\]]+)\]:\s*(<[^>]+>|\S+)')
 REF_USE = re.compile(r'!?\[([^\]\n]+)\]\[([^\]\n]*)\]')
 VALID_STATUSES = {'Required', 'Proposed', 'Verify', 'Validated', 'Required objective / Verify'}
 IGNORED_DIRS = {'.git', '.agents', '.codex', '.aws', '__pycache__', 'node_modules', '.venv'}
+JIRA_COLUMNS = {
+    'Jira epic': 'Control ID',
+    'Jira stories': ('Requirement ID', 'Test ID'),
+    'Verification stories': 'Evidence ID',
+}
+JIRA_KEY = re.compile(r'[A-Z][A-Z0-9_]*-[1-9][0-9]*\Z')
+JIRA_LINK = re.compile(r'\[([^\]\n]+)\]\(([^()\s]+)\)\Z')
 
 
 @dataclass
@@ -130,7 +137,7 @@ def parse_meta(result: AuditResult, path: Path, number: int, kind: str, raw: str
     return Entity(values['id'], values['parent'], kind, path, number, values['lineage'])
 
 
-def parse_document(result: AuditResult, path: Path, lines: list[str]) -> None:
+def parse_document(result: AuditResult, path: Path, lines: list[str], raw_lines: list[str] | None = None) -> None:
     covered_headers = set()
     for i, line in enumerate(lines):
         match = META.fullmatch(line)
@@ -162,6 +169,10 @@ def parse_document(result: AuditResult, path: Path, lines: list[str]) -> None:
         if len(cells(lines[header_at + 1])) != len(headers):
             result.error(path, header_at + 2, 'table-schema', 'Separator and header widths differ')
         identity = next(iter(idcols))
+        for column, kinds in JIRA_COLUMNS.items():
+            allowed = (kinds,) if isinstance(kinds, str) else kinds
+            if column in headers and identity not in allowed:
+                result.error(path, header_at + 1, 'jira-column', f'{column} is not supported on {identity} rows')
         row_count = 0
         for row_at in range(header_at + 2, len(lines)):
             if not lines[row_at].strip() or '|' not in lines[row_at] or META.fullmatch(lines[row_at]):
@@ -172,6 +183,17 @@ def parse_document(result: AuditResult, path: Path, lines: list[str]) -> None:
                 continue
             row_count += 1
             row = dict(zip(headers, values))
+            # Inline-code masking supports examples elsewhere, but must not turn
+            # a populated Jira cell into an apparently empty optional field.
+            if raw_lines is not None and any(column in headers for column in JIRA_COLUMNS):
+                raw_values = cells(raw_lines[row_at])
+                if len(raw_values) != len(headers):
+                    result.error(path, row_at + 1, 'jira-link', 'Jira rows require consistent raw Markdown column counts')
+                else:
+                    raw_row = dict(zip(headers, raw_values))
+                    for column in JIRA_COLUMNS:
+                        if column in headers:
+                            row[column] = raw_row[column]
             child = Entity(row[identity], row['Parent ID'], identity, path, row_at + 1, cells=row)
             result.define(child)
             entity.definitions.append(child.id)
@@ -208,6 +230,46 @@ def destinations(line: str, definitions: dict[str, str] | None = None) -> list[s
             key = (m[2] or m[1]).casefold()
             found.append(definitions.get(key, ''))
     return found
+
+
+def check_jira_links(result: AuditResult, entity: Entity, registry: dict[str, str]) -> None:
+    """Validate explicit manual references without contacting Jira."""
+    for column in JIRA_COLUMNS:
+        value = entity.cells.get(column, '')
+        if not value:
+            continue
+        seen = set()
+        for item in value.split(','):
+            match = JIRA_LINK.fullmatch(item.strip())
+            if not match or not JIRA_KEY.fullmatch(match[1]):
+                result.error(entity.path, entity.line, 'jira-link',
+                             f'{column} requires comma-separated [KEY](https://host/context/browse/KEY) links')
+                continue
+            key, destination = match.groups()
+            try:
+                parsed = urlsplit(destination)
+                port = parsed.port
+                if (parsed.scheme not in ('http', 'https') or not parsed.hostname
+                        or parsed.username is not None or parsed.password is not None
+                        or parsed.query or parsed.fragment or '\\' in destination
+                        or not parsed.path.endswith('/browse/' + key)
+                        or any(part in ('.', '..', '') for part in parsed.path.split('/')[1:])):
+                    raise ValueError('Use a direct HTTP(S) browse URL ending in the displayed key')
+                host = parsed.hostname.lower()
+                if ':' in host:
+                    host = f'[{host}]'
+                if port is not None and port != {'http': 80, 'https': 443}[parsed.scheme]:
+                    host += f':{port}'
+                normalized = f'{parsed.scheme}://{host}{parsed.path}'
+            except ValueError as exc:
+                result.error(entity.path, entity.line, 'jira-link', f'Invalid Jira URL for {key}: {exc}')
+                continue
+            if key in seen:
+                result.error(entity.path, entity.line, 'jira-link', f'Duplicate {key} in {column}')
+            seen.add(key)
+            previous = registry.setdefault(key, normalized)
+            if previous != normalized:
+                result.error(entity.path, entity.line, 'jira-conflict', f'{key} has conflicting Jira destinations')
 
 
 def local_target(result: AuditResult, path: Path, number: int, destination: str) -> tuple[Path, str] | None:
@@ -301,7 +363,7 @@ def audit(root: Path, report: Path | None = None) -> AuditResult:
             result.documents[path] = document
         except MetadataError as exc:
             result.error(path, exc.line, 'document-metadata', str(exc))
-        parse_document(result, path, lines)
+        parse_document(result, path, lines, text.splitlines())
     if not result.sources:
         result.error(root, 1, 'empty-repository', 'No managed Markdown documents found')
     for table in result.tables:
@@ -310,6 +372,7 @@ def audit(root: Path, report: Path | None = None) -> AuditResult:
         if document and ancestry and document.parent not in ancestry and document.parent not in table.definitions:
             result.error(table.path, table.line, 'document-table-scope',
                          f'{table.id} is outside document parent scope {document.parent}')
+    jira_registry: dict[str, str] = {}
     for entity in result.entities.values():
         if entity.parent != 'ROOT' and entity.parent not in result.entities:
             result.error(entity.path, entity.line, 'missing-parent', f'{entity.id} references missing parent {entity.parent}')
@@ -325,6 +388,7 @@ def audit(root: Path, report: Path | None = None) -> AuditResult:
             result.error(entity.path, entity.line, 'hierarchy-level', f'{entity.id} requires parent kind {expected}, found {actual}')
         if entity.kind in ('doc', 'table'):
             continue
+        check_jira_links(result, entity, jira_registry)
         for reference in filter(None, re.split(r'[,\s]+', entity.cells.get('References', ''))):
             if reference not in result.entities:
                 result.error(entity.path, entity.line, 'architecture-reference', f'Undefined reference {reference}')

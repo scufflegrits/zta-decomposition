@@ -20,12 +20,12 @@ baseline_date: '2026-10-24'
 
 <!-- zta-table: id=TBL-ZT05-CONTROLS; parent=ZT-05; lineage=ROOT>ZT-05 -->
 
-| Parent ID | Control ID | Technology | Function | Status |
-|---|---|---|---|---|
-| ZT-05 | NET-01 | Catalyst / ISE | Network admission and VLAN policies | Required |
-| ZT-05 | NET-02 | ISR 4000 | Selective inter-VLAN routing | Required |
-| ZT-05 | NET-03 | Palo Alto | Inter-site security enforcement | Required |
-| ZT-05 | NET-05 | IPsec | Proposed WAN transport protection | Proposed |
+| Parent ID | Control ID | Technology | Function | Status | Jira epic |
+|---|---|---|---|---|---|
+| ZT-05 | NET-01 | Catalyst / ISE | Network admission and VLAN policies | Required |  |
+| ZT-05 | NET-02 | ISR 4000 | Selective inter-VLAN routing | Required |  |
+| ZT-05 | NET-03 | Palo Alto | Inter-site security enforcement | Required |  |
+| ZT-05 | NET-05 | IPsec | Proposed WAN transport protection | Proposed |  |
 
 ## NET-01
 

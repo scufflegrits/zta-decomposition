@@ -15,8 +15,9 @@ baseline_date: '2026-10-24'
 
 # ZTA Project Guide — Layout, Flow and Engineering Traceability
 
-**Audience:** Junior engineers through chief engineers  
+**Audience:** Junior engineers through chief engineers
 
+This guide explains the architecture and engineering relationships. For the practical delivery workflow and adoption agreements, use [How to use this project](HOW-TO-USE.md).
 ## The project in one minute
 
 We are documenting how two physical sites should protect users, devices, applications, data and communications using the seven DoD Zero Trust pillars. The deliverable is a set of linked engineering documents with stable identifiers and evidence, maintained as code. The work is currently a design scaffold, not a deployed system or compliance certification.

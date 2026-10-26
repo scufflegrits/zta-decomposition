@@ -32,6 +32,10 @@ Start with the [README](README.md), [project guide](zta-project-guide.md), or [v
 
 | Document | ID | Owner (ownership status) | Document status |
 |---|---|---|---|
+| [How to use this project](HOW-TO-USE.md) | DOC-ZTA-HOW-TO-USE | Architecture / Security Engineering (proposed) | draft |
+| [Scratch — Following one cell down through the tables](scratch-table-decomposition.md) | DOC-SCRATCH-TABLE-DECOMPOSITION | Architecture / Security Engineering (proposed) | draft |
+| [MACsec delivery use case — From SOW to reviewed evidence](zta-macsec-use-case.md) | DOC-ZTA-MACSEC-USE-CASE | Architecture / Security Engineering (proposed) | draft |
+| [Using zta-decomposition to Support Program ZTA Delivery](zta-management-briefing.md) | DOC-ZTA-MANAGEMENT-BRIEFING | Architecture / Security Engineering (proposed) | draft |
 | [ZTA Project Guide — Layout, Flow and Engineering Traceability](zta-project-guide.md) | DOC-ZTA-GUIDE | Architecture / Security Engineering (proposed) | draft |
 
 ## Architecture
@@ -116,6 +120,7 @@ Start with the [README](README.md), [project guide](zta-project-guide.md), or [v
 |---|---|---|---|
 | [Diagram verification record](standards/diagram-verification.md) | DOC-STD-RENDERS | Documentation Engineering (proposed) | draft |
 | [Documentation and traceability conventions](standards/documentation-conventions.md) | DOC-STD-DOCS | Documentation Engineering (proposed) | draft |
+| [Manual Jira traceability](standards/manual-jira-traceability.md) | DOC-STD-JIRA | Documentation Engineering / Engineering leads (proposed) | draft |
 | [Mermaid Best Practices — Project Standard r1.0.6](standards/mermaid-best-practices-r1.0.6.md) | DOC-STD-MERMAID | Documentation Engineering (proposed) | draft |
 
 ## Tooling
