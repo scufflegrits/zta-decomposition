@@ -17,7 +17,7 @@ baseline_date: '2026-10-24'
 
 **Profile version:** r1.0.6
 
-This project profile applies alongside the supplied [Mermaid code conventions r1.0.7 guide](../references/guides/mermaid-best-practices-r1.0.7.md), stored as imported source material. Its filename/version identifies the local named-color profile; the supplied guide has its own edition number. The CSS edition is retained as an alternate source, but is not the governing guide for project diagrams. The superseded r1.0.6 import and previous root-level r1.0.5 guide were intentionally removed. For project diagrams, this profile and the [documentation conventions](documentation-conventions.md#mermaid-colors) take precedence over conflicting color examples in source material.
+This ZTA-specific profile adapts both supplied Mermaid r1.0.7 guides: the [standard edition](../references/guides/mermaid-best-practices-r1.0.7.md) and the [embedded CSS edition](../references/guides/mermaid-best-practices-CSS-r1.0.7.md). The standard edition is the default authoring basis; the CSS edition provides supplemental techniques when native styling is insufficient and the target renderer has been checked. This profile adds ZTA project rules, including named colors and preview-scale legibility. Its version is independent of the supplied guides. The superseded r1.0.6 import and previous root-level r1.0.5 guide were intentionally removed. For project diagrams, this profile and the [documentation conventions](documentation-conventions.md#mermaid-colors) take precedence over conflicting source examples.
 
 ## Project color override
 
@@ -41,6 +41,6 @@ The supplied guide contains examples and may reference supplemental material out
 
 **r1.0.6:** Record the project-wide CSS named-color requirement, supersede imported hexadecimal-color guidance, and originally retain the r1.0.5 guide as provenance. That source was later intentionally removed. The document ID remains `DOC-STD-MERMAID` across the filename change.
 
-**Source update — October 25, 2026:** Adopt the supplied standard r1.0.7 guide at `references/guides/mermaid-best-practices-r1.0.7.md` as the governing Mermaid reference. Retain the CSS edition as an alternate source, keep the local named-color profile, and preserve existing diagram verification history.
+**Source update — October 25, 2026:** Adapt both supplied Mermaid r1.0.7 guides into this local profile. Default to the standard edition's native authoring conventions; retain the CSS edition as supplemental guidance. Keep project-specific color and preview requirements and preserve existing diagram verification history.
 
 **Project update — October 25, 2026:** Require visual review at intended-preview scale; add an inline rendered-image fallback with retained editable source when preview scaling obscures diagram details, and record the viewer and artifact in the verification record.
