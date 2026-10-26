@@ -1,0 +1,32 @@
+# Python bytecode, virtual environments and local tool caches.
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# npm dependencies and local cache/debug output. Keep package-lock.json tracked.
+node_modules/
+.npm/
+npm-debug.log*
+
+# Generated documentation reports and preview exports.
+# Keep deliberate evidence and published images outside the preview directory.
+/audit-report.md
+/exports/
+
+# Local environment files and credentials; retain the shareable example.
+.env
+.env.*
+!.env.example
+/.aws/
+
+# Operating-system metadata and temporary editor files.
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~

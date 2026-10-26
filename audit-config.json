@@ -1,0 +1,8 @@
+{
+  "exclude": [
+    "zta-decomposition-handoff.md",
+    "mermaid-best-practices-r1.0.5.md",
+    "audit-report.md"
+  ],
+  "reason": "Preserved source imports contain illustrative duplicate identifiers and links to supplemental documents not supplied with the project. Managed documents are audited recursively."
+}

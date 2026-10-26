@@ -1,0 +1,23 @@
+# Normalize text files and keep consistent line endings across platforms.
+* text=auto eol=lf
+
+# Documentation, diagrams, scripts and configuration remain reviewable as text.
+*.md text
+*.mmd text
+*.py text diff=python
+*.sh text
+*.json text
+*.yaml text
+*.yml text
+*.svg text
+
+# Rendered images, documents and archives must retain their original bytes.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.gz binary
