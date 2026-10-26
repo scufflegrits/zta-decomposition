@@ -45,7 +45,7 @@ All fields are required; unknown fields and duplicate YAML keys are rejected. Us
 |---|---|
 | `id` | Globally unique document ID across documents, tables and entity rows |
 | `title` | Human-readable document title, normally matching its first heading |
-| `document_type` | `navigation`, `guide`, `architecture`, `decision`, `pillar`, `control`, `requirements`, `verification`, `procurement`, `reference`, `standard`, `tooling`, `backlog` |
+| `document_type` | `navigation`, `guide`, `architecture`, `decision`, `pillar`, `control`, `requirements`, `verification`, `procurement`, `reference`, `standard`, `tooling`, `backlog`, `implementation`, `acceptance` |
 | `parent` | Immediate authoritative entity parent, or `ROOT` |
 | `lineage` | Full ordered ancestry from `ROOT` through the immediate parent |
 | `owner` | Responsible team; use the existing proposed assignment until accepted |
@@ -64,7 +64,7 @@ The [taxonomy](../taxonomy.md) is a curated explanation of document categories a
 
 ## Traceable tables
 
-Put one `zta-table` comment immediately before a detailed traceable table. Its `id` is globally unique. `parent` is a defined entity or ROOT, and `lineage` contains ROOT through that parent, with no omitted ancestors. Each row's Parent ID equals the table parent. Each row has exactly one identity column: `Pillar ID`, `Control ID`, `Requirement ID`, `Test ID`, `Evidence ID` or `Row ID`. Definitions use globally unique IDs across documents, tables and rows. A table under a requirement defines its tests; a table under a test defines its evidence. Tables listing controls from several parents must be split.
+Put one `zta-table` comment immediately before a detailed traceable table. Its `id` is globally unique. `parent` is a defined entity or ROOT, and `lineage` contains ROOT through that parent, with no omitted ancestors. Each row's Parent ID equals the table parent. Each row has exactly one identity column: `Pillar ID`, `Control ID`, `Requirement ID`, `Test ID`, `Evidence ID`, `Implementation ID`, `Acceptance ID` or `Row ID`. Definitions use globally unique IDs across documents, tables and rows. A table under a requirement defines its tests; a table under a test defines its evidence. Tables listing controls from several parents must be split.
 
 Descriptive matrices, inventories of unresolved questions and cross-reference indexes need no trace metadata because they do not define hierarchy entities. Do not use row positions as stable IDs. Use relative Markdown links to the authoritative parent document and readable ancestry breadcrumbs.
 
@@ -76,7 +76,11 @@ Use Required, Proposed, Verify or Validated. A required objective may separately
 
 ## Architecture references and promised decomposition
 
-Use a `References` column with comma-separated entity IDs for machine-checked relationships; prose links support navigation. Use a `Decomposition` column with a relative Markdown file link when a row promises further decomposition. The auditor requires that target document to exist and declare the row ID as its parent. External links and prose mentions do not create hierarchy edges.
+Use a `References` column with comma-separated entity IDs for machine-checked relationships; prose links support navigation. Use a `Decomposition` column with a relative Markdown file link when a row promises further decomposition. The auditor requires that target document to exist and declare the row ID as its parent. External links and prose mentions do not create hierarchy edges. Operational records also use the typed reference fields defined in the implementation/acceptance standard below; those associations do not create parent edges.
+
+## Implementation and customer acceptance
+
+Use the [implementation/acceptance standard](implementation-acceptance.md) for actual scope records under a Control ID. Implementation and acceptance records supplement the requirement/test/evidence chain through references; they do not reparent tests or evidence. Track Deployment state, Verification result and customer Decision separately. Customer acceptance of documented limitations cannot imply a technical pass. No coverage percentage is used.
 
 ## Manual Jira references
 

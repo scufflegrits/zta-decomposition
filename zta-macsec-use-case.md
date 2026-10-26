@@ -102,11 +102,11 @@ SOW-001 and Jira stories connect to this structure through references. A story m
 
 ## 1. Proposed SOW-001 — MACsec implementation
 
-> The Contractor shall engineer, implement, and verify Media Access Control Security (MACsec) protection for wired Ethernet links at Site A and Site B in accordance with the program-approved Zero Trust Architecture. The solution shall provide link confidentiality and integrity, authenticated peer key agreement, approved cryptographic profiles, prevention of unauthorized plaintext fallback, and operational telemetry sufficient to demonstrate protection status and support incident investigation.
+> The Contractor shall engineer, implement, and verify Media Access Control Security (MACsec) protection for identified wired Ethernet links at Site A and Site B in accordance with the program-approved Zero Trust Architecture and customer-approved operational constraints. Implementation shall preserve required functionality and avoid undue user or administrative process. Selected protected links shall provide confidentiality and integrity, authenticated peer key agreement, approved cryptographic profiles, prevention of unauthorized plaintext fallback, and operational telemetry sufficient to demonstrate protection status and support incident investigation.
 >
-> The Contractor shall identify the hardware, interfaces, software, licensing, and peer dependencies necessary to meet the required coverage; document unsupported links; and submit proposed remediation or exceptions with compensating controls for approval by the designated program authority. The Contractor shall deliver traceable requirements, reviewed design and configuration records, verification procedures, execution results, and supporting artifacts demonstrating satisfaction of the approved requirements and performance criteria. MACsec shall complement the architecture’s identity, device, segmentation, application, and data controls; link protection shall not itself constitute authorization to access a resource.
+> The Contractor shall identify hardware, interface, software, licensing and peer dependencies; document implemented and unsupported or operationally deferred protections; and record operational impacts, residual risk and alternatives or compensating controls. The Contractor shall deliver traceable requirements, reviewed design/configuration records, verification results and artifacts for the implemented scope, and submit the documented outcome and limitations for customer disposition against the applicable SOW requirements. Acceptance may include documented limitations and shall not be determined by a percentage of ZTA coverage. MACsec shall complement the architecture’s identity, device, segmentation, application, and data controls; link protection shall not itself constitute authorization to access a resource.
 
-Before adoption, program leadership must confirm coverage, applicable standards and cryptographic policy, numeric performance targets, deliverables, exception authority and acceptance authority. Unsupported links remain unmet scope until remediated or formally dispositioned; they are not silently removed from coverage.
+This wording is illustrative and follows [ADR-014](architecture/decisions/ADR-014.md); adopted contractual wording and the individual customer decision remain to be recorded. Use the [program adoption checklist](HOW-TO-USE.md#program-adoption-checklist). Keep limitations visible and preserve actual technical results even when the customer accepts the documented outcome. Numeric performance targets for selected links remain useful test criteria; no ZTA coverage percentage is proposed.
 
 ## 2. Connect the obligation to existing engineering definitions
 
@@ -128,7 +128,7 @@ Use the authoritative [pillar](pillars/ZT-05-network-environment.md), [control](
 
 ## 3. Organize delivery in Jira
 
-**Proposed epic:** Implement and demonstrate MACsec coverage for SOW-001 at both sites.
+**Proposed epic:** Implement operationally appropriate MACsec protections, demonstrate their behavior and document customer disposition of limitations for illustrative SOW-001 at both sites.
 
 The Product Owner prioritizes the work; the Scrum Master coordinates story creation and dependencies with engineering leads. The following are suggested story groups, not existing Jira issues or a requirement to fit all work into one sprint. Split them by site, link or equipment combination when needed.
 
@@ -222,7 +222,35 @@ Passing TEST-003 supports the ISR portion of MAC-001. It does not establish all-
 
 Confluence can present a summary linking SOW-001, the epic, engineering definitions, selected hardware, requirement coverage, test results, artifacts, exceptions and outstanding decisions. Jira tracks delivery state; the repository retains versioned engineering definitions; approved evidence storage retains execution artifacts.
 
-Before requesting acceptance, engineering should demonstrate that every in-scope link and requirement has reviewed results or an explicitly approved disposition. The designated program authority determines acceptance against the adopted SOW and agreed criteria. A passing documentation audit verifies declared consistency; it does not establish contractual acceptance or deployed security behavior.
+Present the actual deployed protections, reviewed results and documented limitations, including why further protection would disrupt functionality or impose undue process. The designated customer authority may accept the documented outcome with limitations against the applicable contract SOW requirements. Record the actual decision and its basis; do not convert unsupported or untested scope into a technical pass. A passing documentation audit verifies declared consistency; it does not establish contractual acceptance or deployed security behavior.
+
+## Implementation and customer disposition example
+
+**Hypothetical only:** The rows below demonstrate the approach after research and execution. The port capabilities, installed modules, configurations, results and customer decisions are assumed for illustration; they are not findings about the program's actual equipment. No source implementation/evidence/acceptance IDs are allocated by this example.
+
+First distinguish what the equipment can do from what actually happened:
+
+| Example scope | Capability finding | Deployed protection | Verification | Limitation and operational impact |
+|---|---|---|---|---|
+| A: Site A switch port 8 ↔ ISR module port 1 | Selected switch port supports MACsec; correct router module, release and license verified | Implemented at hypothetical baseline DEMO-B1 | Passed applicable tests for this link | None for the stated scope; required traffic and performance verified |
+| B: Identified switch ports 17–48 and their actual peers | These ports do not support MACsec in the assumed model | Not implemented | Not executed | Hardware limit; replacement would disrupt required service; existing connectivity preserved |
+
+In a real register, each row also carries the exact equipment/inventory, SOW reference, configuration link, requirement/test IDs, current evidence IDs, residual risk, compensating controls and Jira links. Use separate records for differing outcomes and verify both ends of each link.
+
+For A, configuration exports, approved functional/performance checks and reviewed execution artifacts support the claimed result. Evidence under TEST-003 records the selected ISR module/port and peer sessions; the other applicable tests establish cipher agreement, key lifecycle, failure behavior, performance and telemetry. Every execution evidence record referenced by the implementation identifies that implementation and the matching baseline.
+
+For B, the reviewed vendor source and actual inventory document the hardware limit; an impact assessment explains the consequences of replacement. Residual exposure remains that payload on those links lacks MACsec protection. Document any actual segmentation/application encryption or other compensating controls and their limits; do not assume they exist or provide equivalent link protection.
+
+Then record what the customer decided. The following decisions and artifact descriptions are also fictional:
+
+| Example outcome | Customer decision | Decision basis | Supporting proof |
+|---|---|---|---|
+| A only | Accepted as implemented | Identified protection implemented and verified for the submitted scope | Actual configuration, test artifacts and a dated authorized decision would be linked |
+| A and B together | Accepted with documented limitations | Supported scope protected; hardware limitation, residual exposure and service impact of replacement reviewed and accepted | Implementation/evidence references, limitation/impact assessment and the actual customer decision artifact would be linked |
+
+Until an actual decision exists, report **Pending review**. If the customer requests changes or rejects the outcome, record that actual disposition. The customer can accept the combined documented outcome while B remains Not implemented and Not executed. A failed test, if present, also remains Failed after acceptance; its impact and disposition must be explicit.
+
+The actual [implementation register](implementation/macsec.md) and [customer acceptance register](acceptance/macsec.md) are intentionally unpopulated. Their [record standard](standards/implementation-acceptance.md) defines the auditable fields and the evidence required to support claims. Management receives the implemented protections, limitations and decision references rather than a coverage percentage.
 
 ## 6. Decisions needed to adopt the example
 

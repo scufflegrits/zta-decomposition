@@ -30,6 +30,7 @@ For a self-contained introductory review, read the [ZTA Project Guide](zta-proje
 - [Management briefing](zta-management-briefing.md), [MACsec delivery use case](zta-macsec-use-case.md), and [manual Jira traceability](standards/manual-jira-traceability.md).
 - [MACsec overview](controls/macsec/overview.md), [requirements](controls/macsec/requirements.md), and [verification plan](controls/macsec/verification.md).
 - [Equipment assessment](procurement/macsec-equipment-assessment.md), [compatibility findings](procurement/hardware-compatibility.md), [vendor research](references/vendor-research.md), and [standards references](references/standards.md).
+- [Implementation records](implementation/macsec.md), [customer acceptance decisions](acceptance/macsec.md), and [record rules](standards/implementation-acceptance.md).
 - [Open engineering questions](architecture/open-questions.md) and [implementation roadmap](architecture/roadmap.md).
 
 ## Repository layout
@@ -39,6 +40,8 @@ For a self-contained introductory review, read the [ZTA Project Guide](zta-proje
 | `architecture/` | Architecture views, decisions, open questions and implementation roadmap |
 | `pillars/` | Responsibilities and control references for each of the seven pillars |
 | `controls/` | Authoritative control definitions; MACsec includes detailed requirements and verification procedures |
+| `implementation/` | Actual deployed protections, limitations, operational impacts and verification references |
+| `acceptance/` | Customer disposition against applicable contract SOW requirements and decision artifacts |
 | `procurement/` | Equipment assessments and compatibility findings awaiting verification |
 | `references/` | Standards references and vendor research |
 | `standards/` | Documentation, traceability and Mermaid conventions; diagram verification record |
@@ -68,7 +71,7 @@ Users must be physically present at Site A or Site B to initiate authorized auth
 
 Each site preserves `Catalyst → ISR → Palo Alto → public WAN`. ISRs provide selected authorized inter-VLAN routing. Management VLANs are site-local, isolated, non-routed and never stretched over the WAN. Approved management access uses a physical management switchport or an approved VM with exactly one management-connected vNIC; host isolation must also be verified.
 
-Virtualization stays vendor-neutral. MACsec on every wired Ethernet port is a required objective subject to compatibility verification or explicit exceptions. Palo Alto IPsec is a proposed WAN protection mechanism. Connectivity and encryption never imply authorization.
+Virtualization stays vendor-neutral. Following [ADR-014](architecture/decisions/ADR-014.md), implement MACsec where supported and operationally appropriate without reducing required functionality or imposing undue process. Record hardware/workflow limitations, residual risk and customer disposition; acceptance is based on documented outcomes against the applicable SOW, not a coverage percentage. The earlier universal-port objective is preserved in ADR-008 for history. Palo Alto IPsec is a proposed WAN protection mechanism. Connectivity and encryption never imply authorization.
 
 ## Status and integrity
 

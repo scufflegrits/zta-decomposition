@@ -103,7 +103,7 @@ Within a site, selected inter-VLAN traffic goes through the ISR. Same-VLAN and s
 
 Each management VLAN remains local, non-routed and separate from production and the WAN. Only approved physical management attachments or an approved management VM with exactly one management vNIC are permitted. Host forwarding, bridging, virtual-switch permissions and the management plane must prevent bypass. Virtualization remains vendor-neutral.
 
-MACsec is a desired protection on every wired Ethernet port, including compute links without individual diagram labels. Exact port and peer support is unknown until verified. Palo Alto site-to-site IPsec is a proposed WAN mechanism. MACsec is link protection; it does not substitute for user, application or data authorization.
+MACsec is a protection to implement where supported and operationally appropriate, including compute links without individual diagram labels. Under [ADR-014](architecture/decisions/ADR-014.md), record exact port/peer capability, functionality and workflow impacts, limitations and customer disposition. The earlier every-port objective remains historical; no coverage percentage determines acceptance. Palo Alto site-to-site IPsec is a proposed WAN mechanism. MACsec is link protection; it does not substitute for user, application or data authorization.
 
 ## 2. How the repository turns design into evidence
 
@@ -189,7 +189,7 @@ The imported vendor research identifies the ISR NIM-2GE-CU-SFP as a MACsec-capab
 
 Once engineering approves the selected peers and protection profile, execute the verification procedure, capture actual configuration and protected-session counters, record failures and attach reviewed artifacts under the test. Cipher agreement, MKA behavior, rejection of unintended plaintext fallback, throughput and telemetry also have separate MACsec requirements. A successful port-capability check alone does not satisfy the whole control.
 
-If a link cannot meet the objective, document an alternative module or platform, architecture change, or an explicitly approved exception with compensating controls. Leave its status Verify until there is adequate evidence. Never fill an evidence field with an assumed result.
+If a link cannot meet the objective, record the limitation, operational impact, residual risk and alternatives or compensating controls in the [implementation register](implementation/macsec.md). Record the customer disposition in the [acceptance register](acceptance/macsec.md). The customer can accept a documented limitation while technical verification remains Not executed or Failed. Never fill an evidence field with an assumed result.
 
 ## 5. How to navigate and review
 

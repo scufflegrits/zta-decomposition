@@ -13,10 +13,12 @@ from urllib.parse import unquote, urlsplit
 
 if __package__:
     from .document_metadata import MetadataError, mask_frontmatter, read_frontmatter
+    from .delivery_records import check_delivery_records
 else:
     from document_metadata import MetadataError, mask_frontmatter, read_frontmatter
+    from delivery_records import check_delivery_records
 
-IDENTITY_COLUMNS = {'Pillar ID', 'Control ID', 'Requirement ID', 'Test ID', 'Evidence ID', 'Row ID'}
+IDENTITY_COLUMNS = {'Pillar ID', 'Control ID', 'Requirement ID', 'Test ID', 'Evidence ID', 'Row ID', 'Implementation ID', 'Acceptance ID'}
 ID_PATTERN = re.compile(r'[A-Z][A-Z0-9]*(?:-[A-Z0-9]+)*\Z')
 META = re.compile(r'^\s*<!-- zta-(doc|table):\s*(.*?)\s*-->\s*$')
 # Inline links/images with angle-bracket destinations or balanced parentheses in paths.
@@ -27,7 +29,7 @@ VALID_STATUSES = {'Required', 'Proposed', 'Verify', 'Validated', 'Required objec
 IGNORED_DIRS = {'.git', '.agents', '.codex', '.aws', '__pycache__', 'node_modules', '.venv'}
 JIRA_COLUMNS = {
     'Jira epic': 'Control ID',
-    'Jira stories': ('Requirement ID', 'Test ID'),
+    'Jira stories': ('Requirement ID', 'Test ID', 'Implementation ID'),
     'Verification stories': 'Evidence ID',
 }
 JIRA_KEY = re.compile(r'[A-Z][A-Z0-9_]*-[1-9][0-9]*\Z')
@@ -382,7 +384,7 @@ def audit(root: Path, report: Path | None = None) -> AuditResult:
         parent_chain = chain(result, entity.parent)
         if entity.lineage is not None and parent_chain is not None and entity.lineage != '>'.join(parent_chain):
             result.error(entity.path, entity.line, 'lineage', f'{entity.id} expected lineage {">".join(parent_chain)}')
-        expected = {'Pillar ID': 'ROOT', 'Control ID': 'Pillar ID', 'Requirement ID': 'Control ID', 'Test ID': 'Requirement ID', 'Evidence ID': 'Test ID'}.get(entity.kind)
+        expected = {'Pillar ID': 'ROOT', 'Control ID': 'Pillar ID', 'Requirement ID': 'Control ID', 'Test ID': 'Requirement ID', 'Evidence ID': 'Test ID', 'Implementation ID': 'Control ID', 'Acceptance ID': 'Control ID'}.get(entity.kind)
         actual = 'ROOT' if entity.parent == 'ROOT' else (result.entities[entity.parent].kind if entity.parent in result.entities else None)
         if expected and actual is not None and actual != expected:
             result.error(entity.path, entity.line, 'hierarchy-level', f'{entity.id} requires parent kind {expected}, found {actual}')
@@ -419,6 +421,7 @@ def audit(root: Path, report: Path | None = None) -> AuditResult:
                 ancestry = chain(result, evidence_id)
                 if not evidence or evidence.kind != 'Evidence ID' or not ancestry or entity.id not in ancestry:
                     result.error(entity.path, entity.line, 'validated-evidence', f'{evidence_id} is not descendant evidence of {entity.id}')
+    check_delivery_records(result, chain, local_target, destinations)
     anchor_cache = {}
     for path, lines in result.sources.items():
         definitions = {m[1].casefold(): m[2].strip('<>') for line in lines if (m := REF_DEF.match(line))}

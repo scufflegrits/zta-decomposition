@@ -8,7 +8,7 @@ import yaml
 DOCUMENT_TYPES = (
     'navigation', 'guide', 'architecture', 'decision', 'pillar', 'control',
     'requirements', 'verification', 'procurement', 'reference', 'standard',
-    'tooling', 'backlog',
+    'tooling', 'backlog', 'implementation', 'acceptance',
 )
 FIELDS = {
     'schema_version', 'id', 'title', 'document_type', 'parent', 'lineage',

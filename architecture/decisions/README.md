@@ -24,11 +24,13 @@ ADR-001 through ADR-013 preserve the identifiers and statuses in the handoff. Re
 - [ADR-005 — Local isolated management VLANs](ADR-005.md): Required.
 - [ADR-006 — Approved management attachments](ADR-006.md): Required.
 - [ADR-007 — Vendor-neutral virtualization](ADR-007.md): Required.
-- [ADR-008 — MACsec coverage objective](ADR-008.md): Required objective / Verify.
+- [ADR-008 — MACsec coverage objective](ADR-008.md): Historical objective, refined by ADR-014.
 - [ADR-009 — Public WAN transport protection](ADR-009.md): Proposed.
 - [ADR-010 — Top-down architecture diagrams](ADR-010.md): Required.
 - [ADR-011 — External diagram legends](ADR-011.md): Required.
 - [ADR-012 — Hierarchical traceability](ADR-012.md): Required.
 - [ADR-013 — Modular documentation](ADR-013.md): Required.
+
+- [ADR-014 — Operationally bounded ZTA and documented customer acceptance](ADR-014.md): Required project direction; individual customer acceptance remains to be recorded.
 
 New material decisions receive the next unused stable ID and include decision, rationale, status, consequences, alternatives, owner and source. Record any explicit user change to the baseline rather than silently overwriting its meaning.

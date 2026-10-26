@@ -23,6 +23,7 @@ The repository supports manually maintained Jira links without API credentials, 
 | Control | `Jira epic` | Delivery epic or epics associated with the control |
 | Requirement | `Jira stories` | Research, design, requirements and implementation work directly associated with the requirement |
 | Test | `Jira stories` | Preparation, implementation or execution work directly associated with the test |
+| Implementation | `Jira stories` | Work associated with the actual scoped protection or documented limitation |
 | Evidence | `Verification stories` | Verification work that produced the actual evidence record |
 
 Existing control, requirement and test tables contain blank Jira cells ready for real references. No evidence rows are created until execution produces actual records. The columns remain optional for future tables; missing columns and blank cells do not fail the audit. Blank means no Jira link has been recorded, not that no work is required. Reviewers must decide whether work has actually been created.
@@ -39,7 +40,7 @@ The same issue can appear on several engineering rows. Each row can reference se
 
 Follow the proposed roles and operational steps in [How to use this project](../HOW-TO-USE.md#who-does-what). Record program decisions and approval references in its single [adoption checklist](../HOW-TO-USE.md#program-adoption-checklist). This standard supplies Jira field syntax, the reciprocal-reference template, change-handling rules and local-check limits.
 
-Keep delivery status, assignee, sprint, estimates and dependencies in Jira. Keep technical Required/Proposed/Verify/Validated statuses and evidence disposition in engineering records. At execution, follow the [evidence conventions](documentation-conventions.md#status-and-evidence). A closed story does not itself validate a requirement or authorize SOW acceptance.
+Keep delivery status, assignee, sprint, estimates and dependencies in Jira. Keep technical Required/Proposed/Verify/Validated statuses and evidence disposition in engineering records. At execution, follow the [evidence conventions](documentation-conventions.md#status-and-evidence) and [implementation/acceptance record rules](implementation-acceptance.md). Customer disposition of documented limitations stays separate from test results. A closed story does not itself validate a requirement or authorize SOW acceptance.
 
 ## Suggested Jira description fields
 

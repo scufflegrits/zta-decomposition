@@ -14,7 +14,7 @@ baseline_date: '2026-10-25'
 
 # Using zta-decomposition to Support Program ZTA Delivery
 
-**Management proposal:** Use this repository as an engineering foundation for implementing Zero Trust Architecture through the program’s AGIIL delivery process, with Confluence providing program visibility and Jira coordinating execution.
+**Management proposal:** Use this repository as an engineering foundation for implementing practical Zero Trust protections through the program’s AGIIL delivery process, with Confluence providing program visibility and Jira coordinating execution. Implement protections without reducing required functionality or imposing undue process; document limitations and obtain customer disposition against the applicable contract SOW requirements, following [ADR-014](architecture/decisions/ADR-014.md).
 
 The project already organizes the proposed architecture around seven Zero Trust pillars, documents architectural constraints, and establishes identifiers linking controls, requirements and verification procedures. It provides a starting point for turning Statement of Work obligations into work that teams can estimate, execute and demonstrate.
 
@@ -30,7 +30,9 @@ The repository supplies the engineering content that becomes Jira work and ultim
 | [Seven pillar documents](README.md#seven-pillars) | Identify engineering responsibilities and areas needing further decomposition |
 | [Control definitions](controls/macsec/overview.md) | Describe the protection each work package must deliver |
 | [Requirements](controls/macsec/requirements.md) | Supply measurable obligations for story acceptance criteria |
-| [Verification procedures](controls/macsec/verification.md) | Define how teams will demonstrate that requirements are satisfied |
+| [Verification procedures](controls/macsec/verification.md) | Define how teams will demonstrate behavior for the selected implementation scope |
+| [Implementation register](implementation/macsec.md) | Record exact hardware, configuration, deployed protection, verified behavior and operational limitations |
+| [Customer acceptance register](acceptance/macsec.md) | Show the customer decision, its basis and supporting artifact against applicable SOW requirements |
 | [Procurement assessments](procurement/macsec-equipment-assessment.md) and [open questions](architecture/open-questions.md) | Identify research tasks, dependencies and unresolved equipment decisions |
 | Stable identifiers and the [document index](index.md) | Give Confluence pages, Jira stories and evidence records consistent engineering references |
 | [Documentation auditor](tools/README.md) | Check declared relationships and links for consistency |
@@ -58,7 +60,7 @@ This makes zta-decomposition a reusable foundation for backlog development and t
 | Requirement | Measurable obligation | MAC-001: physical-port compatibility |
 | Jira stories | Research, requirement definition, implementation and verification work | Linked stories with acceptance criteria |
 | Test and artifacts | Procedure, actual result and supporting proof | TEST-003, configuration, counters and test report |
-| Acceptance | Authorized review of results against requirements | Approval, exceptions and residual work |
+| Acceptance | Customer disposition of the documented outcome against applicable SOW requirements | Accepted as implemented, accepted with documented limitations, changes requested, rejected or pending review |
 
 These relationships may be many-to-many: several stories can satisfy one requirement, and one control can support several SOW clauses. Actual SOW mappings must be established with program leadership; they are not present today.
 
@@ -94,7 +96,15 @@ This capability needs no software-factory integration or API access. Local check
 
 Use [How to use this project](HOW-TO-USE.md) for the working process and its single [program adoption checklist](HOW-TO-USE.md#program-adoption-checklist) for agreements and approval references. Story completion, technical verification and contractual acceptance remain separate review outcomes. Live synchronization is a future option subject to software-factory approval.
 
-**Management value:** Visibility from contractual obligation to delivered capability—and a clear distinction between work completed, requirements satisfied and results awaiting acceptance. The current repository is a foundation for that process; it does not yet demonstrate deployed ZTA or contractual compliance.
+## Documented outcomes and customer acceptance
+
+Management can review three separate conclusions for each identified scope: **what was implemented**, **what was verified**, and **what the customer accepted**. The implementation record links configurations and test artifacts while recording hardware limits, functional/workflow impacts, residual risk and alternatives. The acceptance record links the designated authority's dated decision and supporting artifact.
+
+For example, MACsec may be implemented and verified on selected supported switch/router links while unsupported ports retain their existing connectivity. The customer can accept the documented limitation. The unsupported ports remain recorded as Not implemented and Not executed; acceptance never labels them encrypted or technically passed. No percentage of ZTA coverage determines acceptance.
+
+The repository now provides the record structure and consistency checks. No actual implementation or customer acceptance records have been populated. The [use-case outcome example](zta-macsec-use-case.md#implementation-and-customer-disposition-example) is explicitly hypothetical.
+
+**Management value:** Here is what we delivered, how we verified it, any approved exceptions or unresolved gaps, and the acceptance decision against the applicable contract Statement of Work (SOW) requirements. The current repository supplies that review structure; actual deployment evidence and customer decisions must be recorded as work occurs.
 
 ## Appendix A — Walking the MACsec traceability path
 

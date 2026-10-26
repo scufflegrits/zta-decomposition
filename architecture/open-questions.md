@@ -22,7 +22,7 @@ The following details require additional specification.
 | Catalyst hardware | Exact 9300/9400 SKUs, uplinks, line cards and IOS XE releases? |
 | ISR routers | Exact ISR 4000 models, interfaces, modules and licenses? |
 | Palo Alto | Exact models, interfaces, PAN-OS versions and tunnel configuration? |
-| MACsec | Which physical ports and endpoint combinations can support mandatory encryption? |
+| MACsec | Which exact ports/peers support MACsec, what operational impact would enabling it have, and which limitations require customer disposition? |
 | Windows 11 | Which MACsec supplicant/NIC model and deployment approach? |
 | RHEL 9 | Which MACsec implementation, hardware acceleration and interoperability model? |
 | Virtualization | How are host uplinks, management VMs and virtual networks isolated? |

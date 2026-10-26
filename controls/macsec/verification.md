@@ -89,3 +89,9 @@ The optional `Jira stories` column links actual preparation or execution work to
 For each execution record an immutable Evidence ID, immediate Test ID parent, complete ancestry, exact equipment/software/licensing, approved configuration and targets, date, executor, procedure, expected and actual results, raw artifact links, exception disposition and reviewer. Preserve failed results and retest history. Do not manufacture placeholder evidence rows or mark a test Validated because a plan exists.
 
 When evidence is available, add a traceable table under its Test ID using columns `Parent ID | Evidence ID | Artifact | Result | Reviewer`, with optional `Verification stories` for the actual Jira work that produced the record. A validated requirement or test must explicitly reference evidence from its descendant test/evidence chain in an `Evidence IDs` column. Evidence artifacts must exist locally for the auditor's file check; external artifacts require a documented local evidence record. No evidence records exist yet.
+
+## Implementation scope and customer disposition
+
+Use [implementation records](../../implementation/macsec.md) to distinguish exact supported ports and installed modules from actual deployed configurations and test executions. Evidence cited by an implementation record must include `Implementation IDs` and `Baseline` columns matching the execution scope and baseline. Link the requirement/test IDs and the actual reviewed artifacts.
+
+A customer may accept a documented limitation under [ADR-014](../../architecture/decisions/ADR-014.md); record that decision in the [acceptance register](../../acceptance/macsec.md). Keep Not executed, Failed or Inconclusive results visible. Do not silently relax an approved protection profile to preserve connectivity; document and disposition the operational impact. No universal-port percentage or automatic technical pass is inferred from customer acceptance.

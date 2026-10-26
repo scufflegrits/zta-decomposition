@@ -45,4 +45,4 @@ Require vendors to answer the following for exact hardware models, software rele
 
 For each exact link record site, asset/port IDs, both peer SKUs and modules, OS/firmware, license, media/speed, capability source and version, supported protection profile, interoperability test reference and proposed disposition. Obtain an exact bill of materials before marking compatibility confirmed.
 
-Vendor answers and a proof of concept support review; procurement approval requires explicit resolution of unsupported links. This document grants no procurement approval.
+Vendor answers and a proof of concept support review. Document unsupported links, operational tradeoffs and proposed disposition under [ADR-014](../architecture/decisions/ADR-014.md); obtain the actual procurement/customer decisions from the designated authorities. This document grants no procurement approval.

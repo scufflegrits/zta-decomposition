@@ -133,3 +133,29 @@ There is no further cell to pull down in this example. The artifacts and review 
 **TEST-003** → becomes the parent of actual evidence records.
 
 Each expansion adds detail while preserving the selected ID and its ancestry. SOW references and Jira links attach to the relevant rows; they do not replace these parent relationships. See the [worked use case](zta-macsec-use-case.md) for those delivery links.
+
+## Implementation and customer disposition view
+
+The original tree shows engineering ancestry. This second view shows how actual delivery and customer records attach to the same control and reference the relevant engineering definitions. Example A and B are hypothetical outcomes; no operational records or approvals currently exist in the source registers.
+
+```text
+NET-04 — MACsec
+├── Engineering definitions
+│   └── MAC-001 → TEST-003 → actual execution evidence when available
+├── Implementation records (reference requirements, tests and evidence)
+│   ├── Example A — selected supported switch/router link
+│   │   ├── Exact ports, installed router module and configuration baseline
+│   │   ├── Implemented / Passed — hypothetical result with reviewed proof
+│   │   └── Functional/workflow impact, residual risk and limitations recorded
+│   └── Example B — identified unsupported ports
+│       ├── Hardware finding and operational impact of replacement recorded
+│       ├── Not implemented / Not executed — technical facts stay visible
+│       └── Residual exposure and alternatives documented
+└── Customer acceptance record (references implementation records)
+    ├── Scope, applicable SOW, baseline, authority, date and decision artifact
+    └── Accepted with documented limitations — hypothetical A+B disposition
+```
+
+In the authoritative hierarchy, implementation and acceptance rows are direct children of NET-04; engineering definitions retain their existing parents. Evidence remains under its test. The two organizational labels in the tree are navigation aids, not new engineering entities. Customer acceptance does not turn B into an encrypted link or a passed test.
+
+For the corresponding table layout, see the [worked outcome example](zta-macsec-use-case.md#implementation-and-customer-disposition-example). Actual records belong in the [implementation register](implementation/macsec.md) and [acceptance register](acceptance/macsec.md). No percentage determines the acceptance decision.

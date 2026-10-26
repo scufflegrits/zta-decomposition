@@ -66,6 +66,7 @@ Start with the [README](README.md), [project guide](zta-project-guide.md), or [v
 | [ADR-011 — External diagram legends](architecture/decisions/ADR-011.md) | DOC-ADR-011 | Architecture / relevant pillar owners (proposed) | draft |
 | [ADR-012 — Hierarchical traceability](architecture/decisions/ADR-012.md) | DOC-ADR-012 | Architecture / relevant pillar owners (proposed) | draft |
 | [ADR-013 — Modular documentation](architecture/decisions/ADR-013.md) | DOC-ADR-013 | Architecture / relevant pillar owners (proposed) | draft |
+| [ADR-014 — Operationally bounded ZTA and documented customer acceptance](architecture/decisions/ADR-014.md) | DOC-ADR-014 | Architecture / Security Engineering (proposed) | draft |
 
 ## Pillar
 
@@ -120,6 +121,7 @@ Start with the [README](README.md), [project guide](zta-project-guide.md), or [v
 |---|---|---|---|
 | [Diagram verification record](standards/diagram-verification.md) | DOC-STD-RENDERS | Documentation Engineering (proposed) | draft |
 | [Documentation and traceability conventions](standards/documentation-conventions.md) | DOC-STD-DOCS | Documentation Engineering (proposed) | draft |
+| [Implementation and customer acceptance records](standards/implementation-acceptance.md) | DOC-STD-DELIVERY | Architecture / Security Engineering (proposed) | draft |
 | [Manual Jira traceability](standards/manual-jira-traceability.md) | DOC-STD-JIRA | Documentation Engineering / Engineering leads (proposed) | draft |
 | [Mermaid Best Practices — Project Standard r1.0.6](standards/mermaid-best-practices-r1.0.6.md) | DOC-STD-MERMAID | Documentation Engineering (proposed) | draft |
 
@@ -134,6 +136,18 @@ Start with the [README](README.md), [project guide](zta-project-guide.md), or [v
 | Document | ID | Owner (ownership status) | Document status |
 |---|---|---|---|
 | [Documentation TODO](TODO.md) | DOC-ZTA-TODO | Documentation Engineering (proposed) | draft |
+
+## Implementation
+
+| Document | ID | Owner (ownership status) | Document status |
+|---|---|---|---|
+| [MACsec implementation register](implementation/macsec.md) | DOC-IMPL-MAC | Architecture / Security Engineering (proposed) | draft |
+
+## Acceptance
+
+| Document | ID | Owner (ownership status) | Document status |
+|---|---|---|---|
+| [MACsec customer acceptance register](acceptance/macsec.md) | DOC-ACCEPT-MAC | Architecture / Security Engineering (proposed) | draft |
 
 ## Imported source documents
 

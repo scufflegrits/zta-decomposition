@@ -74,6 +74,8 @@ flowchart TB
 | `standard` | `standards/` | Project authoring and review conventions |
 | `tooling` | `tools/README.md` | Auditor, index generator and test usage |
 | `backlog` | `TODO.md` | Documentation maintenance tasks |
+| `implementation` | `implementation/` | Actual scoped protections, configurations, verification and operational limitations |
+| `acceptance` | `acceptance/` | Customer decisions and artifacts against applicable contract SOW requirements |
 
 Imported source guides preserve their original content and are listed separately from maintained documents. They do not receive project metadata or declare project entities. Generated reports are local outputs. Neither category is evidence of deployed security controls.
 
@@ -86,3 +88,5 @@ This chain describes authoritative entities inside the documents. The frontmatte
 For example, `ROOT > ZT-05 > NET-04 > MAC-001 > TEST-003` connects the Network & Environment pillar to MACsec, physical port compatibility and the ISR verification test. Reviewed evidence is future work; no evidence records are currently declared. The [MACsec verification plan](controls/macsec/verification.md) contains the test definitions.
 
 Future hardware inventories, access scenarios and evidence records should be added when their engineering inputs exist. This taxonomy does not invent controls, equipment selections or acceptance results.
+
+Implementation and acceptance records attach to their control and reference relevant requirements/tests/evidence. They report actual outcomes and customer disposition under [ADR-014](architecture/decisions/ADR-014.md), separately from the existing engineering ancestry. See the [record standard](standards/implementation-acceptance.md).

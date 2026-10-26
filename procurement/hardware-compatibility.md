@@ -30,4 +30,4 @@ baseline_date: '2026-10-24'
 
 These are vendor-document findings, not proof that a particular proposed installation is compatible.
 
-The inventory must cover both ends of every endpoint, host, switch, router and firewall link. Include supervisor/line-card dependencies, partial-port restrictions, media, speed, software, licenses, MKA, cipher support and hardware acceleration. Record exceptions with owner, rationale, compensating controls, approval and review date.
+The inventory must cover both ends of every endpoint, host, switch, router and firewall link. Include supervisor/line-card dependencies, partial-port restrictions, media, speed, software, licenses, MKA, cipher support and hardware acceleration. Record limitations with owner, rationale, operational impact, residual risk, alternatives or compensating controls, and customer disposition. Follow [ADR-014](../architecture/decisions/ADR-014.md); unsupported capability is a fact to document, not an automatic rejection of the overall deliverable. Link actual inventory and configuration findings to the [implementation register](../implementation/macsec.md).

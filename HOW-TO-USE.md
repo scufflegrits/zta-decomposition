@@ -28,6 +28,7 @@ The repository is a proposed engineering baseline. MACsec is the most developed 
 | Explain the value to management | [Management briefing](zta-management-briefing.md) |
 | See one branch expanded into tables and stories | [MACsec use case](zta-macsec-use-case.md#how-one-table-expands-into-the-next) |
 | Look up a document or its owner | [Document index](index.md) |
+| Review actual protection and customer decisions | [Implementation register](implementation/macsec.md) and [acceptance register](acceptance/macsec.md) |
 | Find authoring rules | [Documentation conventions](standards/documentation-conventions.md) and [manual Jira standard](standards/manual-jira-traceability.md) |
 
 ## Program adoption checklist
@@ -39,7 +40,7 @@ This is the single authoritative checklist of working agreements needed to adopt
 | SOW mapping and scope | Adopted clause/source, covered sites/resources/links, deliverables, exclusions and mapping to engineering requirements | |
 | Roles and authority | Accepted engineering/document owners, Product Owner, Scrum Master, reviewers, exception authority and program acceptance authority | |
 | Jira working agreement | Approved base address/project, who creates issues and maintains reciprocal links, description fields and link-review cadence | |
-| Verification and acceptance | Approved test basis, protection/performance criteria, required proof and distinction between story completion, technical validation and program acceptance | |
+| Verification and acceptance | Operationally appropriate protection scope, acceptable functionality/workflow impacts, test criteria and proof; customer disposition of documented limitations under ADR-014, separately from technical results and without coverage percentages | |
 | Evidence handling | Approved storage, durable references, access, retention, review and preservation of failures/retests | |
 | Baselines and change review | Repository commit/release convention, contributor review process and impact review when requirements, configurations or stories change, split or are superseded | |
 | Program presentation | Confluence location, ownership and links to authoritative records so summaries stay aligned with engineering and delivery work | |
@@ -82,11 +83,11 @@ After actual issues exist, manually add `Jira epic` links to controls, `Jira sto
 
 Perform the approved work and retain its actual configuration/code revision and change record. Execute the reviewed procedures against the identified equipment and configuration. Capture expected versus actual results, date, executor, artifacts and reviewer disposition. Preserve failures and retest history.
 
-Create actual evidence records under their immediate Test ID using the [evidence instructions](controls/macsec/verification.md#evidence-and-execution). A local evidence artifact or documented local record for externally stored artifacts is needed for the current auditor. Store the proof in the approved location and link it durably. Technical validation requires reviewed descendant evidence; a closed Jira story or passing documentation audit cannot supply that proof.
+Record the exact protection and any deferred/unsupported scope in the [implementation register](implementation/macsec.md), including operational impact, limitations, residual risk and alternatives. Follow the [record standard](standards/implementation-acceptance.md). Create actual evidence records under their immediate Test ID using the [evidence instructions](controls/macsec/verification.md#evidence-and-execution). A local evidence artifact or documented local record for externally stored artifacts is needed for the current auditor. Store the proof in the approved location and link it durably. Technical validation requires reviewed descendant evidence; a closed Jira story or passing documentation audit cannot supply that proof.
 
 ## 5. Review results and report delivery
 
-Review the obligation's requirement/test coverage, actual results, open work and exception dispositions. Request acceptance from the designated authority against the adopted SOW and agreed criteria. A research story can finish with an unsupported-capability finding while the engineering requirement remains unmet.
+Review the documented implementation scope, actual results, limitations, operational tradeoffs and residual risk. Under [ADR-014](architecture/decisions/ADR-014.md), request customer disposition against the applicable contract SOW requirements without calculating a completion percentage. Record the authority, date, decision basis and artifact in the [acceptance register](acceptance/macsec.md). Accepted with documented limitations may coexist with Not implemented, Not executed or Failed technical outcomes; keep those facts visible. A research story can finish with an unsupported-capability finding while its technical obligation remains unmet.
 
 Use Confluence to summarize progress and link the SOW, epic, engineering baseline, evidence and decisions. Preserve authoritative engineering definitions in the repository and delivery state in Jira. Refer to the adoption checklist above when a missing working agreement prevents a claim from being assessed.
 
