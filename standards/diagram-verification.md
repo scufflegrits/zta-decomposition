@@ -1,10 +1,19 @@
+---
+schema_version: 1
+id: DOC-STD-RENDERS
+title: Diagram verification record
+document_type: standard
+parent: ROOT
+lineage:
+- ROOT
+owner: Documentation Engineering
+owner_status: proposed
+document_status: draft
+implementation_status: not-applicable
+baseline_date: '2026-10-24'
+---
+
 # Diagram verification record
-
-<!-- zta-doc: id=DOC-STD-RENDERS; parent=ROOT; lineage=ROOT -->
-
-**Owner (proposed):** Documentation Engineering  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
 
 ## Review scope
 
@@ -43,6 +52,14 @@ The user ran the prepared render script from a normal terminal. The console repo
 
 All four PNGs were visually inspected. Labels, arrows, node colors and group containment were reviewed. Named edge styles were also inspected in the SVG: connectivity uses `slategray`, north-south uses `dodgerblue`, management uses `darkgoldenrod` with `6 4` dashes, and logical-topology east-west edges use `darkorchid` with the session edge dashed. The workflow diagram uses default edge styling and its intended node classes.
 
-**Current verification status:** All four maintained blocks rendered successfully to SVG and PNG and were visually reviewed. Title/edge crossings noted above remain layout refinement items before publication. No diagram source was changed after this artifact review, so the findings apply to the rendered source. No hosted Markdown viewer has been tested; its renderer may lay out the diagrams differently. The full seven-pillar control overlay remains a textual scaffold pending later diagram work.
+**Network and project-guide verification status:** These four blocks rendered successfully to SVG and PNG and were visually reviewed. Title/edge crossings noted above remain layout refinement items before publication. No diagram source was changed after this artifact review, so the findings apply to the rendered source. No hosted Markdown viewer has been tested; its renderer may lay out the diagrams differently. The full seven-pillar control overlay remains a textual scaffold pending later diagram work.
+
+## October 25, 2026 — documentation taxonomy
+
+The new [taxonomy](../taxonomy.md#documentation-map) contains one maintained Mermaid block grouping document purposes. It uses a base theme, ELK layout, top-down direction, stable node IDs and semantic classes with CSS named colors. It is a navigation map, separate from the engineering ancestry chain.
+
+An initial restricted-shell render failed at Chromium startup with `setsockopt: Operation not permitted`. After permission to run Chromium outside that restriction, project-local Mermaid CLI 12.0.0 rendered the block successfully to SVG and PNG using system Chromium with browser sandboxing enabled. Temporary artifacts are `/tmp/zta-taxonomy-review/taxonomy-1.svg` and `/tmp/zta-taxonomy-review/taxonomy-1.png`; they are review outputs, not committed deliverables.
+
+The SVG was parsed as XML and the PNG was visually inspected. All five category boxes, labels, arrows and role colors are visible, with no obvious clipping or edge crossings. The intended hosted Markdown viewer remains untested. The four existing network/project-guide blocks were checked to be unchanged during the frontmatter migration; their earlier findings still apply. Imported guide examples were not edited or rendered in this change.
 
 This verifies diagram syntax acceptance and the inspected render, not equipment compatibility, enforcement behavior or security validation. Architecture controls remain unvalidated.

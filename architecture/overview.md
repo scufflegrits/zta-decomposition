@@ -1,10 +1,19 @@
+---
+schema_version: 1
+id: DOC-ARCH-OVERVIEW
+title: Architecture overview
+document_type: architecture
+parent: ROOT
+lineage:
+- ROOT
+owner: Architecture
+owner_status: proposed
+document_status: draft
+implementation_status: unvalidated
+baseline_date: '2026-10-24'
+---
+
 # Architecture overview
-
-<!-- zta-doc: id=DOC-ARCH-OVERVIEW; parent=ROOT; lineage=ROOT -->
-
-**Owner (proposed):** Architecture  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
 
 The design contains geographically separated Site A and Site B with comparable equipment classes: Catalyst 9300/9400 switches, ISR 4000 routers, Palo Alto firewalls, Windows servers, Windows 11 and RHEL 9 workstations, and generic virtualization hosts with multiple VMs.
 

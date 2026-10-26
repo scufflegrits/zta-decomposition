@@ -1,10 +1,20 @@
+---
+schema_version: 1
+id: DOC-CTRL-NETWORK
+title: Network admission, segmentation and WAN controls
+document_type: control
+parent: ZT-05
+lineage:
+- ROOT
+- ZT-05
+owner: Network Engineering
+owner_status: proposed
+document_status: draft
+implementation_status: unvalidated
+baseline_date: '2026-10-24'
+---
+
 # Network admission, segmentation and WAN controls
-
-<!-- zta-doc: id=DOC-CTRL-NETWORK; parent=ZT-05; lineage=ROOT>ZT-05 -->
-
-**Owner (proposed):** Network Engineering  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
 
 **Ancestry:** `ROOT > ZT-05`. [Parent pillar](../../pillars/ZT-05-network-environment.md).
 

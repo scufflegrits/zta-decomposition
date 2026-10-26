@@ -1,10 +1,20 @@
+---
+schema_version: 1
+id: DOC-ZT-01
+title: ZT-01 — User
+document_type: pillar
+parent: ZT-01
+lineage:
+- ROOT
+- ZT-01
+owner: Identity/IAM
+owner_status: proposed
+document_status: draft
+implementation_status: unvalidated
+baseline_date: '2026-10-24'
+---
+
 # ZT-01 — User
-
-<!-- zta-doc: id=DOC-ZT-01; parent=ZT-01; lineage=ROOT>ZT-01 -->
-
-**Owner (proposed):** Identity/IAM  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
 
 **Ancestry:** `ROOT > ZT-01`. [Parent architecture](../README.md#seven-pillars).
 

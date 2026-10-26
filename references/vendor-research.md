@@ -1,13 +1,21 @@
+---
+schema_version: 1
+id: DOC-REF-RESEARCH
+title: Research register
+document_type: reference
+parent: ROOT
+lineage:
+- ROOT
+owner: Architecture / Network Engineering
+owner_status: proposed
+document_status: draft
+implementation_status: unvalidated
+baseline_date: '2026-10-24'
+---
+
 # Research register
 
-<!-- zta-doc: id=DOC-REF-RESEARCH; parent=ROOT; lineage=ROOT -->
-
-**Owner (proposed):** Architecture / Network Engineering  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
-
 **Research status:** Handoff findings, Verify. Imported October 24, 2026. Vendor pages have not been fetched or revalidated during scaffolding. The handoff provides titles, URLs, version context and impacts; publication dates and exact bill-of-material applicability require source review. [Hardware findings](../procurement/hardware-compatibility.md) preserve the conclusions.
-
 
 The following manufacturer and standards sources support the research findings recorded during the design discussions. They are references, not substitutes for verifying the final bill of materials.
 
@@ -58,14 +66,13 @@ https://docs.paloaltonetworks.com/ngfw/administration/ngfw-clustering/ngfw-clust
 
 ### Project authoring reference
 
-**REF-011 — Mermaid Best Practices Guide r1.0.5**  
-User-supplied [original Mermaid guide](../mermaid-best-practices-r1.0.5.md), preserved unchanged.
+**REF-011 — Mermaid code conventions, supplied as r1.0.6**
+User-supplied [Mermaid guide](guides/mermaid-best-practices-r1.0.6.md), preserved as imported source material. The previous root-level r1.0.5 guide was intentionally removed. The [project standard](../standards/mermaid-best-practices-r1.0.6.md) supplies the authoritative CSS named-color override. Replacement with an updated guide is tracked in [TODO](../TODO.md).
 
 ### Reference maintenance requirements
 
 For new vendor findings, record the publication title, source URL, applicable hardware/software versions, finding, architectural impact, review date and status.
 
 Maintain external research in `references/vendor-research.md` rather than scattering unsupported claims throughout the repository.
-
 
 For each new or revisited finding, record its stable reference ID, source title/URL, publication date if available, applicable hardware/software/licenses, precise finding, architectural impact, actual review date, reviewer and status. Distinguish the date a finding was imported from the date a vendor source was checked.

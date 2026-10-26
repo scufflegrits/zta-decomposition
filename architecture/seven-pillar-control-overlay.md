@@ -1,13 +1,21 @@
+---
+schema_version: 1
+id: DOC-ARCH-OVERLAY
+title: Seven-pillar control relationships
+document_type: architecture
+parent: ROOT
+lineage:
+- ROOT
+owner: Security Engineering
+owner_status: proposed
+document_status: draft
+implementation_status: unvalidated
+baseline_date: '2026-10-24'
+---
+
 # Seven-pillar control relationships
 
-<!-- zta-doc: id=DOC-ARCH-OVERLAY; parent=ROOT; lineage=ROOT -->
-
-**Owner (proposed):** Security Engineering  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
-
 This logical relationship inventory is the basis for the future overlay diagram. It does not place identity services at either site or imply direct physical connections.
-
 
 The existing logical control overlay was accepted as a useful architecture view.
 
@@ -52,6 +60,5 @@ Re-use these established identifiers across diagrams:
 The overlay must clearly separate network admission, user authentication, privileged elevation, routed reachability, application authorization and data authorization.
 
 Logical relationships should not be mistaken for direct physical cables.
-
 
 Authoritative definitions: [identity workflows](../controls/identity-authentication/overview.md), [network controls](../controls/network-segmentation/overview.md), [MACsec](../controls/macsec/overview.md), and [management isolation](../controls/management-isolation/overview.md). Application, data, automation and visibility details remain in their respective [pillar documents](../README.md#seven-pillars).

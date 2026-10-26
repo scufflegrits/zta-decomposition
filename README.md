@@ -1,14 +1,25 @@
+---
+schema_version: 1
+id: DOC-ZTA-README
+title: Zero Trust Architecture Decomposition
+document_type: navigation
+parent: ROOT
+lineage:
+- ROOT
+owner: Architecture / Security Engineering
+owner_status: proposed
+document_status: draft
+implementation_status: not-applicable
+baseline_date: '2026-10-24'
+---
+
 # Zero Trust Architecture Decomposition
-
-<!-- zta-doc: id=DOC-ZTA-README; parent=ROOT; lineage=ROOT -->
-
-**Owner (proposed):** Architecture / Security Engineering  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
 
 This repository documents a proposed two-site Zero Trust Architecture organized around the seven DoD pillars. It is a reference design, not an as-built configuration or compliance certification.
 
 ## Start here
+
+Browse the complete [document index](index.md) or the [visual taxonomy](taxonomy.md). Outstanding documentation work is tracked in [TODO](TODO.md).
 
 For a self-contained introductory review, read the [ZTA Project Guide](zta-project-guide.md), with network and MACsec traceability diagrams.
 
@@ -60,16 +71,18 @@ Virtualization stays vendor-neutral. MACsec on every wired Ethernet port is a re
 
 `Required` records an established requirement; `Proposed` an unfinished design; `Verify` an unconfirmed capability; `Validated` requires reviewed test evidence. Nothing in this scaffold asserts a validated installation.
 
-From the repository root, run the auditor and its regression tests with Python 3.10 or newer. These checks require only the Python standard library:
+From the repository root, run the auditor and its regression tests with Python 3.10 or newer. Install the Python dependencies once, then run the checks:
 
 ```bash
+python3 -m pip install -r requirements.txt
+python3 tools/generate_index.py --root . --check
 python3 tools/audit_zta.py --root . --report audit-report.md
 python3 -m unittest discover -s tests -v
 ```
 
-See [auditor usage and limits](tools/README.md). The report is generated output. The original [handoff](zta-decomposition-handoff.md) and [Mermaid guide](mermaid-best-practices-r1.0.5.md) are preserved as provenance; the modular documents are the working definitions.
+See [auditor usage and limits](tools/README.md). The report is generated output. The original [handoff](zta-decomposition-handoff.md) and supplied [Mermaid guide](references/guides/mermaid-best-practices-r1.0.6.md) are source references; the modular documents are the working definitions.
 
-Maintain diagrams using the [project Mermaid standard r1.0.6](standards/mermaid-best-practices-r1.0.6.md), including CSS named colors. All four maintained Mermaid blocks rendered successfully to SVG and PNG and were visually reviewed on October 25, 2026. Title/edge crossings remain to be refined before publication, and the intended presentation viewer remains untested. See the [diagram verification record](standards/diagram-verification.md) for scope and findings. The documentation auditor does not parse or render Mermaid, and neither check validates security controls.
+Maintain diagrams using the [project Mermaid standard r1.0.6](standards/mermaid-best-practices-r1.0.6.md), including CSS named colors. The four network and project-guide Mermaid blocks rendered successfully to SVG and PNG and were visually reviewed on October 25, 2026. Title/edge crossings remain to be refined before publication, and the intended presentation viewer remains untested. See the [diagram verification record](standards/diagram-verification.md) for scope and findings, including the taxonomy review. The documentation auditor does not parse or render Mermaid, and neither check validates security controls.
 
 ## Version control
 

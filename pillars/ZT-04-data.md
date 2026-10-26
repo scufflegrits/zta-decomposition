@@ -1,10 +1,20 @@
+---
+schema_version: 1
+id: DOC-ZT-04
+title: ZT-04 — Data
+document_type: pillar
+parent: ZT-04
+lineage:
+- ROOT
+- ZT-04
+owner: Data Security
+owner_status: proposed
+document_status: draft
+implementation_status: unvalidated
+baseline_date: '2026-10-24'
+---
+
 # ZT-04 — Data
-
-<!-- zta-doc: id=DOC-ZT-04; parent=ZT-04; lineage=ROOT>ZT-04 -->
-
-**Owner (proposed):** Data Security  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
 
 **Ancestry:** `ROOT > ZT-04`. [Parent architecture](../README.md#seven-pillars).
 

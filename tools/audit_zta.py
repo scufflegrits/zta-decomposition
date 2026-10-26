@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audit the declared ZTA documentation schema using only the standard library."""
+"""Audit YAML document metadata and declared ZTA documentation relationships."""
 from __future__ import annotations
 
 import argparse
@@ -10,6 +10,11 @@ from pathlib import Path
 import re
 import sys
 from urllib.parse import unquote, urlsplit
+
+if __package__:
+    from .document_metadata import MetadataError, mask_frontmatter, read_frontmatter
+else:
+    from document_metadata import MetadataError, mask_frontmatter, read_frontmatter
 
 IDENTITY_COLUMNS = {'Pillar ID', 'Control ID', 'Requirement ID', 'Test ID', 'Evidence ID', 'Row ID'}
 ID_PATTERN = re.compile(r'[A-Z][A-Z0-9]*(?:-[A-Z0-9]+)*\Z')
@@ -51,6 +56,7 @@ class AuditResult:
     tables: list[Entity] = field(default_factory=list)
     sources: dict[Path, list[str]] = field(default_factory=dict)
     excluded: list[str] = field(default_factory=list)
+    metadata: dict[Path, dict] = field(default_factory=dict)
 
     def error(self, path: Path, line: int, code: str, message: str) -> None:
         self.issues.append(Issue(path, line, code, message))
@@ -71,7 +77,7 @@ def visible_lines(text: str) -> list[str]:
     result = []
     fence = None
     comment = False
-    for line in text.splitlines():
+    for line in mask_frontmatter(text).splitlines():
         match = re.match(r'^\s{0,3}(`{3,}|~{3,})', line)
         if fence:
             if match and match[1][0] == fence[0] and len(match[1]) >= len(fence) and not line[match.end():].strip():
@@ -125,7 +131,6 @@ def parse_meta(result: AuditResult, path: Path, number: int, kind: str, raw: str
 
 
 def parse_document(result: AuditResult, path: Path, lines: list[str]) -> None:
-    doc_count = 0
     covered_headers = set()
     for i, line in enumerate(lines):
         match = META.fullmatch(line)
@@ -134,15 +139,13 @@ def parse_document(result: AuditResult, path: Path, lines: list[str]) -> None:
                 result.error(path, i + 1, 'metadata', 'Malformed ZTA metadata comment')
             continue
         kind, raw = match.groups()
-        entity = parse_meta(result, path, i + 1, kind, raw)
         if kind == 'doc':
-            doc_count += 1
+            result.error(path, i + 1, 'document-metadata', 'Legacy zta-doc declaration; use YAML frontmatter only')
+            continue
+        entity = parse_meta(result, path, i + 1, kind, raw)
         if entity is None:
             continue
         result.define(entity)
-        if kind == 'doc':
-            result.documents[path] = entity
-            continue
         result.tables.append(entity)
         header_at = i + 1
         while header_at < len(lines) and not lines[header_at].strip():
@@ -178,8 +181,6 @@ def parse_document(result: AuditResult, path: Path, lines: list[str]) -> None:
                 result.error(path, row_at + 1, 'status', f'Unsupported status: {row["Status"]!r}')
         if not row_count:
             result.error(path, header_at + 1, 'empty-table', 'Traceable table has no entity rows')
-    if doc_count != 1:
-        result.error(path, 1, 'document-metadata', f'Expected one zta-doc declaration; found {doc_count}')
     for i in range(len(lines) - 1):
         if '|' in lines[i] and is_separator(lines[i + 1]):
             if IDENTITY_COLUMNS.intersection(cells(lines[i])) and i not in covered_headers:
@@ -232,6 +233,7 @@ def local_target(result: AuditResult, path: Path, number: int, destination: str)
 
 
 def anchors(text: str) -> set[str]:
+    text = mask_frontmatter(text)
     seen: dict[str, int] = {}
     result = set(re.findall(r'<(?:a|h[1-6])\b[^>]*\bid=["\']([^"\']+)', text))
     # Fenced code must not contribute headings; keep inline-code heading text.
@@ -285,11 +287,20 @@ def audit(root: Path, report: Path | None = None) -> AuditResult:
             result.error(path, 1, 'outside-root', 'Markdown symlink escapes repository')
             continue
         try:
-            lines = visible_lines(path.read_text(encoding='utf-8'))
+            text = path.read_text(encoding='utf-8')
+            lines = visible_lines(text)
         except (OSError, UnicodeError) as exc:
             result.error(path, 1, 'read', str(exc))
             continue
         result.sources[path] = lines
+        try:
+            metadata = read_frontmatter(text)
+            result.metadata[path] = metadata
+            document = Entity(metadata['id'], metadata['parent'], 'doc', path, 1, '>'.join(metadata['lineage']))
+            result.define(document)
+            result.documents[path] = document
+        except MetadataError as exc:
+            result.error(path, exc.line, 'document-metadata', str(exc))
         parse_document(result, path, lines)
     if not result.sources:
         result.error(root, 1, 'empty-repository', 'No managed Markdown documents found')

@@ -1,10 +1,20 @@
+---
+schema_version: 1
+id: DOC-ZT-05
+title: ZT-05 — Network & Environment
+document_type: pillar
+parent: ZT-05
+lineage:
+- ROOT
+- ZT-05
+owner: Network Engineering
+owner_status: proposed
+document_status: draft
+implementation_status: unvalidated
+baseline_date: '2026-10-24'
+---
+
 # ZT-05 — Network & Environment
-
-<!-- zta-doc: id=DOC-ZT-05; parent=ZT-05; lineage=ROOT>ZT-05 -->
-
-**Owner (proposed):** Network Engineering  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
 
 **Ancestry:** `ROOT > ZT-05`. [Parent architecture](../README.md#seven-pillars).
 

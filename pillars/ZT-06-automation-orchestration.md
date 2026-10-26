@@ -1,10 +1,20 @@
+---
+schema_version: 1
+id: DOC-ZT-06
+title: ZT-06 — Automation & Orchestration
+document_type: pillar
+parent: ZT-06
+lineage:
+- ROOT
+- ZT-06
+owner: Security Engineering
+owner_status: proposed
+document_status: draft
+implementation_status: unvalidated
+baseline_date: '2026-10-24'
+---
+
 # ZT-06 — Automation & Orchestration
-
-<!-- zta-doc: id=DOC-ZT-06; parent=ZT-06; lineage=ROOT>ZT-06 -->
-
-**Owner (proposed):** Security Engineering  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
 
 **Ancestry:** `ROOT > ZT-06`. [Parent architecture](../README.md#seven-pillars).
 

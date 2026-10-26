@@ -1,13 +1,27 @@
+---
+schema_version: 1
+id: DOC-TOOLS-AUDIT
+title: ZTA documentation auditor
+document_type: tooling
+parent: ROOT
+lineage:
+- ROOT
+owner: Documentation Engineering
+owner_status: proposed
+document_status: draft
+implementation_status: not-applicable
+baseline_date: '2026-10-24'
+---
+
 # ZTA documentation auditor
 
-<!-- zta-doc: id=DOC-TOOLS-AUDIT; parent=ROOT; lineage=ROOT -->
-
-**Owner (proposed):** Documentation Engineering  
 **Status:** Implemented documentation integrity utility; does not validate security configuration
 
-Run from the repository root with Python 3.10 or newer. No third-party packages are required.
+Run from the repository root with Python 3.10 or newer. YAML frontmatter parsing requires PyYAML, declared in `requirements.txt`. Install it in your preferred Python environment:
 
 ```bash
+python3 -m pip install -r requirements.txt
+python3 tools/generate_index.py --root . --check
 python3 tools/audit_zta.py --root . --report audit-report.md
 python3 -m unittest discover -s tests -v
 ```
@@ -16,7 +30,8 @@ python3 -m unittest discover -s tests -v
 
 ## Declared checks
 
-- Recursively require one document metadata declaration per managed Markdown file.
+- Recursively require one schema-valid YAML frontmatter block at the beginning of each managed Markdown file; reject legacy `zta-doc` declarations, duplicate keys, unsupported fields/types/statuses and malformed dates.
+- Preserve original body line numbers and ignore frontmatter when discovering links, entity tables and heading anchors.
 - Reject duplicate IDs across documents, tables and traceable rows, malformed metadata, missing parents, cycles, incorrect lineage and invalid pillar/control/requirement/test/evidence levels.
 - Require traceable table metadata, consistent row parents and column counts, and compatible document/table scopes. Metadata without an adjacent table is an orphan.
 - Check relative Markdown links and heading fragments, including images, full reference-style links, angle-bracket destinations with spaces, and one level of parentheses in ordinary destinations.
@@ -25,10 +40,16 @@ python3 -m unittest discover -s tests -v
 
 See [documentation conventions](../standards/documentation-conventions.md) for the metadata schema. Fixtures exercise valid hierarchies, deliberate duplicates, missing parents, cycles, scope errors, malformed metadata, broken links, missing decomposition, unrelated/missing evidence and CLI exit behavior.
 
+## Document index generation
+
+Run `python3 tools/generate_index.py --root .` after adding, moving, removing or changing metadata on a document. The generator uses auditor discovery, groups maintained files by `document_type`, lists source imports separately and includes itself through this tooling document. `index.md`, `taxonomy.md` and `TODO.md` are cataloged like other maintained documents. Generated report files are described by path without requiring local output to exist in a fresh checkout.
+
+Use `--check` for a read-only freshness check; a missing or stale index returns 1. Successful generation/check returns 0; an output read/write error returns 2. Source integrity errors prevent generation. The standalone auditor does not check index freshness, so run both commands before review. The index body is generated; the taxonomy is maintained by hand.
+
 ## Scope and limits
 
-`audit-config.json` contains explicit relative-path exclusion patterns. The original handoff and Mermaid guide are preserved imports with example IDs and unavailable supplemental links; their internal examples are excluded. Links from managed files to these imports still require an existing target and a valid heading when a fragment is used. The generated `audit-report.md` is also excluded. Every matching Markdown file is listed in the report. Files under `.git`, `.agents`, `.codex`, `.aws`, `.venv`, `node_modules` and `__pycache__` are not documentation inputs.
+`audit-config.json` contains explicit relative-path exclusion patterns. The original handoff and supplied guides under `references/guides/` are source imports with example IDs and potentially unavailable supplemental links; their internal examples are excluded. Links from managed files to these imports still require an existing target and a valid heading when a fragment is used. The generated `audit-report.md` is also excluded. Every matching Markdown file is listed in the report. Files under `.git`, `.agents`, `.codex`, `.aws`, `.venv`, `node_modules` and `__pycache__` are not documentation inputs.
 
-The supported authoring subset uses ATX headings (`# Heading`), pipe tables, one-line ZTA metadata comments, inline links, images and full/collapsed reference links. Fenced code, inline code and ordinary HTML comments are ignored when discovering declarations and links. Bare URLs, shortcut reference links, arbitrary HTML links, setext headings and advanced Markdown extensions are not audited. Escape table pipes with a backslash. The tool checks local targets and heading anchors without network requests; external URLs and evidence contents are not verified.
+The supported authoring subset uses ATX headings (`# Heading`), pipe tables, YAML document frontmatter, one-line `zta-table` comments, inline links, images and full/collapsed reference links. Fenced code, inline code and ordinary HTML comments are ignored when discovering declarations and links. Bare URLs, shortcut reference links, arbitrary HTML links, setext headings and advanced Markdown extensions are not audited. Escape table pipes with a backslash. The tool checks local targets and heading anchors without network requests; external URLs and evidence contents are not verified.
 
 Only explicit `References` and `Decomposition` columns create machine-checkable architecture references or promises of decomposition. The auditor cannot infer unstated relationships from prose, determine missing engineering requirements, verify source currency, parse/render Mermaid, certify cryptography, or confirm physical isolation. A clean report is evidence of documentation consistency within this declared scope.

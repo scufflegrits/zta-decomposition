@@ -1,10 +1,19 @@
+---
+schema_version: 1
+id: DOC-ARCH-QUESTIONS
+title: Open engineering questions
+document_type: architecture
+parent: ROOT
+lineage:
+- ROOT
+owner: Architecture / all pillar owners
+owner_status: proposed
+document_status: draft
+implementation_status: unvalidated
+baseline_date: '2026-10-24'
+---
+
 # Open engineering questions
-
-<!-- zta-doc: id=DOC-ARCH-QUESTIONS; parent=ROOT; lineage=ROOT -->
-
-**Owner (proposed):** Architecture / all pillar owners  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
 
 The following details require additional specification.
 
@@ -25,6 +34,5 @@ The following details require additional specification.
 | Encryption | What cipher suites, key management and compliance requirements are mandated? |
 
 These unknowns should not be filled in by assumption.
-
 
 Record answers with a source, responsible reviewer and resulting decision or requirement. Unknowns must not become assumed inventory or supported capabilities.

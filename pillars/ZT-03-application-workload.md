@@ -1,10 +1,20 @@
+---
+schema_version: 1
+id: DOC-ZT-03
+title: ZT-03 — Application & Workload
+document_type: pillar
+parent: ZT-03
+lineage:
+- ROOT
+- ZT-03
+owner: Systems/Virtualization
+owner_status: proposed
+document_status: draft
+implementation_status: unvalidated
+baseline_date: '2026-10-24'
+---
+
 # ZT-03 — Application & Workload
-
-<!-- zta-doc: id=DOC-ZT-03; parent=ZT-03; lineage=ROOT>ZT-03 -->
-
-**Owner (proposed):** Systems/Virtualization  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
 
 **Ancestry:** `ROOT > ZT-03`. [Parent architecture](../README.md#seven-pillars).
 

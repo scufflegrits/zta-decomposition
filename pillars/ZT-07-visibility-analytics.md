@@ -1,10 +1,20 @@
+---
+schema_version: 1
+id: DOC-ZT-07
+title: ZT-07 — Visibility & Analytics
+document_type: pillar
+parent: ZT-07
+lineage:
+- ROOT
+- ZT-07
+owner: SOC/Detection Engineering
+owner_status: proposed
+document_status: draft
+implementation_status: unvalidated
+baseline_date: '2026-10-24'
+---
+
 # ZT-07 — Visibility & Analytics
-
-<!-- zta-doc: id=DOC-ZT-07; parent=ZT-07; lineage=ROOT>ZT-07 -->
-
-**Owner (proposed):** SOC/Detection Engineering  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
 
 **Ancestry:** `ROOT > ZT-07`. [Parent architecture](../README.md#seven-pillars).
 

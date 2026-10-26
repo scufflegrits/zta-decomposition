@@ -1,10 +1,19 @@
+---
+schema_version: 1
+id: DOC-ARCH-PHYSICAL
+title: Two-site physical topology
+document_type: architecture
+parent: ROOT
+lineage:
+- ROOT
+owner: Network Engineering
+owner_status: proposed
+document_status: draft
+implementation_status: unvalidated
+baseline_date: '2026-10-24'
+---
+
 # Two-site physical topology
-
-<!-- zta-doc: id=DOC-ARCH-PHYSICAL; parent=ROOT; lineage=ROOT -->
-
-**Owner (proposed):** Network Engineering  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
 
 This preserves the handoff's required device order. Site A is above Site B. Nodes summarize equipment classes; they are not a bill of materials. Management lines represent local attachment only, not routing through the ISR.
 

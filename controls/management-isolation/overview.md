@@ -1,10 +1,21 @@
+---
+schema_version: 1
+id: DOC-CTRL-MGMT
+title: Local management isolation
+document_type: control
+parent: NET-06
+lineage:
+- ROOT
+- ZT-05
+- NET-06
+owner: Network Engineering / Systems
+owner_status: proposed
+document_status: draft
+implementation_status: unvalidated
+baseline_date: '2026-10-24'
+---
+
 # Local management isolation
-
-<!-- zta-doc: id=DOC-CTRL-MGMT; parent=NET-06; lineage=ROOT>ZT-05>NET-06 -->
-
-**Owner (proposed):** Network Engineering / Systems  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
 
 **Ancestry:** `ROOT > ZT-05 > NET-06`. [Parent pillar](../../pillars/ZT-05-network-environment.md).
 

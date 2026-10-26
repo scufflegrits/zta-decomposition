@@ -1,13 +1,23 @@
+---
+schema_version: 1
+id: DOC-PROC-MAC
+title: MACsec equipment assessment
+document_type: procurement
+parent: NET-04
+lineage:
+- ROOT
+- ZT-05
+- NET-04
+owner: Procurement / Network Engineering
+owner_status: proposed
+document_status: draft
+implementation_status: unvalidated
+baseline_date: '2026-10-24'
+---
+
 # MACsec equipment assessment
 
-<!-- zta-doc: id=DOC-PROC-MAC; parent=NET-04; lineage=ROOT>ZT-05>NET-04 -->
-
-**Owner (proposed):** Procurement / Network Engineering  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
-
 [Parent control](../controls/macsec/overview.md); [requirements](../controls/macsec/requirements.md).
-
 
 Require vendors to answer the following for exact hardware models, software releases and licensing:
 
@@ -30,7 +40,6 @@ Require vendors to answer the following for exact hardware models, software rele
 **Endpoint support:** Are Windows 11, RHEL 9, and generic virtualization-host uplinks compatible with the intended MACsec design?
 
 **Acceptance:** Can the vendor demonstrate a proof of concept with the exact equipment and configuration before procurement approval?
-
 
 ## Required assessment record
 

@@ -1,10 +1,21 @@
+---
+schema_version: 1
+id: DOC-MAC-OVERVIEW
+title: MACsec control overview
+document_type: control
+parent: NET-04
+lineage:
+- ROOT
+- ZT-05
+- NET-04
+owner: Network Engineering / Endpoint Engineering
+owner_status: proposed
+document_status: draft
+implementation_status: unvalidated
+baseline_date: '2026-10-24'
+---
+
 # MACsec control overview
-
-<!-- zta-doc: id=DOC-MAC-OVERVIEW; parent=NET-04; lineage=ROOT>ZT-05>NET-04 -->
-
-**Owner (proposed):** Network Engineering / Endpoint Engineering  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
 
 **Ancestry:** `ROOT > ZT-05 > NET-04`. [Parent pillar](../../pillars/ZT-05-network-environment.md).
 

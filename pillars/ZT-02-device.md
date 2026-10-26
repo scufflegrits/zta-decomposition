@@ -1,10 +1,20 @@
+---
+schema_version: 1
+id: DOC-ZT-02
+title: ZT-02 — Device
+document_type: pillar
+parent: ZT-02
+lineage:
+- ROOT
+- ZT-02
+owner: Endpoint Engineering
+owner_status: proposed
+document_status: draft
+implementation_status: unvalidated
+baseline_date: '2026-10-24'
+---
+
 # ZT-02 — Device
-
-<!-- zta-doc: id=DOC-ZT-02; parent=ZT-02; lineage=ROOT>ZT-02 -->
-
-**Owner (proposed):** Endpoint Engineering  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
 
 **Ancestry:** `ROOT > ZT-02`. [Parent architecture](../README.md#seven-pillars).
 

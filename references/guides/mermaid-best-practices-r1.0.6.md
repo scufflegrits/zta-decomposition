@@ -286,6 +286,8 @@ Rules:
 - **It must be the diagram's first line.** Nothing goes above the opening `---`,
   not even a `%%` comment.
 - **Indent nested settings two spaces** under their parent, with spaces only.
+- **Prefer CSS named colors** when they provide the intended appearance, for
+  readability and maintainability. Use hex colors when precise colors are necessary.
 - **Quote hex colors.** `background: #0b1120` parses as an empty value followed by a
   comment. Named CSS colors such as `white` need no quotes.
 - **Requires Mermaid 10.5 or newer.** An older renderer does not report an error; it
@@ -580,13 +582,20 @@ check that layout helpers remain invisible afterward.
 
 ### Choosing a palette
 
+Use CSS named colors when they provide the intended appearance, for readability
+and maintainability. Retain hex colors where precise colors are necessary, such as
+an exact brand palette or the starter template's custom dark palette. Apply this
+rule to theme variables, class definitions, and export backgrounds.
+
 Hard-coded fills and text colors must remain readable together in light and dark
 exports. A theme switch does not automatically redesign explicit `classDef` colors.
 Pick one of two strategies per diagram:
 
 - **Dark canvas** (the starter template). Set `darkMode: true` and a dark
-  `background`, use quoted hex colors, and pair each fill with light text. Export
-  with `-b '#0b1120'` so the canvas matches.
+  `background`, and pair each fill with light text. Use CSS named colors when they
+  provide the intended appearance; use hex for precise custom colors and quote
+  them in YAML. Export with a matching background (`-b '#0b1120'` for the starter
+  template).
 - **Light card** (the MLB bracket). Pin `background: white`, use named CSS colors
   such as `lavender` and `slateblue` for pale fills, strong strokes, and dark text,
   and fill every subgraph white through its group class. Subgraph titles use dark
@@ -974,6 +983,10 @@ purpose (see [emoji in labels](#emoji-in-labels)).
 | 📌 | `U+1F4CC` | Important reference |
 
 ## Revision history
+
+**r1.0.6 (Oct. 25, 2026).** Prefer CSS named colors when they provide the intended
+appearance, for readability and maintainability. Retain hex colors where precise
+colors are necessary; clarify that this applies to light and dark palettes.
 
 **r1.0.5 (Oct. 24, 2026).** New [emoji in labels](#emoji-in-labels) section and
 [emoji vocabulary](#appendix-emoji-vocabulary-for-diagrams) appendix, self-contained

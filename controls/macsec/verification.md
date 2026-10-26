@@ -1,10 +1,21 @@
+---
+schema_version: 1
+id: DOC-MAC-VERIFY
+title: MACsec verification plan
+document_type: verification
+parent: NET-04
+lineage:
+- ROOT
+- ZT-05
+- NET-04
+owner: Network / Endpoint Engineering
+owner_status: proposed
+document_status: draft
+implementation_status: unvalidated
+baseline_date: '2026-10-24'
+---
+
 # MACsec verification plan
-
-<!-- zta-doc: id=DOC-MAC-VERIFY; parent=NET-04; lineage=ROOT>ZT-05>NET-04 -->
-
-**Owner (proposed):** Network / Endpoint Engineering  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
 
 **Ancestry:** `ROOT > ZT-05 > NET-04`. [Parent control](overview.md); [requirements](requirements.md).
 

@@ -1,10 +1,19 @@
+---
+schema_version: 1
+id: DOC-ARCH-LOGICAL
+title: Site-local VLAN and virtualization design
+document_type: architecture
+parent: ROOT
+lineage:
+- ROOT
+owner: Network Engineering / Systems
+owner_status: proposed
+document_status: draft
+implementation_status: unvalidated
+baseline_date: '2026-10-24'
+---
+
 # Site-local VLAN and virtualization design
-
-<!-- zta-doc: id=DOC-ARCH-LOGICAL; parent=ROOT; lineage=ROOT -->
-
-**Owner (proposed):** Network Engineering / Systems  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
 
 This view illustrates the logical design pattern for each site. VLAN IDs, subnet assignments, exact virtual-network attachments and the traffic matrix are not yet specified.
 

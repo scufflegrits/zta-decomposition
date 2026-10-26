@@ -1,10 +1,19 @@
+---
+schema_version: 1
+id: DOC-ADR-INDEX
+title: Architecture decision index
+document_type: navigation
+parent: ROOT
+lineage:
+- ROOT
+owner: Architecture
+owner_status: proposed
+document_status: draft
+implementation_status: not-applicable
+baseline_date: '2026-10-24'
+---
+
 # Architecture decision index
-
-<!-- zta-doc: id=DOC-ADR-INDEX; parent=ROOT; lineage=ROOT -->
-
-**Owner (proposed):** Architecture  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
 
 ADR-001 through ADR-013 preserve the identifiers and statuses in the handoff. Required means an established architecture constraint; it does not mean the implementation was tested. ADR-009 remains Proposed.
 

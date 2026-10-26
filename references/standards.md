@@ -1,10 +1,19 @@
+---
+schema_version: 1
+id: DOC-REF-STANDARDS
+title: Standards and framework references
+document_type: reference
+parent: ROOT
+lineage:
+- ROOT
+owner: Security Architecture
+owner_status: proposed
+document_status: draft
+implementation_status: unvalidated
+baseline_date: '2026-10-24'
+---
+
 # Standards and framework references
-
-<!-- zta-doc: id=DOC-REF-STANDARDS; parent=ROOT; lineage=ROOT -->
-
-**Owner (proposed):** Security Architecture  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
 
 The seven DoD pillars organize the repository; NIST SP 800-207 complements them with resource-oriented policy decisions and enforcement. These are architecture references, not certification claims.
 

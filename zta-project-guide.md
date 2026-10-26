@@ -1,10 +1,21 @@
+---
+schema_version: 1
+id: DOC-ZTA-GUIDE
+title: ZTA Project Guide — Layout, Flow and Engineering Traceability
+document_type: guide
+parent: ROOT
+lineage:
+- ROOT
+owner: Architecture / Security Engineering
+owner_status: proposed
+document_status: draft
+implementation_status: unvalidated
+baseline_date: '2026-10-24'
+---
+
 # ZTA Project Guide — Layout, Flow and Engineering Traceability
 
-<!-- zta-doc: id=DOC-ZTA-GUIDE; parent=ROOT; lineage=ROOT -->
-
 **Audience:** Junior engineers through chief engineers  
-**Baseline:** October 24, 2026  
-**Status:** Proposed reference architecture; equipment integrations and tests are unvalidated
 
 ## The project in one minute
 

@@ -1,10 +1,21 @@
+---
+schema_version: 1
+id: DOC-MAC-REQ
+title: MACsec requirements
+document_type: requirements
+parent: NET-04
+lineage:
+- ROOT
+- ZT-05
+- NET-04
+owner: Network Engineering
+owner_status: proposed
+document_status: draft
+implementation_status: unvalidated
+baseline_date: '2026-10-24'
+---
+
 # MACsec requirements
-
-<!-- zta-doc: id=DOC-MAC-REQ; parent=NET-04; lineage=ROOT>ZT-05>NET-04 -->
-
-**Owner (proposed):** Network Engineering  
-**Document status:** Proposed reference architecture; implementation unvalidated  
-**Baseline:** October 24, 2026
 
 **Ancestry:** `ROOT > ZT-05 > NET-04`. [Parent control](overview.md).
 

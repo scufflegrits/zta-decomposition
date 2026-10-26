@@ -1,4 +1,4 @@
-"""Behavior tests for broken and valid documentation fixtures, without dependencies."""
+"""Behavior tests for broken and valid documentation fixtures, with YAML document metadata."""
 from pathlib import Path
 import json
 import subprocess
@@ -7,9 +7,18 @@ import tempfile
 import unittest
 
 from tools.audit_zta import audit, render_report
+from tools.document_metadata import frontmatter
+from tools.generate_index import main as generate_index, INDEX_METADATA
 
 
-DOC = '<!-- zta-doc: id=DOC-FIXTURE; parent=ROOT; lineage=ROOT -->\n'
+def document(doc_id='DOC-FIXTURE', parent='ROOT', lineage=None):
+    return frontmatter(dict(schema_version=1, id=doc_id, title='Fixture',
+        document_type='architecture', parent=parent, lineage=lineage or ['ROOT'],
+        owner='Architecture', owner_status='proposed', document_status='draft',
+        implementation_status='unvalidated', baseline_date='2026-10-24'))
+
+
+DOC = document()
 
 
 def table(table_id, parent, lineage, identity, rows, extras=()):
@@ -80,8 +89,7 @@ class AuditorTests(unittest.TestCase):
 
     def test_table_outside_document_scope(self):
         text = hierarchy() + table('TBL-OTHER', 'ROOT', 'ROOT', 'Pillar ID', [['ROOT', 'ZT-01']])
-        text = text.replace('id=DOC-FIXTURE; parent=ROOT; lineage=ROOT',
-                            'id=DOC-FIXTURE; parent=ZT-01; lineage=ROOT>ZT-01')
+        text = text.replace(DOC, document(parent='ZT-01', lineage=['ROOT', 'ZT-01']))
         self.assertIn('document-table-scope', self.codes(text))
 
     def test_malformed_url_is_reported_without_crashing(self):
@@ -133,7 +141,7 @@ class AuditorTests(unittest.TestCase):
     def test_decomposition_document_parent(self):
         text = hierarchy() + table('TBL-MORE', 'NET-04', 'ROOT>ZT-05>NET-04', 'Requirement ID', [['NET-04', 'MAC-002', '[detail](detail.md)']], ['Decomposition'])
         child = self.root / 'detail.md'
-        child.write_text('<!-- zta-doc: id=DOC-DETAIL; parent=MAC-001; lineage=ROOT>ZT-05>NET-04>MAC-001 -->\n')
+        child.write_text(document('DOC-DETAIL', 'MAC-001', ['ROOT', 'ZT-05', 'NET-04', 'MAC-001']))
         self.assertIn('decomposition', self.codes(text))
         child.write_text(child.read_text().replace('MAC-001', 'MAC-002'))
         self.assertEqual(set(), self.codes(text))
@@ -165,7 +173,7 @@ class AuditorTests(unittest.TestCase):
         self.assertIn('evidence-record', self.codes(text))
 
     def test_malformed_metadata_and_row_width(self):
-        self.assertIn('metadata', self.codes(DOC.replace('lineage=ROOT', 'lineage=ROOT; parent=ROOT')))
+        self.assertIn('metadata', self.codes(DOC + '<!-- zta-table: id=TBL-BAD; parent=ROOT; lineage=ROOT; parent=ROOT -->\n'))
         self.assertIn('table-schema', self.codes(hierarchy().replace('| NET-04 | MAC-001 |', '| NET-04 | MAC-001 | extra |')))
 
     def test_exclusions_are_explicit_in_report(self):
@@ -198,6 +206,108 @@ class AuditorTests(unittest.TestCase):
         bad = subprocess.run(command, text=True, capture_output=True)
         self.assertEqual(1, bad.returncode)
         self.assertIn('broken-link', report.read_text())
+
+    def test_frontmatter_schema_errors(self):
+        invalid = [
+            DOC.replace('schema_version: 1', 'schema_version: true'),
+            DOC.replace('schema_version: 1', 'schema_version: 2'),
+            DOC.replace('owner_status: proposed', 'owner_status: unknown'),
+            DOC.replace('document_status: draft', 'document_status: validated'),
+            DOC.replace('implementation_status: unvalidated', 'implementation_status: validated'),
+            DOC.replace('document_type: architecture', 'document_type: hardware'),
+            DOC.replace('owner: Architecture', 'owner: []'),
+            DOC.replace('title: Fixture', 'title: ""'),
+            DOC.replace('parent: ROOT', 'parent: []'),
+            DOC.replace('lineage:\n- ROOT', 'lineage: ROOT'),
+            DOC.replace('lineage:\n- ROOT', 'lineage: []'),
+            DOC.replace('lineage:\n- ROOT', 'lineage: [ROOT, 12]'),
+            DOC.replace("baseline_date: '2026-10-24'", 'baseline_date: "2026-02-30"'),
+            DOC.replace("baseline_date: '2026-10-24'", 'baseline_date: 2026-10-24'),
+            DOC.replace('owner: Architecture', 'owner: Architecture\nowner: Other'),
+            DOC.replace('owner: Architecture', 'owner: Architecture\nextra: value'),
+            DOC.replace('owner: Architecture\n', ''),
+            DOC.replace('owner: Architecture', 'owner: [broken'),
+            DOC.replace('owner: Architecture', 'owner: !!python/object:example {}'),
+            DOC.rstrip().removesuffix('---'),
+            '\n' + DOC,
+        ]
+        for text in invalid:
+            with self.subTest(text=text):
+                self.assertIn('document-metadata', self.codes(text))
+
+    def test_frontmatter_ancestry(self):
+        text = hierarchy().replace(DOC, document(parent='NET-04', lineage=['ROOT', 'NET-04']))
+        self.assertIn('lineage', self.codes(text))
+        self.assertIn('missing-parent', self.codes(document(parent='NET-99')))
+
+    def test_legacy_document_metadata_is_rejected(self):
+        self.assertIn('document-metadata', self.codes(DOC + '<!-- zta-doc: id=DOC-OLD; parent=ROOT; lineage=ROOT -->\n'))
+
+    def test_frontmatter_does_not_create_links_or_heading_anchors(self):
+        text = DOC.replace('title: Fixture', 'title: "# [metadata](absent.md)"')
+        result = self.run_audit(text + '# Body\n[bad](#metadataabsentmd)\n')
+        self.assertEqual({'broken-anchor'}, {issue.code for issue in result.issues})
+        self.assertEqual(len((text + '# Body\n').splitlines()) + 1, result.issues[0].line)
+
+    def prepare_catalog(self):
+        # Catalog navigation targets exist in a real project.
+        for name, doc_id in [('taxonomy.md', 'DOC-TAXONOMY'), ('zta-project-guide.md', 'DOC-GUIDE')]:
+            (self.root / name).write_text(document(doc_id))
+        (self.root / 'index.md').write_text(frontmatter(INDEX_METADATA) + '# Document index\n')
+        (self.root / 'import.md').write_text('Imported source')
+        (self.root / 'audit-config.json').write_text(json.dumps({'exclude': ['import.md', 'audit-report.md']}))
+        return ['--root', str(self.root)]
+
+    def test_index_generation_and_freshness(self):
+        args = self.prepare_catalog()
+        self.assertEqual(1, generate_index(args + ['--check']))
+        self.assertEqual(0, generate_index(args))
+        self.assertEqual(0, generate_index(args + ['--check']))
+        output = (self.root / 'index.md').read_text()
+        for name in ['README.md', 'index.md', 'taxonomy.md', 'zta-project-guide.md', 'import.md']:
+            self.assertIn(f']({name})', output)
+        self.assertEqual([], self.run_audit().issues)
+        (self.root / 'audit-report.md').write_text('Generated output')
+        self.assertEqual(0, generate_index(args + ['--check']))
+        (self.root / 'new.md').write_text(document('DOC-NEW'))
+        self.assertEqual(1, generate_index(args + ['--check']))
+        self.assertEqual(0, generate_index(args))
+        (self.root / 'new.md').unlink()
+        self.assertEqual(1, generate_index(args + ['--check']))
+        self.assertEqual(0, generate_index(args))
+        self.path.write_text(self.path.read_text().replace('title: Fixture', 'title: Changed'))
+        self.assertEqual(1, generate_index(args + ['--check']))
+
+    def test_index_bootstrap_and_source_error(self):
+        args = self.prepare_catalog()
+        (self.root / 'index.md').unlink()
+        self.path.write_text(self.path.read_text() + '\n[Index](index.md)\n')
+        self.assertEqual(1, generate_index(args + ['--check']))
+        self.assertEqual(0, generate_index(args))
+        self.path.write_text(self.path.read_text() + '\n[bad](absent.md)\n')
+        self.assertEqual(1, generate_index(args))
+
+    def test_index_repairs_generated_body_without_hiding_id_conflicts(self):
+        args = self.prepare_catalog()
+        index = self.root / 'index.md'
+        index.write_text(index.read_text() + '\n[stale](removed.md)\n')
+        self.assertEqual(0, generate_index(args))
+        self.assertNotIn('removed.md', index.read_text())
+        self.path.write_text(self.path.read_text().replace('DOC-FIXTURE', INDEX_METADATA['id']))
+        self.assertEqual(1, generate_index(args))
+
+    def test_index_updates_after_move_and_escapes_labels(self):
+        args = self.prepare_catalog()
+        source = self.root / 'notes draft.md'
+        source.write_text(document('DOC-NOTES').replace('title: Fixture', 'title: "Ports | [notes]"'))
+        self.assertEqual(0, generate_index(args))
+        output = (self.root / 'index.md').read_text()
+        self.assertIn('Ports \\| \\[notes\\]', output)
+        self.assertIn('](notes%20draft.md)', output)
+        source.rename(self.root / 'notes.md')
+        self.assertEqual(1, generate_index(args + ['--check']))
+        self.assertEqual(0, generate_index(args))
+        self.assertEqual([], self.run_audit().issues)
 
 
 if __name__ == '__main__':
