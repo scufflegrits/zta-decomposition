@@ -123,6 +123,7 @@ The [ZTA Project Mermaid Standard](standards/mermaid-best-practices-zta.md) is a
 
 | Document | ID | Owner (ownership status) | Document status |
 |---|---|---|---|
+| [Numbered directory restructure implementation instructions](request-restructure-r1.0.4.md) | DOC-ZTA-RESTRUCTURE-INSTRUCTIONS | Documentation Engineering (proposed) | superseded |
 | [Diagram verification record](standards/diagram-verification.md) | DOC-STD-RENDERS | Documentation Engineering (proposed) | draft |
 | [Documentation and traceability conventions](standards/documentation-conventions.md) | DOC-STD-DOCS | Documentation Engineering (proposed) | draft |
 | [Implementation and customer acceptance records](standards/implementation-acceptance.md) | DOC-STD-DELIVERY | Architecture / Security Engineering (proposed) | draft |
@@ -140,6 +141,14 @@ The [ZTA Project Mermaid Standard](standards/mermaid-best-practices-zta.md) is a
 | Document | ID | Owner (ownership status) | Document status |
 |---|---|---|---|
 | [Documentation TODO](TODO.md) | DOC-ZTA-TODO | Documentation Engineering (proposed) | draft |
+| [Numbered directory restructure working plan](request-restructure-r1.0.1.md) | DOC-ZTA-RESTRUCTURE-R101 | Documentation Engineering (proposed) | superseded |
+| [Numbered directory restructure working plan](request-restructure-r1.0.2.md) | DOC-ZTA-RESTRUCTURE-R102 | Documentation Engineering (proposed) | superseded |
+| [Directory restructure r1.0.3 recommendations](request-restructure-r1.0.3.md) | DOC-ZTA-RESTRUCTURE-REVIEW-R103 | Documentation Engineering (proposed) | superseded |
+| [Numbered directory restructure implementation instructions](request-restructure-r1.0.5.md) | DOC-ZTA-RESTRUCTURE-R105 | Documentation Engineering (proposed) | superseded |
+| [Numbered directory restructure implementation instructions](request-restructure-r1.0.6.md) | DOC-ZTA-RESTRUCTURE-R106 | Documentation Engineering (proposed) | superseded |
+| [Numbered directory restructure implementation instructions](request-restructure-r1.0.7.md) | DOC-ZTA-REQUEST-RESTRUCTURE | Documentation Engineering (proposed) | in-review |
+| [Numbered directory restructure working plan](request-restructure.md) | DOC-ZTA-RESTRUCTURE-R100 | Documentation Engineering (proposed) | superseded |
+| [Numbered directory restructure revision log](restructure-revision-log.md) | DOC-ZTA-RESTRUCTURE-REVISION-LOG | Documentation Engineering (proposed) | in-review |
 
 ## Implementation
 

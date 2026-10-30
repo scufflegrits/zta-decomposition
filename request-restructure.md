@@ -1,13 +1,13 @@
 ---
 schema_version: 1
-id: DOC-ZTA-REQUEST-RESTRUCTURE
+id: DOC-ZTA-RESTRUCTURE-R100
 title: Numbered directory restructure working plan
 document_type: backlog
 parent: ROOT
 lineage: [ROOT]
 owner: Documentation Engineering
 owner_status: proposed
-document_status: draft
+document_status: superseded
 implementation_status: not-applicable
 baseline_date: '2026-10-30'
 ---

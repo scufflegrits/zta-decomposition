@@ -330,11 +330,18 @@ class AuditorTests(unittest.TestCase):
 
     def prepare_catalog(self):
         # Catalog navigation targets exist in a real project.
-        for name, doc_id in [('taxonomy.md', 'DOC-TAXONOMY'), ('zta-project-guide.md', 'DOC-GUIDE')]:
+        for name, doc_id in [('taxonomy.md', 'DOC-TAXONOMY'), ('zta-project-guide.md', 'DOC-GUIDE'),
+                             ('standards/mermaid-best-practices-zta.md', 'DOC-MERMAID')]:
+            (self.root / name).parent.mkdir(parents=True, exist_ok=True)
             (self.root / name).write_text(document(doc_id))
         (self.root / 'index.md').write_text(frontmatter(INDEX_METADATA) + '# Document index\n')
         (self.root / 'import.md').write_text('Imported source')
-        (self.root / 'audit-config.json').write_text(json.dumps({'exclude': ['import.md', 'audit-report.md']}))
+        guides = self.root / 'references' / 'guides'
+        guides.mkdir(parents=True)
+        for name in ['mermaid-best-practices-r1.0.7.md', 'mermaid-best-practices-CSS-r1.0.7.md']:
+            (guides / name).write_text('Imported guide')
+        (self.root / 'audit-config.json').write_text(json.dumps(
+            {'exclude': ['import.md', 'references/guides/*.md', 'audit-report.md']}))
         return ['--root', str(self.root)]
 
     def test_index_generation_and_freshness(self):

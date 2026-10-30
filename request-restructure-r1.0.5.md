@@ -1,13 +1,13 @@
 ---
 schema_version: 1
-id: DOC-ZTA-REQUEST-RESTRUCTURE
+id: DOC-ZTA-RESTRUCTURE-R105
 title: Numbered directory restructure implementation instructions
 document_type: backlog
 parent: ROOT
 lineage: [ROOT]
 owner: Documentation Engineering
 owner_status: proposed
-document_status: in-review
+document_status: superseded
 implementation_status: not-applicable
 baseline_date: '2026-10-30'
 ---
