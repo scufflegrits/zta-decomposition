@@ -17,6 +17,18 @@ baseline_date: '2026-10-24'
 
 This repository documents a proposed two-site Zero Trust Architecture organized around the seven DoD pillars. It is a reference design, not an as-built configuration or compliance certification.
 
+## Project status
+
+This repository is a documentation and traceability framework prototype for planning and demonstrating how the program could decompose Zero Trust Architecture (ZTA) work and connect it to delivery evidence.
+
+The draft structure covers seven ZTA pillars, architecture decisions, control and requirement documents, a MACsec use case, verification planning, manual Jira traceability, implementation and acceptance registers, a management briefing, FAQ, project guide and Mermaid diagrams. The document index is generated from document metadata.
+
+The intended trace runs from a contract SOW line item through ZTA pillars and controls to requirements, research, Jira stories, implementation evidence and a customer acceptance record. Jira links are manual for now. The project does not yet contain actual deployment or customer acceptance claims; populate the registers as program work occurs.
+
+## Overall assessment
+
+The documentation foundation and proposed workflow are well developed. The repository is ready for review and discussion with management and engineering stakeholders as a proposed approach. It is not yet a validated program process: owners, adoption decisions, authoritative SOW mapping, real evidence and customer acceptance still need to come from the program.
+
 ## Start here
 
 Read [How to use this project](HOW-TO-USE.md) for the working process, proposed roles and the single [program adoption checklist](HOW-TO-USE.md#program-adoption-checklist).
