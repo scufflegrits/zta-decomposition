@@ -17,9 +17,9 @@ baseline_date: '2026-10-25'
 
 This diagram summarizes the traceable entity tables and their relationships. Solid connectors show the authoritative parent hierarchy. Dotted connectors show reference fields that supplement that hierarchy. The diagram describes the repository's table model; it does not claim that future evidence, implementation, or acceptance records already exist.
 
-The Mermaid source uses native theme variables and entity classes. A [PNG render](images/zta-decomposition-erDiagram.png) is available for visual comparison.
+The Mermaid source uses native theme variables and entity classes. A [PNG render](040_images/zta-decomposition-erDiagram.png) is available for visual comparison.
 
-![ZTA decomposition entity relationship diagram rendered with white connectors on black](images/zta-decomposition-erDiagram.png)
+![ZTA decomposition entity relationship diagram rendered with white connectors on black](040_images/zta-decomposition-erDiagram.png)
 
 The image is the preview artifact so the connectors remain visible when an editor scales the full diagram to fit its pane. The source below uses native Mermaid styling under the project r1.0.7 guide.
 
@@ -129,4 +129,4 @@ erDiagram
 
 The diagram shows table types, not a database deployment. The current MACsec source tables define controls, requirements, and tests; no actual Evidence, Implementation, or Acceptance rows have been declared. Their shapes and fields show the agreed record model for future work, not completed implementation, verification, or customer acceptance.
 
-See [documentation conventions](standards/documentation-conventions.md#traceable-tables), [implementation and acceptance records](standards/implementation-acceptance.md), and the [ZTA project Mermaid standard](standards/mermaid-best-practices-zta.md).
+See [documentation conventions](090_standards/documentation-conventions.md#traceable-tables), [implementation and acceptance records](090_standards/implementation-acceptance.md), and the [ZTA project Mermaid standard](090_standards/mermaid-best-practices-zta.md).

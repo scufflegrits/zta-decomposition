@@ -29,8 +29,8 @@ The repository is a proposed engineering baseline. MACsec is the most developed 
 | Prepare for questions and critical review | [ZTA decomposition FAQ](zta-decomposition-faq.md) |
 | See one branch expanded into tables and stories | [MACsec use case](zta-macsec-use-case.md#how-one-table-expands-into-the-next) |
 | Look up a document or its owner | [Document index](index.md) |
-| Review actual protection and customer decisions | [Implementation register](implementation/macsec.md) and [acceptance register](acceptance/macsec.md) |
-| Find authoring rules | [Documentation conventions](standards/documentation-conventions.md) and [manual Jira standard](standards/manual-jira-traceability.md) |
+| Review actual protection and customer decisions | [Implementation register](050_implementation/macsec.md) and [acceptance register](010_acceptance/macsec.md) |
+| Find authoring rules | [Documentation conventions](090_standards/documentation-conventions.md) and [manual Jira standard](090_standards/manual-jira-traceability.md) |
 
 ## Program adoption checklist
 
@@ -62,7 +62,7 @@ These responsibilities are proposed until the program records its assignments ab
 
 ## 1. Select an obligation and find its engineering scope
 
-Identify the actual SOW clause and a bounded delivery scenario: for example, a selected link at one site. Find the relevant [pillar](README.md#seven-pillars), then follow its control index. Review the architecture and decisions before proposing a change. Record unresolved hardware or design inputs in [open questions](architecture/open-questions.md) and research findings in the [research register](references/vendor-research.md).
+Identify the actual SOW clause and a bounded delivery scenario: for example, a selected link at one site. Find the relevant [pillar](README.md#seven-pillars), then follow its control index. Review the architecture and decisions before proposing a change. Record unresolved hardware or design inputs in [open questions](020_architecture/open-questions.md) and research findings in the [research register](080_references/vendor-research.md).
 
 Document the SOW-to-engineering association in the delivery epic/story and its linked program record. SOW references supplement the engineering hierarchy; they do not become new parents in the current schema.
 
@@ -72,23 +72,23 @@ Select a pillar row and expand it into controls. Select a control and expand it 
 
 For example, the existing branch is `ROOT → ZT-05 → NET-04 → MAC-001 → TEST-003`. The [table walkthrough](zta-macsec-use-case.md#how-one-table-expands-into-the-next) shows each expansion. TEST-003 covers part of MAC-001; the other applicable tests remain necessary.
 
-Use the [documentation conventions](standards/documentation-conventions.md) for frontmatter, unique identifiers, table metadata and status. Define expected evidence and measurable acceptance criteria before execution. Create no placeholder evidence rows. Review whether the decomposition fully covers the obligation; the auditor cannot discover missing engineering concepts.
+Use the [documentation conventions](090_standards/documentation-conventions.md) for frontmatter, unique identifiers, table metadata and status. Define expected evidence and measurable acceptance criteria before execution. Create no placeholder evidence rows. Review whether the decomposition fully covers the obligation; the auditor cannot discover missing engineering concepts.
 
 ## 3. Create delivery work and link both directions
 
-With the engineering leads and Product Owner, the Scrum Master coordinates research, requirements/design, implementation and verification work. Split stories by scope where needed and identify dependencies. Use the [Jira description template](standards/manual-jira-traceability.md#suggested-jira-description-fields) to record the SOW source, engineering IDs, document links, reviewed baseline, scope, acceptance criteria and expected artifacts.
+With the engineering leads and Product Owner, the Scrum Master coordinates research, requirements/design, implementation and verification work. Split stories by scope where needed and identify dependencies. Use the [Jira description template](090_standards/manual-jira-traceability.md#suggested-jira-description-fields) to record the SOW source, engineering IDs, document links, reviewed baseline, scope, acceptance criteria and expected artifacts.
 
-After actual issues exist, manually add `Jira epic` links to controls, `Jira stories` to requirements/tests and later `Verification stories` to real evidence records. Leave cells empty until links are available. A reviewer opens each link and confirms its purpose and reciprocal engineering references. Keep sprint, assignee and delivery status in Jira. No API access is required; use the [manual Jira rules](standards/manual-jira-traceability.md) for exact syntax and story-change handling.
+After actual issues exist, manually add `Jira epic` links to controls, `Jira stories` to requirements/tests and later `Verification stories` to real evidence records. Leave cells empty until links are available. A reviewer opens each link and confirms its purpose and reciprocal engineering references. Keep sprint, assignee and delivery status in Jira. No API access is required; use the [manual Jira rules](090_standards/manual-jira-traceability.md) for exact syntax and story-change handling.
 
 ## 4. Implement, execute and collect proof
 
 Perform the approved work and retain its actual configuration/code revision and change record. Execute the reviewed procedures against the identified equipment and configuration. Capture expected versus actual results, date, executor, artifacts and reviewer disposition. Preserve failures and retest history.
 
-Record the exact protection and any deferred/unsupported scope in the [implementation register](implementation/macsec.md), including operational impact, limitations, residual risk and alternatives. Follow the [record standard](standards/implementation-acceptance.md). Create actual evidence records under their immediate Test ID using the [evidence instructions](controls/macsec/verification.md#evidence-and-execution). A local evidence artifact or documented local record for externally stored artifacts is needed for the current auditor. Store the proof in the approved location and link it durably. Technical validation requires reviewed descendant evidence; a closed Jira story or passing documentation audit cannot supply that proof.
+Record the exact protection and any deferred/unsupported scope in the [implementation register](050_implementation/macsec.md), including operational impact, limitations, residual risk and alternatives. Follow the [record standard](090_standards/implementation-acceptance.md). Create actual evidence records under their immediate Test ID using the [evidence instructions](030_controls/020_macsec/verification.md#evidence-and-execution). A local evidence artifact or documented local record for externally stored artifacts is needed for the current auditor. Store the proof in the approved location and link it durably. Technical validation requires reviewed descendant evidence; a closed Jira story or passing documentation audit cannot supply that proof.
 
 ## 5. Review results and report delivery
 
-Review the documented implementation scope, actual results, limitations, operational tradeoffs and residual risk. Under [ADR-014](architecture/decisions/ADR-014.md), request customer disposition against the applicable contract SOW requirements without calculating a completion percentage. Record the authority, date, decision basis and artifact in the [acceptance register](acceptance/macsec.md). Accepted with documented limitations may coexist with Not implemented, Not executed or Failed technical outcomes; keep those facts visible. A research story can finish with an unsupported-capability finding while its technical obligation remains unmet.
+Review the documented implementation scope, actual results, limitations, operational tradeoffs and residual risk. Under [ADR-014](020_architecture/010_decisions/ADR-014.md), request customer disposition against the applicable contract SOW requirements without calculating a completion percentage. Record the authority, date, decision basis and artifact in the [acceptance register](010_acceptance/macsec.md). Accepted with documented limitations may coexist with Not implemented, Not executed or Failed technical outcomes; keep those facts visible. A research story can finish with an unsupported-capability finding while its technical obligation remains unmet.
 
 Use Confluence to summarize progress and link the SOW, epic, engineering baseline, evidence and decisions. Preserve authoritative engineering definitions in the repository and delivery state in Jira. Refer to the adoption checklist above when a missing working agreement prevents a claim from being assessed.
 
@@ -100,12 +100,12 @@ Use Python 3.10 or newer and install `requirements.txt` in your Python environme
 
 ```bash
 python3 -m pip install -r requirements.txt
-python3 tools/generate_index.py --root .
-python3 tools/audit_zta.py --root . --report audit-report.md
-python3 tools/generate_index.py --root . --check
+python3 110_tools/generate_index.py --root .
+python3 110_tools/audit_zta.py --root . --report audit-report.md
+python3 110_tools/generate_index.py --root . --check
 git diff --check
 ```
 
-Run `python3 -m unittest discover -s tests -v` when changing auditor or tooling behavior. Render and visually inspect edited Mermaid blocks under the [diagram standard](standards/mermaid-best-practices-zta.md). Review the complete diff, stage the intended source and index changes, then commit and push through the agreed workflow. The generated audit report is local output. See [tool usage and limits](tools/README.md) for the checks' exact scope.
+Run `python3 -m unittest discover -s 100_tests -v` when changing auditor or tooling behavior. Render and visually inspect edited Mermaid blocks under the [diagram standard](090_standards/mermaid-best-practices-zta.md). Review the complete diff, stage the intended source and index changes, then commit and push through the agreed workflow. The generated audit report is local output. See [tool usage and limits](110_tools/README.md) for the checks' exact scope.
 
-The [TODO](TODO.md) tracks documentation maintenance; the [roadmap](architecture/roadmap.md) tracks broader engineering sequencing. Record adoption agreements in the checklist above and link to them from those trackers.
+The [TODO](900_project-admin/TODO.md) tracks documentation maintenance; the [roadmap](020_architecture/roadmap.md) tracks broader engineering sequencing. Record adoption agreements in the checklist above and link to them from those trackers.

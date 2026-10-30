@@ -103,7 +103,7 @@ Within a site, selected inter-VLAN traffic goes through the ISR. Same-VLAN and s
 
 Each management VLAN remains local, non-routed and separate from production and the WAN. Only approved physical management attachments or an approved management VM with exactly one management vNIC are permitted. Host forwarding, bridging, virtual-switch permissions and the management plane must prevent bypass. Virtualization remains vendor-neutral.
 
-MACsec is a protection to implement where supported and operationally appropriate, including compute links without individual diagram labels. Under [ADR-014](architecture/decisions/ADR-014.md), record exact port/peer capability, functionality and workflow impacts, limitations and customer disposition. The earlier every-port objective remains historical; no coverage percentage determines acceptance. Palo Alto site-to-site IPsec is a proposed WAN mechanism. MACsec is link protection; it does not substitute for user, application or data authorization.
+MACsec is a protection to implement where supported and operationally appropriate, including compute links without individual diagram labels. Under [ADR-014](020_architecture/010_decisions/ADR-014.md), record exact port/peer capability, functionality and workflow impacts, limitations and customer disposition. The earlier every-port objective remains historical; no coverage percentage determines acceptance. Palo Alto site-to-site IPsec is a proposed WAN mechanism. MACsec is link protection; it does not substitute for user, application or data authorization.
 
 ## 2. How the repository turns design into evidence
 
@@ -130,15 +130,15 @@ config:
 %% Document workflow and real MACsec IDs; evidence is intentionally unassigned.
 flowchart TB
   PROJECT_ROOT["Project objective<br/>Maintain an auditable proposed Zero Trust architecture"]
-  PROJECT_BASELINE["architecture/ and decisions/<br/>What must the design preserve?"]
-  PROJECT_PILLARS["pillars/<br/>Seven engineering responsibility areas"]
+  PROJECT_BASELINE["020_architecture/ and decisions/<br/>What must the design preserve?"]
+  PROJECT_PILLARS["060_pillars/<br/>Seven engineering responsibility areas"]
   PILLAR_NETWORK["ZT-05 - Network and Environment"]
-  CONTROL_MACSEC["NET-04 - MACsec<br/>controls/macsec/overview.md"]
-  REQUIREMENT_PORTS["MAC-001 - Physical port compatibility<br/>controls/macsec/requirements.md"]
-  TEST_ISR["TEST-003 - Exact ISR MACsec verification<br/>controls/macsec/verification.md - unexecuted"]
+  CONTROL_MACSEC["NET-04 - MACsec<br/>030_controls/020_macsec/overview.md"]
+  REQUIREMENT_PORTS["MAC-001 - Physical port compatibility<br/>030_controls/020_macsec/requirements.md"]
+  TEST_ISR["TEST-003 - Exact ISR MACsec verification<br/>030_controls/020_macsec/verification.md - unexecuted"]
   FUTURE_EVIDENCE["Future reviewed evidence<br/>Actual configuration, results and reviewer<br/>No Evidence ID or validation claimed yet"]
-  PROCUREMENT_INPUT["procurement/ and references/<br/>Exact equipment and vendor findings: Verify"]
-  AUDIT_TOOL["tools/audit_zta.py<br/>Checks declared IDs, ancestry, links and evidence records"]
+  PROCUREMENT_INPUT["070_procurement/ and 080_references/<br/>Exact equipment and vendor findings: Verify"]
+  AUDIT_TOOL["110_tools/audit_zta.py<br/>Checks declared IDs, ancestry, links and evidence records"]
   REVIEW_GATE["Engineering review<br/>Validate only after suitable evidence review"]
   PROJECT_ROOT --> PROJECT_BASELINE
   PROJECT_BASELINE --> PROJECT_PILLARS
@@ -189,19 +189,19 @@ The imported vendor research identifies the ISR NIM-2GE-CU-SFP as a MACsec-capab
 
 Once engineering approves the selected peers and protection profile, execute the verification procedure, capture actual configuration and protected-session counters, record failures and attach reviewed artifacts under the test. Cipher agreement, MKA behavior, rejection of unintended plaintext fallback, throughput and telemetry also have separate MACsec requirements. A successful port-capability check alone does not satisfy the whole control.
 
-If a link cannot meet the objective, record the limitation, operational impact, residual risk and alternatives or compensating controls in the [implementation register](implementation/macsec.md). Record the customer disposition in the [acceptance register](acceptance/macsec.md). The customer can accept a documented limitation while technical verification remains Not executed or Failed. Never fill an evidence field with an assumed result.
+If a link cannot meet the objective, record the limitation, operational impact, residual risk and alternatives or compensating controls in the [implementation register](050_implementation/macsec.md). Record the customer disposition in the [acceptance register](010_acceptance/macsec.md). The customer can accept a documented limitation while technical verification remains Not executed or Failed. Never fill an evidence field with an assumed result.
 
 ## 5. How to navigate and review
 
 | Location | What it answers |
 |---|---|
 | `README.md` | Where do I start and what are the constraints? |
-| `architecture/` and `architecture/decisions/` | What is the design and why must it stay this way? |
-| `pillars/` | Which engineering group owns the concern? |
-| `controls/` | What control, requirement and verification procedure applies? |
-| `procurement/` and `references/` | What equipment and source material support the design? |
-| `standards/` | How are documents, IDs, tables and diagrams maintained? |
-| `tools/` and `tests/` | How is declared documentation consistency checked? |
+| `020_architecture/` and `020_architecture/010_decisions/` | What is the design and why must it stay this way? |
+| `060_pillars/` | Which engineering group owns the concern? |
+| `030_controls/` | What control, requirement and verification procedure applies? |
+| `070_procurement/` and `080_references/` | What equipment and source material support the design? |
+| `090_standards/` | How are documents, IDs, tables and diagrams maintained? |
+| `110_tools/` and `100_tests/` | How is declared documentation consistency checked? |
 
 Use `Required` for an established objective, `Proposed` for an unfinished design, `Verify` for an unconfirmed capability and `Validated` only for a claim supported by reviewed evidence. Ownership assignments are proposals until accepted. Exact hardware, VLAN policies, identity service locations, approved cipher profiles, SIEM and response integrations remain open engineering inputs.
 

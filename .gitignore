@@ -30,3 +30,7 @@ Desktop.ini
 *.swp
 *.swo
 *~
+
+# Import inbox: staged material is committed at its destination, not here.
+/000_import/*
+!/000_import/README.md

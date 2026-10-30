@@ -55,7 +55,7 @@ flowchart TB
   class DOC_MAINTENANCE nodeMaintenance
 ```
 
-**Legend:** Blue is orientation, purple is design, green is engineering definition, amber is supporting input and gray is repository maintenance. Arrows group document purposes. These are navigation categories, not network paths, authorization decisions or authoritative entity parents. See the [diagram verification record](standards/diagram-verification.md) for rendering status.
+**Legend:** Blue is orientation, purple is design, green is engineering definition, amber is supporting input and gray is repository maintenance. Arrows group document purposes. These are navigation categories, not network paths, authorization decisions or authoritative entity parents. See the [diagram verification record](090_standards/diagram-verification.md) for rendering status.
 
 ## Where new work belongs
 
@@ -63,19 +63,19 @@ flowchart TB
 |---|---|---|
 | `navigation` | Root documents and the decision index | Entry points, catalog and taxonomy |
 | `guide` | Root-level workflow, architecture, briefing and use-case guides | Practical workflow, architectural introduction, program value and worked examples |
-| `architecture` | `architecture/` | Views, boundaries, open design inputs and roadmap |
-| `decision` | `architecture/decisions/` | Stable decisions and rationale |
-| `pillar` | `pillars/` | Responsibility areas and authoritative control references |
-| `control` | `controls/` | One authoritative definition per control |
+| `architecture` | `020_architecture/` | Views, boundaries, open design inputs and roadmap |
+| `decision` | `020_architecture/010_decisions/` | Stable decisions and rationale |
+| `pillar` | `060_pillars/` | Responsibility areas and authoritative control references |
+| `control` | `030_controls/` | One authoritative definition per control |
 | `requirements` | Control-specific directories | Testable obligations decomposed from a control |
 | `verification` | Control-specific directories | Test procedures; execution and evidence remain distinct |
-| `procurement` | `procurement/` | Exact equipment and compatibility investigations |
-| `reference` | `references/` | Standards citations and research; supplied guides are imports under `references/guides/` |
-| `standard` | `standards/` | Project authoring and review conventions |
-| `tooling` | `tools/README.md` | Auditor, index generator and test usage |
-| `backlog` | `TODO.md` | Documentation maintenance tasks |
-| `implementation` | `implementation/` | Actual scoped protections, configurations, verification and operational limitations |
-| `acceptance` | `acceptance/` | Customer decisions and artifacts against applicable contract SOW requirements |
+| `procurement` | `070_procurement/` | Exact equipment and compatibility investigations |
+| `reference` | `080_references/` | Standards citations and research; supplied guides are imports under `080_references/010_guides/` |
+| `standard` | `090_standards/` | Project authoring and review conventions |
+| `tooling` | `110_tools/README.md` | Auditor, index generator and test usage |
+| `backlog` | `900_project-admin/` | Documentation maintenance tasks, migration plans and administration records |
+| `implementation` | `050_implementation/` | Actual scoped protections, configurations, verification and operational limitations |
+| `acceptance` | `010_acceptance/` | Customer decisions and artifacts against applicable contract SOW requirements |
 
 Imported source guides preserve their original content and are listed separately from maintained documents. They do not receive project metadata or declare project entities. Generated reports are local outputs. Neither category is evidence of deployed security controls.
 
@@ -85,8 +85,8 @@ Imported source guides preserve their original content and are listed separately
 
 This chain describes authoritative entities inside the documents. The frontmatter `parent` and `lineage` attach a document to its engineering scope. A file's `document_type` describes its purpose and does not replace that chain.
 
-For example, `ROOT > ZT-05 > NET-04 > MAC-001 > TEST-003` connects the Network & Environment pillar to MACsec, physical port compatibility and the ISR verification test. Reviewed evidence is future work; no evidence records are currently declared. The [MACsec verification plan](controls/macsec/verification.md) contains the test definitions.
+For example, `ROOT > ZT-05 > NET-04 > MAC-001 > TEST-003` connects the Network & Environment pillar to MACsec, physical port compatibility and the ISR verification test. Reviewed evidence is future work; no evidence records are currently declared. The [MACsec verification plan](030_controls/020_macsec/verification.md) contains the test definitions.
 
 Future hardware inventories, access scenarios and evidence records should be added when their engineering inputs exist. This taxonomy does not invent controls, equipment selections or acceptance results.
 
-Implementation and acceptance records attach to their control and reference relevant requirements/tests/evidence. They report actual outcomes and customer disposition under [ADR-014](architecture/decisions/ADR-014.md), separately from the existing engineering ancestry. See the [record standard](standards/implementation-acceptance.md).
+Implementation and acceptance records attach to their control and reference relevant requirements/tests/evidence. They report actual outcomes and customer disposition under [ADR-014](020_architecture/010_decisions/ADR-014.md), separately from the existing engineering ancestry. See the [record standard](090_standards/implementation-acceptance.md).

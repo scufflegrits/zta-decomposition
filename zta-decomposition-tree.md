@@ -73,7 +73,7 @@ Source: [README pillar table](README.md#seven-pillars).
 
 ## 2. ZT-05 becomes the parent — Network controls
 
-Source: [ZT-05 control index](pillars/ZT-05-network-environment.md#control-index), linking to the authoritative control definitions.
+Source: [ZT-05 control index](060_pillars/ZT-05-network-environment.md#control-index), linking to the authoritative control definitions.
 
 | Parent | Control reference | Control |
 |---|---|---|
@@ -88,7 +88,7 @@ Source: [ZT-05 control index](pillars/ZT-05-network-environment.md#control-index
 
 ## 3. NET-04 becomes the parent — MACsec requirements
 
-Source: [MACsec requirements](controls/macsec/requirements.md).
+Source: [MACsec requirements](030_controls/020_macsec/requirements.md).
 
 | Parent | Requirement reference | Requirement |
 |---|---|---|
@@ -103,7 +103,7 @@ Source: [MACsec requirements](controls/macsec/requirements.md).
 
 ## 4. MAC-001 becomes the parent — Compatibility tests
 
-Source: [MAC-001 tests](controls/macsec/verification.md#mac-001-tests).
+Source: [MAC-001 tests](030_controls/020_macsec/verification.md#mac-001-tests).
 
 | Parent | Test reference | Test |
 |---|---|---|
@@ -114,7 +114,7 @@ Source: [MAC-001 tests](controls/macsec/verification.md#mac-001-tests).
 
 ## 5. TEST-003 becomes the parent — Evidence from execution
 
-Source: [Evidence instructions](controls/macsec/verification.md#evidence-and-execution). This is a future layout, not an existing evidence record.
+Source: [Evidence instructions](030_controls/020_macsec/verification.md#evidence-and-execution). This is a future layout, not an existing evidence record.
 
 | Parent | Evidence reference | Artifact | Actual result | Reviewer |
 |---|---|---|---|---|
@@ -158,4 +158,4 @@ NET-04 — MACsec
 
 In the authoritative hierarchy, implementation and acceptance rows are direct children of NET-04; engineering definitions retain their existing parents. Evidence remains under its test. The two organizational labels in the tree are navigation aids, not new engineering entities. Customer acceptance does not turn B into an encrypted link or a passed test.
 
-For the corresponding table layout, see the [worked outcome example](zta-macsec-use-case.md#implementation-and-customer-disposition-example). Actual records belong in the [implementation register](implementation/macsec.md) and [acceptance register](acceptance/macsec.md). No percentage determines the acceptance decision.
+For the corresponding table layout, see the [worked outcome example](zta-macsec-use-case.md#implementation-and-customer-disposition-example). Actual records belong in the [implementation register](050_implementation/macsec.md) and [acceptance register](010_acceptance/macsec.md). No percentage determines the acceptance decision.

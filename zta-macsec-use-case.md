@@ -51,13 +51,13 @@ The [README pillar table](README.md#seven-pillars) defines seven rows under ROOT
 | ZT-05 | NET-05 | Proposed WAN transport protection |
 | ZT-05 | NET-06 | Local management isolation |
 
-The [ZT-05 document](pillars/ZT-05-network-environment.md#control-index) collects links to these controls. Their authoritative definitions are distributed across the [network control overview](controls/network-segmentation/overview.md), [MACsec overview](controls/macsec/overview.md) and [management-isolation overview](controls/management-isolation/overview.md). The consolidated view above is for explanation.
+The [ZT-05 document](060_pillars/ZT-05-network-environment.md#control-index) collects links to these controls. Their authoritative definitions are distributed across the [network control overview](030_controls/040_network-segmentation/overview.md), [MACsec overview](030_controls/020_macsec/overview.md) and [management-isolation overview](030_controls/030_management-isolation/overview.md). The consolidated view above is for explanation.
 
 **Pull down NET-04.** Ask: What specific obligations must MACsec satisfy? NET-04 becomes the parent reference for the next table. NET-01, NET-02 and the other siblings follow their own branches; they do not become MACsec requirements.
 
 ### C. Expand the selected control into requirements
 
-The [MACsec requirements table](controls/macsec/requirements.md) expands NET-04:
+The [MACsec requirements table](030_controls/020_macsec/requirements.md) expands NET-04:
 
 | Parent reference | Row reference | Requirement |
 |---|---|---|
@@ -74,7 +74,7 @@ The actual table also records acceptance evidence and status. Those columns expl
 
 ### D. Expand the selected requirement into tests
 
-The [MAC-001 test table](controls/macsec/verification.md#mac-001-tests) contains two children:
+The [MAC-001 test table](030_controls/020_macsec/verification.md#mac-001-tests) contains two children:
 
 | Parent reference | Row reference | Test |
 |---|---|---|
@@ -106,7 +106,7 @@ SOW-001 and Jira stories connect to this structure through references. A story m
 >
 > The Contractor shall identify hardware, interface, software, licensing and peer dependencies; document implemented and unsupported or operationally deferred protections; and record operational impacts, residual risk and alternatives or compensating controls. The Contractor shall deliver traceable requirements, reviewed design/configuration records, verification results and artifacts for the implemented scope, and submit the documented outcome and limitations for customer disposition against the applicable SOW requirements. Acceptance may include documented limitations and shall not be determined by a percentage of ZTA coverage. MACsec shall complement the architecture’s identity, device, segmentation, application, and data controls; link protection shall not itself constitute authorization to access a resource.
 
-This wording is illustrative and follows [ADR-014](architecture/decisions/ADR-014.md); adopted contractual wording and the individual customer decision remain to be recorded. Use the [program adoption checklist](HOW-TO-USE.md#program-adoption-checklist). Keep limitations visible and preserve actual technical results even when the customer accepts the documented outcome. Numeric performance targets for selected links remain useful test criteria; no ZTA coverage percentage is proposed.
+This wording is illustrative and follows [ADR-014](020_architecture/010_decisions/ADR-014.md); adopted contractual wording and the individual customer decision remain to be recorded. Use the [program adoption checklist](HOW-TO-USE.md#program-adoption-checklist). Keep limitations visible and preserve actual technical results even when the customer accepts the documented outcome. Numeric performance targets for selected links remain useful test criteria; no ZTA coverage percentage is proposed.
 
 ## 2. Connect the obligation to existing engineering definitions
 
@@ -124,7 +124,7 @@ The epic organizes delivery. The existing engineering ancestry remains `ROOT →
 | MAC-005 | Approved throughput, latency and MTU criteria | TEST-006 |
 | MAC-006 | Useful session, counter and failure telemetry | TEST-007 |
 
-Use the authoritative [pillar](pillars/ZT-05-network-environment.md), [control](controls/macsec/overview.md), [requirements](controls/macsec/requirements.md) and [verification plan](controls/macsec/verification.md). This table references those entities and does not redefine them. Engineering must review whether the existing requirements fully cover the adopted SOW wording and add missing decomposition through review.
+Use the authoritative [pillar](060_pillars/ZT-05-network-environment.md), [control](030_controls/020_macsec/overview.md), [requirements](030_controls/020_macsec/requirements.md) and [verification plan](030_controls/020_macsec/verification.md). This table references those entities and does not redefine them. Engineering must review whether the existing requirements fully cover the adopted SOW wording and add missing decomposition through review.
 
 ## 3. Organize delivery in Jira
 
@@ -191,7 +191,7 @@ For fictional ZTA-106, a proposed Jira description could contain:
 SOW reference: illustrative SOW-001 (replace with adopted clause/source)
 Delivery epic: ZTA-100
 Engineering references: NET-04, MAC-001, TEST-003
-Source documents: controls/macsec/requirements.md; controls/macsec/verification.md
+Source documents: 030_controls/020_macsec/requirements.md; 030_controls/020_macsec/verification.md
 Engineering baseline: <approved repository commit or release and document links>
 Scope: <selected Site A link, exact peers, ports, software and configuration revision>
 Dependencies: reviewed compatibility findings, approved profile and configuration
@@ -202,7 +202,7 @@ Artifact location: <approved durable storage location>
 Reviewer: <program-designated engineering reviewer>
 ```
 
-The Scrum Master coordinates creation and dependencies. The engineering owner adds the actual issue links to the repository and a reviewer checks both directions. Jira holds story status, assignee, sprint and estimates. The repository holds engineering definitions and technical validation status. The [manual Jira standard](standards/manual-jira-traceability.md) defines link syntax and maintenance responsibilities.
+The Scrum Master coordinates creation and dependencies. The engineering owner adds the actual issue links to the repository and a reviewer checks both directions. Jira holds story status, assignee, sprint and estimates. The repository holds engineering definitions and technical validation status. The [manual Jira standard](090_standards/manual-jira-traceability.md) defines link syntax and maintenance responsibilities.
 
 Local checks validate the declared links on authoritative entity rows; they do not contact Jira, verify these fictional examples, confirm issue type/status or prove acceptance. Software-factory access is only needed for future live checks or synchronization.
 
@@ -212,7 +212,7 @@ For a selected Catalyst-to-ISR link at Site A, use `SOW-001 → ZT-05 → NET-04
 
 Research first identifies the exact ports, modules, software, licenses and peer combination. Engineering then approves the configuration and protection profile. Implementation produces the actual configuration record. Verification executes TEST-003 against the selected ISR and adjacent peer, establishing protected sessions and examining counters.
 
-The resulting evidence record must identify the test, exact link and equipment, tested configuration revision, date, executor, expected and actual results, raw artifact locations and reviewer. Preserve failed executions and retests. Assign an Evidence ID only when an actual record is created, following the [evidence instructions](controls/macsec/verification.md#evidence-and-execution).
+The resulting evidence record must identify the test, exact link and equipment, tested configuration revision, date, executor, expected and actual results, raw artifact locations and reviewer. Preserve failed executions and retests. Assign an Evidence ID only when an actual record is created, following the [evidence instructions](030_controls/020_macsec/verification.md#evidence-and-execution).
 
 Evidence may include reviewed compatibility findings, configuration exports, session/counter captures and a signed or otherwise approved test report. Use approved storage and retain durable artifact identifiers. For externally stored artifacts, the current auditor requires a local evidence record; its existence check does not authenticate the external artifact or establish that it proves the claim.
 
@@ -250,12 +250,12 @@ Then record what the customer decided. The following decisions and artifact desc
 
 Until an actual decision exists, report **Pending review**. If the customer requests changes or rejects the outcome, record that actual disposition. The customer can accept the combined documented outcome while B remains Not implemented and Not executed. A failed test, if present, also remains Failed after acceptance; its impact and disposition must be explicit.
 
-The actual [implementation register](implementation/macsec.md) and [customer acceptance register](acceptance/macsec.md) are intentionally unpopulated. Their [record standard](standards/implementation-acceptance.md) defines the auditable fields and the evidence required to support claims. Management receives the implemented protections, limitations and decision references rather than a coverage percentage.
+The actual [implementation register](050_implementation/macsec.md) and [customer acceptance register](010_acceptance/macsec.md) are intentionally unpopulated. Their [record standard](090_standards/implementation-acceptance.md) defines the auditable fields and the evidence required to support claims. Management receives the implemented protections, limitations and decision references rather than a coverage percentage.
 
 ## 6. Decisions needed to adopt the example
 
 Use the single [program adoption checklist](HOW-TO-USE.md#program-adoption-checklist) to record decisions and approval references before adopting this illustrative workflow. [How to use this project](HOW-TO-USE.md) provides the operational steps; this document supplies the worked example.
 
-The [documentation TODO](TODO.md) links to that checklist and separately tracks future software-factory integration work.
+The [documentation TODO](900_project-admin/TODO.md) links to that checklist and separately tracks future software-factory integration work.
 
 **Value demonstrated:** zta-decomposition gives management a reviewable path from an obligation to specific work, and gives the delivery team concrete engineering references for producing the proof that obligation requires.

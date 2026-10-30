@@ -14,7 +14,7 @@ baseline_date: '2026-10-25'
 
 # ZTA decomposition briefing — Supporting program delivery
 
-**Purpose:** This briefing describes how zta-decomposition can support practical Zero Trust delivery through the program’s AGIIL process, with Confluence providing program visibility and Jira coordinating execution. The approach aims to preserve required functionality and avoid undue process while documenting implemented protections, limitations and customer disposition against the applicable contract SOW requirements, following [ADR-014](architecture/decisions/ADR-014.md).
+**Purpose:** This briefing describes how zta-decomposition can support practical Zero Trust delivery through the program’s AGIIL process, with Confluence providing program visibility and Jira coordinating execution. The approach aims to preserve required functionality and avoid undue process while documenting implemented protections, limitations and customer disposition against the applicable contract SOW requirements, following [ADR-014](020_architecture/010_decisions/ADR-014.md).
 
 The project already organizes the proposed architecture around seven Zero Trust pillars, documents architectural constraints, and establishes identifiers linking controls, requirements and verification procedures. It provides a starting point for turning Statement of Work obligations into work that teams can estimate, execute and demonstrate.
 
@@ -28,16 +28,16 @@ The repository supplies the engineering content that becomes Jira work and ultim
 
 | Project content | Contribution to program delivery |
 |---|---|
-| [Architecture views](architecture/overview.md) and [decisions](architecture/decisions/README.md) | Establish design boundaries and constraints for epics and stories |
+| [Architecture views](020_architecture/overview.md) and [decisions](020_architecture/010_decisions/README.md) | Establish design boundaries and constraints for epics and stories |
 | [Seven pillar documents](README.md#seven-pillars) | Identify engineering responsibilities and areas needing further decomposition |
-| [Control definitions](controls/macsec/overview.md) | Describe the protection each work package must deliver |
-| [Requirements](controls/macsec/requirements.md) | Supply measurable obligations for story acceptance criteria |
-| [Verification procedures](controls/macsec/verification.md) | Define how teams will demonstrate behavior for the selected implementation scope |
-| [Implementation register](implementation/macsec.md) | Record exact hardware, configuration, deployed protection, verified behavior and operational limitations |
-| [Customer acceptance register](acceptance/macsec.md) | Show the customer decision, its basis and supporting artifact against applicable SOW requirements |
-| [Procurement assessments](procurement/macsec-equipment-assessment.md) and [open questions](architecture/open-questions.md) | Identify research tasks, dependencies and unresolved equipment decisions |
+| [Control definitions](030_controls/020_macsec/overview.md) | Describe the protection each work package must deliver |
+| [Requirements](030_controls/020_macsec/requirements.md) | Supply measurable obligations for story acceptance criteria |
+| [Verification procedures](030_controls/020_macsec/verification.md) | Define how teams will demonstrate behavior for the selected implementation scope |
+| [Implementation register](050_implementation/macsec.md) | Record exact hardware, configuration, deployed protection, verified behavior and operational limitations |
+| [Customer acceptance register](010_acceptance/macsec.md) | Show the customer decision, its basis and supporting artifact against applicable SOW requirements |
+| [Procurement assessments](070_procurement/macsec-equipment-assessment.md) and [open questions](020_architecture/open-questions.md) | Identify research tasks, dependencies and unresolved equipment decisions |
 | Stable identifiers and the [document index](index.md) | Give Confluence pages, Jira stories and evidence records consistent engineering references |
-| [Documentation auditor](tools/README.md) | Check declared relationships and links for consistency |
+| [Documentation auditor](110_tools/README.md) | Check declared relationships and links for consistency |
 
 For example, the repository already defines the path **ZT-05 → NET-04 → MAC-001 → TEST-003**: Network & Environment → MACsec → physical-port compatibility → ISR verification.
 
@@ -94,7 +94,7 @@ The repository now provides optional **Jira epic** links on control rows, **Jira
 
 Program teams enter real links manually after issues are created and put the corresponding engineering IDs, SOW reference and repository baseline into each Jira description. Engineering owners maintain the table references; the Scrum Master coordinates story creation and the review cycle. Jira remains the source for assignees, sprints and delivery status.
 
-This capability needs no software-factory integration or API access. Local checks validate declared link structure and consistency; reviewers confirm issue existence, purpose and reciprocal references. Authoritative cells remain blank until actual issues exist. The [use-case examples](zta-macsec-use-case.md#manual-jira-links-in-the-tables) are fictional, and the [manual Jira standard](standards/manual-jira-traceability.md) defines the working agreement.
+This capability needs no software-factory integration or API access. Local checks validate declared link structure and consistency; reviewers confirm issue existence, purpose and reciprocal references. Authoritative cells remain blank until actual issues exist. The [use-case examples](zta-macsec-use-case.md#manual-jira-links-in-the-tables) are fictional, and the [manual Jira standard](090_standards/manual-jira-traceability.md) defines the working agreement.
 
 Use [How to use this project](HOW-TO-USE.md) for the working process and its single [program adoption checklist](HOW-TO-USE.md#program-adoption-checklist) for agreements and approval references. Story completion, technical verification and contractual acceptance remain separate review outcomes. Live synchronization is a future option subject to software-factory approval.
 
@@ -120,7 +120,7 @@ It answers: **Which part of the architecture owns this concern?**
 
 ### 2. ZT-05 pillar document — Find the control
 
-The [Network & Environment control index](pillars/ZT-05-network-environment.md#control-index) identifies the protections within that responsibility area. One entry links to `NET-04`, MACsec Ethernet link protection.
+The [Network & Environment control index](060_pillars/ZT-05-network-environment.md#control-index) identifies the protections within that responsibility area. One entry links to `NET-04`, MACsec Ethernet link protection.
 
 This document provides navigation and scope; the control’s authoritative definition lives in the next document.
 
@@ -128,7 +128,7 @@ It answers: **Which control addresses Ethernet link protection?**
 
 ### 3. MACsec control overview — Establish the protection objective
 
-The [MACsec control overview](controls/macsec/overview.md) explicitly declares `ZT-05 → NET-04` in its control table.
+The [MACsec control overview](030_controls/020_macsec/overview.md) explicitly declares `ZT-05 → NET-04` in its control table.
 
 It describes the objective of protecting wired Ethernet links, the need to verify exact equipment combinations, and the handling of unsupported links. Its status is **Required objective / Verify**.
 
@@ -136,7 +136,7 @@ It answers: **What protection are we trying to establish, and what are its bound
 
 ### 4. MACsec requirements — Identify the measurable obligation
 
-The [MACsec requirements table](controls/macsec/requirements.md) explicitly declares `NET-04 → MAC-001`.
+The [MACsec requirements table](030_controls/020_macsec/requirements.md) explicitly declares `NET-04 → MAC-001`.
 
 `MAC-001` requires identifying MACsec-capable ports. Its expected acceptance evidence includes exact SKU, module, port, software release, license, media, link speed, adjacent peer, and reviewed vendor sources.
 
@@ -144,7 +144,7 @@ It answers: **What specific obligation must engineering satisfy?**
 
 ### 5. MACsec verification plan — Define the demonstration
 
-The [MAC-001 tests](controls/macsec/verification.md#mac-001-tests) explicitly declare `MAC-001 → TEST-003`.
+The [MAC-001 tests](030_controls/020_macsec/verification.md#mac-001-tests) explicitly declare `MAC-001 → TEST-003`.
 
 `TEST-003` covers the selected ISR module, ports, license and release, then establishing protected sessions with the actual adjacent peer and inspecting counters. It remains **Proposed and unexecuted**.
 
@@ -162,9 +162,9 @@ For the Scrum Master, these documents provide the source material for linked wor
 
 | Work to organize | Primary engineering input |
 |---|---|
-| Research exact equipment compatibility | MAC-001 and [procurement assessments](procurement/macsec-equipment-assessment.md) |
+| Research exact equipment compatibility | MAC-001 and [procurement assessments](070_procurement/macsec-equipment-assessment.md) |
 | Refine and review acceptance criteria | MAC-001’s acceptance-evidence description |
 | Configure the selected ISR and peer | NET-04, approved requirements and research findings |
 | Execute verification and gather proof | TEST-003 and the evidence-record instructions |
 
-The next link—**TEST-003 → reviewed evidence**—does not exist yet. The [evidence instructions](controls/macsec/verification.md#evidence-and-execution) explain how to record actual results and artifacts once execution occurs. The SOW mapping must also be added above this engineering chain.
+The next link—**TEST-003 → reviewed evidence**—does not exist yet. The [evidence instructions](030_controls/020_macsec/verification.md#evidence-and-execution) explain how to record actual results and artifacts once execution occurs. The SOW mapping must also be added above this engineering chain.

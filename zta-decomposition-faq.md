@@ -48,7 +48,7 @@ No. The auditor checks declared metadata, IDs, relationships, links and specifie
 
 ### Where is the proof that we implemented something correctly?
 
-The [implementation register](implementation/macsec.md) identifies the exact scope, deployed configuration, baseline, applicable tests and evidence. Actual evidence records remain under their tests and link the artifacts, results and reviewer. The [acceptance register](acceptance/macsec.md) separately records what the customer decided. Both registers are currently unpopulated; no implementation is claimed.
+The [implementation register](050_implementation/macsec.md) identifies the exact scope, deployed configuration, baseline, applicable tests and evidence. Actual evidence records remain under their tests and link the artifacts, results and reviewer. The [acceptance register](010_acceptance/macsec.md) separately records what the customer decided. Both registers are currently unpopulated; no implementation is claimed.
 
 ### Can a configuration screenshot or a closed Jira story prove the requirement is satisfied?
 
@@ -64,11 +64,11 @@ Not automatically. Record the actual model and port limits, what was implemented
 
 ### Without a completion percentage, how does management know whether the work is acceptable?
 
-Use separate text states for deployment, verification and customer disposition, supported by scope-specific records. Review what was delivered, its behavior, limitations and the actual decision artifact. The [record standard](standards/implementation-acceptance.md) defines these states; no percentage substitutes for that review.
+Use separate text states for deployment, verification and customer disposition, supported by scope-specific records. Review what was delivered, its behavior, limitations and the actual decision artifact. The [record standard](090_standards/implementation-acceptance.md) defines these states; no percentage substitutes for that review.
 
 ### Does avoiding disruption let engineers skip security requirements whenever they are inconvenient?
 
-No. [ADR-014](architecture/decisions/ADR-014.md) calls for documented operational tradeoffs and customer disposition, not unilateral acceptance by an engineer. Record measured or investigated impacts, alternatives and residual risk. Preserve an unmet requirement or failed result as a technical fact even when the customer accepts the documented outcome.
+No. [ADR-014](020_architecture/010_decisions/ADR-014.md) calls for documented operational tradeoffs and customer disposition, not unilateral acceptance by an engineer. Record measured or investigated impacts, alternatives and residual risk. Preserve an unmet requirement or failed result as a technical fact even when the customer accepts the documented outcome.
 
 ### What if the customer accepts a limitation but a mandatory program requirement still applies?
 
@@ -106,7 +106,7 @@ Review the impact on affected implementation records, tests, evidence and custom
 
 ### Are the vendor compatibility findings verified for the program's equipment?
 
-Not yet. The [compatibility findings](procurement/hardware-compatibility.md) identify imported research and limits; they are not proof of a supported installation. Engineering must verify the actual SKU, port, module, software, media, license and adjacent peer and retain the reviewed source and inventory. The hypothetical use-case outcomes do not constitute hardware research or execution evidence.
+Not yet. The [compatibility findings](070_procurement/hardware-compatibility.md) identify imported research and limits; they are not proof of a supported installation. Engineering must verify the actual SKU, port, module, software, media, license and adjacent peer and retain the reviewed source and inventory. The hypothetical use-case outcomes do not constitute hardware research or execution evidence.
 
 ## Scrum Masters and delivery teams
 
@@ -120,7 +120,7 @@ No integration is needed for manual links. After an issue is created through the
 
 ### Will we have to maintain every fact in three places?
 
-That is a risk to avoid. The proposed authoritative split keeps engineering definitions and technical records in the repository, delivery status in Jira, and program summaries in Confluence with links to the source baseline. The [manual Jira standard](standards/manual-jira-traceability.md) describes which references are entered manually; it does not require copying assignees, sprint details or story status into Markdown.
+That is a risk to avoid. The proposed authoritative split keeps engineering definitions and technical records in the repository, delivery status in Jira, and program summaries in Confluence with links to the source baseline. The [manual Jira standard](090_standards/manual-jira-traceability.md) describes which references are entered manually; it does not require copying assignees, sprint details or story status into Markdown.
 
 ### Do we need one story or one record for every port?
 
