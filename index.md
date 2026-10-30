@@ -148,7 +148,7 @@ The [ZTA Project Mermaid Standard](090_standards/mermaid-best-practices-zta.md) 
 | [Directory restructure r1.0.3 recommendations](900_project-admin/request-restructure-r1.0.3.md) | DOC-ZTA-RESTRUCTURE-REVIEW-R103 | Documentation Engineering (proposed) | superseded |
 | [Numbered directory restructure implementation instructions](900_project-admin/request-restructure-r1.0.5.md) | DOC-ZTA-RESTRUCTURE-R105 | Documentation Engineering (proposed) | superseded |
 | [Numbered directory restructure implementation instructions](900_project-admin/request-restructure-r1.0.6.md) | DOC-ZTA-RESTRUCTURE-R106 | Documentation Engineering (proposed) | superseded |
-| [Numbered directory restructure implementation instructions](900_project-admin/request-restructure.md) | DOC-ZTA-REQUEST-RESTRUCTURE | Documentation Engineering (proposed) | in-review |
+| [Numbered directory restructure implementation instructions](900_project-admin/request-restructure.md) | DOC-ZTA-REQUEST-RESTRUCTURE | Documentation Engineering (proposed) | approved |
 | [Numbered directory restructure revision log](900_project-admin/restructure-revision-log.md) | DOC-ZTA-RESTRUCTURE-REVISION-LOG | Documentation Engineering (proposed) | in-review |
 
 ## Implementation

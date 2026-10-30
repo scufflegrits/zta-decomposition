@@ -7,7 +7,7 @@ parent: ROOT
 lineage: [ROOT]
 owner: Documentation Engineering
 owner_status: proposed
-document_status: in-review
+document_status: approved
 implementation_status: not-applicable
 baseline_date: '2026-10-30'
 ---
@@ -28,12 +28,12 @@ This is a one-time migration instruction, so it is a `backlog` document kept in 
 
 | Field | Value |
 |---|---|
-| Approved by | _pending_ |
-| Approval date | _pending_ |
-| Approved revision | _pending_ |
-| Metadata comparison method | _pending_; proposed: waived, see simplified execution |
+| Approved by | scufflegrits |
+| Approval date | 2026-10-30 |
+| Approved revision | r1.0.7 |
+| Metadata comparison method | Waived; see simplified execution |
 
-**Simplified execution (proposed).** The owner directed a lighter execution than this document describes. The migration is validated by the existing auditor (links, IDs, ancestry, scope), index freshness check, full unit suite and the stale-path review. The inventory comparison, checksum file, committed migration script and execution record are not produced. Where later sections require those artifacts, this paragraph takes precedence. The mapping, naming, planning-record, import and administration rules apply unchanged.
+**Simplified execution.** The owner directed a lighter execution than this document describes. The migration is validated by the existing auditor (links, IDs, ancestry, scope), index freshness check, full unit suite and the stale-path review. The inventory comparison, checksum file, committed migration script and execution record are not produced. Where later sections require those artifacts, this paragraph takes precedence. The mapping, naming, planning-record, import and administration rules apply unchanged.
 
 Do not begin execution until this table is filled in. When it is, set `document_status: approved` in this document's frontmatter, and set `owner_status: accepted` if Documentation Engineering has accepted ownership. Approval happens before the preparation commit, so the approved status is already part of the migration base.
 
