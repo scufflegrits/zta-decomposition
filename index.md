@@ -34,7 +34,8 @@ The [ZTA Project Mermaid Standard](090_standards/mermaid-best-practices-zta.md) 
 
 | Document | ID | Owner (ownership status) | Document status |
 |---|---|---|---|
-| [Agent handoff and review instructions](900_project-admin/review-handoff-r1.0.0.md) | DOC-ZTA-REVIEW-HANDOFF-R100 | Documentation Engineering (proposed) | draft |
+| [Agent handoff and review instructions](900_project-admin/review-handoff-r1.0.0.md) | DOC-ZTA-REVIEW-HANDOFF-R100 | Documentation Engineering (proposed) | superseded |
+| [Agent handoff and review instructions](900_project-admin/review-handoff-r1.0.1.md) | DOC-ZTA-REVIEW-HANDOFF-R101 | Documentation Engineering (proposed) | draft |
 | [How to use this project](HOW-TO-USE.md) | DOC-ZTA-HOW-TO-USE | Architecture / Security Engineering (proposed) | draft |
 | [ZTA decomposition briefing — Supporting program delivery](zta-decomposition-briefing.md) | DOC-ZTA-MANAGEMENT-BRIEFING | Architecture / Security Engineering (proposed) | draft |
 | [ZTA decomposition — Questions and critical review](zta-decomposition-faq.md) | DOC-ZTA-FAQ | Architecture / Security Engineering (proposed) | draft |

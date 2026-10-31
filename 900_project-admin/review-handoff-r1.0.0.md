@@ -7,7 +7,7 @@ parent: ROOT
 lineage: [ROOT]
 owner: Documentation Engineering
 owner_status: proposed
-document_status: draft
+document_status: superseded
 implementation_status: not-applicable
 baseline_date: '2026-10-30'
 ---
