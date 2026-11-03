@@ -130,7 +130,7 @@ Use the authoritative [pillar](060_pillars/ZT-05-network-environment.md), [contr
 
 **Proposed epic:** Implement operationally appropriate MACsec protections, demonstrate their behavior and document customer disposition of limitations for illustrative SOW-001 at both sites.
 
-The Product Owner prioritizes the work; the Scrum Master coordinates story creation and dependencies with engineering leads. The following are suggested story groups, not existing Jira issues or a requirement to fit all work into one sprint. Split them by site, link or equipment combination when needed.
+The Product Owner prioritizes the work; the Scrum Master coordinates story creation and dependencies with engineering leads. The following are suggested story groups, not existing Jira issues or a requirement to fit all work into one sprint. Split them by site, link or reviewed compatibility cohort when scope or acceptance criteria differ. For fleet-scale cohorting, use the [per-control implementation workflow](090_standards/implementation-workflow.md).
 
 | Story group | Engineering inputs | Acceptance criteria and deliverables |
 |---|---|---|

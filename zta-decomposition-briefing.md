@@ -43,10 +43,15 @@ For example, the repository already defines the path **ZT-05 → NET-04 → MAC-
 
 Once the program identifies an applicable SOW clause, that path can support linked Jira stories to:
 
-1. Research the exact Catalyst and ISR ports, modules, software and licenses.
-2. Review the compatibility requirement and measurable acceptance criteria.
-3. Implement the approved configuration.
-4. Execute verification, collect configuration and protected-session results, and submit artifacts for review.
+1. Collect the exact hardware, modules, interfaces, licenses, and running software/OS versions for both ends of the selected link.
+2. Have AI research current vendor documentation for that specific hardware/software pairing, record dated sources, implementation guidance, compatibility limits and open questions in the project, and submit the findings for engineering review.
+3. Agree on the applicable protection profile, operational impact, measurable acceptance criteria and test procedure based on the reviewed research.
+4. Implement the approved configuration for the bounded scope.
+5. Execute verification, collect configuration and protected-session results, and submit artifacts for review.
+
+The [per-control implementation workflow](090_standards/implementation-workflow.md) defines this intake-to-research handoff. Vendor research supports design decisions; it does not establish that the configuration works in the environment. Testing and reviewed evidence remain necessary for technical validation.
+
+When a control spans different switch, router, module or software combinations, use a parent campaign plan to roll up the inventory and child plans for reviewed compatibility cohorts. Research and implementation claims stay scoped to each cohort and deployed outcome.
 
 The SOW clause and Jira records would be added as program work proceeds. The repository currently supplies the engineering starting point; it does not yet contain those contractual mappings, selected hardware configurations or execution evidence.
 

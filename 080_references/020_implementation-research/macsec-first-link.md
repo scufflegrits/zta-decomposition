@@ -22,6 +22,8 @@ Linked implementation plan: [MACsec first-link plan](../../050_implementation/01
 
 Begin research when the plan contains the exact inventory for both ends of the selected link. Preserve the research date separately from each source's publication/release date and from the document baseline date.
 
+For relevant PDFs that may be retained locally, keep the original and its derived Markdown reading copy beside this record, following the [project PDF research procedure](../../090_standards/implementation-workflow.md#3-research-the-specified-implementation). No source files have been downloaded or extracted for this pilot.
+
 ## Scope to be researched
 
 - **Selected site and link:** Not selected
@@ -41,6 +43,7 @@ When research begins, replace the status above and record each applicable findin
 - What the source explicitly states, what is inferred, and what remains unknown or requires lab confirmation.
 - Configuration prerequisites, supported modes/profiles, interoperability caveats, failure behavior, performance/MTU implications and operational impact.
 - Relevant requirement and test IDs, engineering reviewer, status, and follow-up question or decision.
+- For archived PDFs: original and Markdown filenames, direct source URL, retrieval date, SHA-256, extraction tool/version, page-coverage check, and any extraction/OCR limitations.
 
 Prioritize current primary vendor configuration guides, release notes, feature matrices and data sheets. Add standards sources where they clarify behavior. Cite sources near each finding. Record conflicting or unavailable sources rather than resolving them by assumption. Research supports design decisions; actual execution evidence remains in the verification plan and implementation records.
 

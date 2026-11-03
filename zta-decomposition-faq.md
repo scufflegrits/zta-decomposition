@@ -124,7 +124,7 @@ That is a risk to avoid. The proposed authoritative split keeps engineering defi
 
 ### Do we need one story or one record for every port?
 
-Not necessarily. Split work and records where scope, capability, baseline, outcome or limitations differ. A clearly identified group with the same outcome can share an implementation record, provided its inventory and evidence justify the group-level claim. Do not generalize a result from one port/peer combination to untested equipment without an engineering basis.
+Not necessarily. For a heterogeneous fleet, use the [implementation workflow's compatibility cohorts](090_standards/implementation-workflow.md#plan-hierarchy-and-compatibility-cohorts): group only configurations whose relevant hardware, modules, ports, software, license, media and peer variables are equivalent and whose research applies. A parent campaign plan rolls up inventory and cohort state; child plans cover materially different combinations. Split implementation records where scope, baseline, outcome or limitations differ. Do not generalize a result from one port/peer combination to untested equipment without an engineering basis.
 
 ### How do research, implementation and verification stories finish differently?
 

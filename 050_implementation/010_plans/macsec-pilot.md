@@ -30,6 +30,10 @@ This is the first project instance of the [per-control implementation workflow](
 ## 1. Implementation identity and objective
 
 - **Plan ID:** DOC-IMPL-MACSEC-PILOT
+- **Plan level:** Single-cohort first-link plan; cohort classification pending exact inventory
+- **Parent plan ID:** Not applicable for this one-link pilot
+- **Child plan IDs:** None
+- **Cohort ID and definition:** Not assigned; establish after both peers and relevant configuration are inventoried
 - **Pillar:** ZT-05 — Network & Environment
 - **Control:** NET-04 — MACsec Ethernet link protection
 - **Control overview:** [MACsec control](../../030_controls/020_macsec/overview.md)
@@ -55,10 +59,12 @@ Before hardware-specific research, provide the exact selected link and both peer
 - Applicable SOW clause or program requirement, change/lab constraints, and the designated engineering reviewer and decision authority.
 - Required cipher/security profile, performance/MTU targets and permitted behavior during negotiation failure, if already specified. Unknown values remain open decisions.
 
-| Role / end | Site | Manufacturer and exact model/SKU | Module/card and exact port | Software/release | License | Media and speed | Peer / connected system | Source or inventory record |
-|---|---|---|---|---|---|---|---|---|
-| Switch | Not selected | Not provided | Not provided | Not provided | Not provided | Not provided | Candidate router; not selected | Not provided |
-| Router | Not selected | Not provided | Not provided | Not provided | Not provided | Not provided | Candidate switch; not selected | Not provided |
+This plan covers one candidate link. If the selected scope expands to materially different device/software combinations, create a parent campaign plan with a complete inventory and cohort register, then use a child plan per reviewed compatibility cohort. See [plan hierarchy and compatibility cohorts](../../090_standards/implementation-workflow.md#plan-hierarchy-and-compatibility-cohorts).
+
+| Link ID | Cohort ID | Role / end | Site | Manufacturer and exact model/SKU | Module/card and exact port | Software/OS release | License | Media and speed | Peer / connected system | Source or inventory record |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Not assigned | Pending | Switch | Not selected | Not provided | Not provided | Not provided | Not provided | Not provided | Candidate router; not selected | Not provided |
+| Not assigned | Pending | Router | Not selected | Not provided | Not provided | Not provided | Not provided | Not provided | Candidate switch; not selected | Not provided |
 
 ### Current configuration and traffic
 
@@ -103,6 +109,7 @@ Before hardware-specific research, provide the exact selected link and both peer
 - **Status:** Not started; waiting for exact equipment and software inputs.
 - **Research date and source review:** None. No current vendor source has been checked for the pilot.
 - **Summary:** No hardware-specific conclusion established.
+- **Source files:** None. When research begins, retain permitted source PDFs and their Markdown reading copies beside the research record, following the [PDF handling rules](../../090_standards/implementation-workflow.md#3-research-the-specified-implementation).
 
 ## 5. Preliminary roadmap
 
