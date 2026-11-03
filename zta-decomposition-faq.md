@@ -112,11 +112,11 @@ Not yet. The [compatibility findings](070_procurement/hardware-compatibility.md)
 
 ### Who creates stories and who owns the engineering content?
 
-The proposed working model has the Scrum Master coordinating story creation and dependencies, the Product Owner prioritizing, and engineering owners maintaining definitions and reciprocal links. Reviewers assess criteria and evidence; the designated authority records acceptance. Actual assignments still need to be recorded in the [adoption checklist](HOW-TO-USE.md#program-adoption-checklist).
+The proposed working model has the Scrum Master coordinating story creation and dependencies, the Product Owner prioritizing, and engineering owners maintaining definitions. Jira manages delivery work; optional issue links may be added to engineering records. Reciprocal links are not required. Reviewers assess criteria and evidence; the designated authority records acceptance. Actual assignments still need to be recorded in the [adoption checklist](HOW-TO-USE.md#program-adoption-checklist).
 
 ### Do we need software-factory access or a Jira integration to start?
 
-No integration is needed for manual links. After an issue is created through the program's existing Jira process, enter its direct key link in the relevant engineering row and reference the engineering IDs and baseline in Jira. Live issue checks or automated updates would require later coordination and access; neither is implemented now.
+No integration is part of this project. Jira is used through the program's existing process to create and manage epics, stories and sprints. Optional direct links may be added to engineering rows; Jira or this repository can be used without reciprocal links. The project does not perform live issue checks or automated updates. The [per-control implementation workflow](090_standards/implementation-workflow.md) explains how AI can draft candidate stories in stages, starting with an input-gathering story when facts such as hardware model and software version are missing. The team decides which proposals become Jira issues; the [MACsec pilot](050_implementation/010_plans/macsec-pilot.md) shows an example.
 
 ### Will we have to maintain every fact in three places?
 

@@ -21,7 +21,7 @@ This repository documents a proposed two-site Zero Trust Architecture organized 
 
 This repository is a documentation and traceability framework prototype for planning and demonstrating how the program could decompose Zero Trust Architecture (ZTA) work and connect it to delivery evidence.
 
-The draft structure covers seven ZTA pillars, architecture decisions, control and requirement documents, a MACsec use case, verification planning, manual Jira traceability, implementation and acceptance registers, a management briefing, FAQ, project guide and Mermaid diagrams. The document index is generated from document metadata.
+The draft structure covers seven ZTA pillars, architecture decisions, control and requirement documents, per-control implementation planning, a MACsec use case, verification planning, manual Jira traceability, implementation and acceptance registers, a management briefing, FAQ, project guide and Mermaid diagrams. The document index is generated from document metadata.
 
 The intended trace runs from a contract SOW line item through ZTA pillars and controls to requirements, research, Jira stories, implementation evidence and a customer acceptance record. Jira links are manual for now. The project does not yet contain actual deployment or customer acceptance claims; populate the registers as program work occurs.
 
@@ -32,6 +32,8 @@ The documentation foundation and proposed workflow are well developed. The repos
 ## Start here
 
 Read [How to use this project](HOW-TO-USE.md) for the working process, proposed roles and the single [program adoption checklist](HOW-TO-USE.md#program-adoption-checklist).
+
+For a new technical implementation, start with the [per-control implementation workflow](090_standards/implementation-workflow.md), copy the [implementation plan template](050_implementation/010_plans/implementation-plan-template.md), and use the [MACsec pilot plan](050_implementation/010_plans/macsec-pilot.md) as the worked example. Hardware-specific research is stored as a dated, scoped record in `080_references/020_implementation-research/` once exact inputs are available.
 
 Browse the complete [document index](index.md) or the [visual taxonomy](taxonomy.md). Outstanding documentation work is tracked in [TODO](900_project-admin/TODO.md).
 
@@ -55,11 +57,11 @@ For a self-contained introductory review, read the [ZTA Project Guide](zta-proje
 | `020_architecture/` | Architecture views, decisions, open questions and implementation roadmap |
 | `030_controls/` | Authoritative control definitions; MACsec includes detailed requirements and verification procedures |
 | `040_images/` | Rendered diagrams and other images embedded by documents |
-| `050_implementation/` | Actual deployed protections, limitations, operational impacts and verification references |
+| `050_implementation/` | Per-control intake/roadmaps under `010_plans/` and actual deployed protections, limitations, operational impacts and verification references |
 | `060_pillars/` | Responsibilities and control references for each of the seven pillars |
 | `070_procurement/` | Equipment assessments and compatibility findings awaiting verification |
-| `080_references/` | Standards references and vendor research; supplied guides under `010_guides/` |
-| `090_standards/` | Documentation, traceability and Mermaid conventions; diagram verification record |
+| `080_references/` | Standards references and vendor research; scoped implementation research under `020_implementation-research/`; supplied guides under `010_guides/` |
+| `090_standards/` | Documentation, implementation workflow, traceability and Mermaid conventions; diagram verification record |
 | `100_tests/` and `110_tools/` | Regression tests and the documentation auditor and index generator |
 | `900_project-admin/` | Documentation backlog, migration plans and import log |
 

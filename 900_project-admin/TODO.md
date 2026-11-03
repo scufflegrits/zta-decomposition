@@ -20,7 +20,8 @@ This backlog tracks document maintenance. Engineering design inputs remain in [o
 ## Governance
 
 - [ ] Review and record program adoption decisions in the single [adoption checklist](../HOW-TO-USE.md#program-adoption-checklist). Maintain outcomes and approval references there.
-- [ ] Coordinate any future Jira synchronization with the software factory. Manual linking is available now; live issue checks and updates are not implemented.
+
+Jira synchronization and live issue checks are outside this project's scope. Jira is used to create and manage delivery work; optional manually maintained links may point from engineering records to Jira issues. See the [Jira policy](../090_standards/manual-jira-traceability.md).
 
 ## Tooling
 

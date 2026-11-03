@@ -73,6 +73,6 @@ User-supplied [Mermaid code conventions r1.0.7 guide](010_guides/mermaid-best-pr
 
 For new vendor findings, record the publication title, source URL, applicable hardware/software versions, finding, architectural impact, review date and status.
 
-Maintain external research in `080_references/vendor-research.md` rather than scattering unsupported claims throughout the repository.
+Use `080_references/vendor-research.md` as the central source register. Store detailed, hardware-specific findings in a dated scoped record under `080_references/020_implementation-research/`, linked to the relevant implementation plan and citing applicable source IDs when available. Do not scatter unsupported vendor claims through implementation plans or control documents.
 
 For each new or revisited finding, record its stable reference ID, source title/URL, publication date if available, applicable hardware/software/licenses, precise finding, architectural impact, actual review date, reviewer and status. Distinguish the date a finding was imported from the date a vendor source was checked.

@@ -143,6 +143,8 @@ Each story should carry the SOW reference, epic link, relevant engineering IDs, 
 
 A research story may close with an unsupported-capability finding. An implementation story may close after its approved configuration work while verification remains open. Neither closure alone establishes requirement satisfaction or SOW acceptance.
 
+For a per-link intake that starts with collecting exact equipment and software details, then derives scoped research and follow-on stories, use the newer [per-control implementation workflow](090_standards/implementation-workflow.md) and [MACsec pilot plan](050_implementation/010_plans/macsec-pilot.md). The candidate first story there is a proposal, not an issue that already exists in Jira.
+
 ### Manual Jira links in the tables
 
 The repository now supports these optional columns without Jira API access. The following tables are **fictional examples**: `ZTA` is a sample project key, and `jira.example.invalid` is a deliberately non-operational address. No issues have been created. These descriptive tables reference engineering entities; they do not redefine them or populate the authoritative tables, whose Jira cells remain blank.
@@ -183,7 +185,7 @@ These stories illustrate one branch of the backlog; additional work and tests ar
 
 When TEST-003 is actually executed, its evidence records can include ZTA-106 in `Verification stories`, alongside the real Evidence ID, artifact, result and reviewer. Do not create an evidence row merely to hold a planned story. A Jira link alone is not an execution artifact.
 
-### A reciprocal Jira story example
+### A Jira story description example
 
 For fictional ZTA-106, a proposed Jira description could contain:
 
@@ -202,9 +204,9 @@ Artifact location: <approved durable storage location>
 Reviewer: <program-designated engineering reviewer>
 ```
 
-The Scrum Master coordinates creation and dependencies. The engineering owner adds the actual issue links to the repository and a reviewer checks both directions. Jira holds story status, assignee, sprint and estimates. The repository holds engineering definitions and technical validation status. The [manual Jira standard](090_standards/manual-jira-traceability.md) defines link syntax and maintenance responsibilities.
+The Scrum Master coordinates creation and dependencies. Jira holds story status, assignee, sprint and estimates. The repository holds engineering definitions and technical validation status; optional issue links can connect the two, without requiring reciprocal references. The [manual Jira standard](090_standards/manual-jira-traceability.md) defines link syntax and project scope.
 
-Local checks validate the declared links on authoritative entity rows; they do not contact Jira, verify these fictional examples, confirm issue type/status or prove acceptance. Software-factory access is only needed for future live checks or synchronization.
+Local checks validate link syntax and consistency only; they do not contact Jira, verify these fictional examples, confirm issue type/status or prove acceptance. Live issue checks and synchronization are outside this project's scope.
 
 ## 4. Follow one link down to proof
 

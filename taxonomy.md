@@ -74,7 +74,7 @@ flowchart TB
 | `standard` | `090_standards/` | Project authoring and review conventions |
 | `tooling` | `110_tools/README.md` | Auditor, index generator and test usage |
 | `backlog` | `900_project-admin/` | Documentation maintenance tasks, migration plans and administration records |
-| `implementation` | `050_implementation/` | Actual scoped protections, configurations, verification and operational limitations |
+| `implementation` | `050_implementation/` | Per-control implementation intake and roadmaps, plus actual scoped protections, configurations, verification and operational limitations |
 | `acceptance` | `010_acceptance/` | Customer decisions and artifacts against applicable contract SOW requirements |
 
 Imported source guides preserve their original content and are listed separately from maintained documents. They do not receive project metadata or declare project entities. Generated reports are local outputs. Neither category is evidence of deployed security controls.

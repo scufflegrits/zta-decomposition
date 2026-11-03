@@ -94,9 +94,11 @@ The repository now provides optional **Jira epic** links on control rows, **Jira
 
 Program teams enter real links manually after issues are created and put the corresponding engineering IDs, SOW reference and repository baseline into each Jira description. Engineering owners maintain the table references; the Scrum Master coordinates story creation and the review cycle. Jira remains the source for assignees, sprints and delivery status.
 
-This capability needs no software-factory integration or API access. Local checks validate declared link structure and consistency; reviewers confirm issue existence, purpose and reciprocal references. Authoritative cells remain blank until actual issues exist. The [use-case examples](zta-macsec-use-case.md#manual-jira-links-in-the-tables) are fictional, and the [manual Jira standard](090_standards/manual-jira-traceability.md) defines the working agreement.
+This capability needs no software-factory integration or API access. Local checks validate link syntax and consistency only; they do not check live issue data or require reciprocal references. Jira remains the delivery planning and tracking tool, while this repository remains authoritative for engineering definitions and evidence. The [use-case examples](zta-macsec-use-case.md#manual-jira-links-in-the-tables) are fictional, and the [manual Jira standard](090_standards/manual-jira-traceability.md) defines the boundary.
 
-Use [How to use this project](HOW-TO-USE.md) for the working process and its single [program adoption checklist](HOW-TO-USE.md#program-adoption-checklist) for agreements and approval references. Story completion, technical verification and contractual acceptance remain separate review outcomes. Live synchronization is a future option subject to software-factory approval.
+Use [How to use this project](HOW-TO-USE.md) for the working process and its single [program adoption checklist](HOW-TO-USE.md#program-adoption-checklist) for agreements and approval references. Story completion, technical verification and contractual acceptance remain separate review outcomes. Jira synchronization and live issue checks are outside the project's scope unless an explicit project decision changes that boundary.
+
+For a technical implementation, the [per-control workflow](090_standards/implementation-workflow.md) turns a filled-in plan into staged research, a roadmap and candidate Jira stories. The first story can collect missing inputs such as exact hardware and software versions; see the [MACsec pilot plan](050_implementation/010_plans/macsec-pilot.md). Candidate stories are proposals for the team to create and prioritize in Jira.
 
 ## Documented outcomes and customer acceptance
 

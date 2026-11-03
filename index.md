@@ -37,6 +37,7 @@ The [ZTA Project Mermaid Standard](090_standards/mermaid-best-practices-zta.md) 
 | [Agent handoff and review instructions](900_project-admin/review-handoff-r1.0.0.md) | DOC-ZTA-REVIEW-HANDOFF-R100 | Documentation Engineering (proposed) | superseded |
 | [Agent handoff and review instructions](900_project-admin/review-handoff-r1.0.1.md) | DOC-ZTA-REVIEW-HANDOFF-R101 | Documentation Engineering (proposed) | draft |
 | [How to use this project](HOW-TO-USE.md) | DOC-ZTA-HOW-TO-USE | Architecture / Security Engineering (proposed) | draft |
+| [Project assessment: Zero Trust Architecture Decomposition](request-review-codex.md) | DOC-CODEX-PROJECT-ASSESSMENT | Documentation Engineering (proposed) | draft |
 | [ZTA decomposition briefing — Supporting program delivery](zta-decomposition-briefing.md) | DOC-ZTA-MANAGEMENT-BRIEFING | Architecture / Security Engineering (proposed) | draft |
 | [ZTA decomposition — Questions and critical review](zta-decomposition-faq.md) | DOC-ZTA-FAQ | Architecture / Security Engineering (proposed) | draft |
 | [ZTA decomposition tree — From pillars to evidence and acceptance](zta-decomposition-tree.md) | DOC-SCRATCH-TABLE-DECOMPOSITION | Architecture / Security Engineering (proposed) | draft |
@@ -117,6 +118,7 @@ The [ZTA Project Mermaid Standard](090_standards/mermaid-best-practices-zta.md) 
 
 | Document | ID | Owner (ownership status) | Document status |
 |---|---|---|---|
+| [MACsec first-link scoped research record](080_references/020_implementation-research/macsec-first-link.md) | DOC-REF-MACSEC-FIRST-LINK | Network Engineering (proposed) | draft |
 | [Standards and framework references](080_references/standards.md) | DOC-REF-STANDARDS | Security Architecture (proposed) | draft |
 | [Research register](080_references/vendor-research.md) | DOC-REF-RESEARCH | Architecture / Network Engineering (proposed) | draft |
 | [ZTA decomposition entity relationship diagram](zta-decomposition-erDiagram.md) | DOC-ZTA-ERD | Architecture / Security Engineering (proposed) | draft |
@@ -128,6 +130,7 @@ The [ZTA Project Mermaid Standard](090_standards/mermaid-best-practices-zta.md) 
 | [Diagram verification record](090_standards/diagram-verification.md) | DOC-STD-RENDERS | Documentation Engineering (proposed) | draft |
 | [Documentation and traceability conventions](090_standards/documentation-conventions.md) | DOC-STD-DOCS | Documentation Engineering (proposed) | draft |
 | [Implementation and customer acceptance records](090_standards/implementation-acceptance.md) | DOC-STD-DELIVERY | Architecture / Security Engineering (proposed) | draft |
+| [Per-control implementation workflow](090_standards/implementation-workflow.md) | DOC-STD-IMPL-WORKFLOW | Architecture / Engineering (proposed) | draft |
 | [Manual Jira traceability](090_standards/manual-jira-traceability.md) | DOC-STD-JIRA | Documentation Engineering / Engineering leads (proposed) | draft |
 | [ZTA Project Mermaid Standard](090_standards/mermaid-best-practices-zta.md) | DOC-STD-MERMAID | Documentation Engineering (proposed) | draft |
 | [Numbered directory restructure implementation instructions](900_project-admin/request-restructure-r1.0.4.md) | DOC-ZTA-RESTRUCTURE-INSTRUCTIONS | Documentation Engineering (proposed) | superseded |
@@ -157,6 +160,8 @@ The [ZTA Project Mermaid Standard](090_standards/mermaid-best-practices-zta.md) 
 
 | Document | ID | Owner (ownership status) | Document status |
 |---|---|---|---|
+| [Per-control implementation plan template](050_implementation/010_plans/implementation-plan-template.md) | DOC-IMPL-PLAN-TEMPLATE | Architecture / Engineering (proposed) | draft |
+| [MACsec first-link implementation plan](050_implementation/010_plans/macsec-pilot.md) | DOC-IMPL-MACSEC-PILOT | Network Engineering (proposed) | draft |
 | [MACsec implementation register](050_implementation/macsec.md) | DOC-IMPL-MAC | Architecture / Security Engineering (proposed) | draft |
 
 ## Acceptance

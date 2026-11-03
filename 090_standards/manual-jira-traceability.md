@@ -14,7 +14,7 @@ baseline_date: '2026-10-25'
 
 # Manual Jira traceability
 
-The repository supports manually maintained Jira links without API credentials, synchronization or software-factory access. Engineering IDs retain their existing meaning and parentage. Jira references identify delivery work associated with an entity; they are not new hierarchy entities or evidence of requirement satisfaction.
+Jira is used to plan and track delivery work such as epics, stories, sprints, ownership and status. This repository is authoritative for architecture, requirements, tests, implementation records and evidence. Optional Jira links in repository tables are manually maintained pointers to related delivery work. This project does not synchronize with Jira, check live issue data or require reciprocal references. Changing that boundary requires an explicit project decision. Engineering IDs retain their existing meaning and parentage; Jira references are not new hierarchy entities or evidence of requirement satisfaction.
 
 ## Columns and syntax
 
@@ -38,7 +38,7 @@ The same issue can appear on several engineering rows. Each row can reference se
 
 ## Manual working agreement
 
-Follow the proposed roles and operational steps in [How to use this project](../HOW-TO-USE.md#who-does-what). Record program decisions and approval references in its single [adoption checklist](../HOW-TO-USE.md#program-adoption-checklist). This standard supplies Jira field syntax, the reciprocal-reference template, change-handling rules and local-check limits.
+Follow the proposed roles and operational steps in [How to use this project](../HOW-TO-USE.md#who-does-what). Record program decisions and approval references in its single [adoption checklist](../HOW-TO-USE.md#program-adoption-checklist). This standard supplies optional-link syntax, change-handling rules and local-check limits.
 
 Keep delivery status, assignee, sprint, estimates and dependencies in Jira. Keep technical Required/Proposed/Verify/Validated statuses and evidence disposition in engineering records. At execution, follow the [evidence conventions](documentation-conventions.md#status-and-evidence) and [implementation/acceptance record rules](implementation-acceptance.md). Customer disposition of documented limitations stays separate from test results. A closed story does not itself validate a requirement or authorize SOW acceptance.
 
@@ -64,7 +64,7 @@ For research, acceptance can be a reviewed compatibility finding, including unsu
 
 When a story splits, link the relevant resulting stories and explain the disposition in Jira; preserve the relationship to any original work already performed. When a story is superseded, retain historical references needed to interpret prior evidence and identify the replacement in Jira. When the visible key or approved Jira base address changes, review affected table links together. Avoid deleting an old execution record when a retest is performed.
 
-Use one destination per issue key across this repository. Multiple Jira instances that reuse the same keys require an agreed namespacing convention before their links can coexist; the current auditor reports conflicting destinations. Future integration can retain instance/internal identifiers and automate reconciliation after software-factory approval. No such integration is required for this manual workflow.
+Use one destination per issue key across this repository. Multiple Jira instances that reuse the same keys require an agreed namespacing convention before their links can coexist; the current auditor reports conflicting destinations. The auditor's format checks do not contact Jira and do not make live issue validation or synchronization part of this workflow.
 
 ## Local checks and review limits
 

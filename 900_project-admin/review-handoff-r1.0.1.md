@@ -286,7 +286,7 @@ Report findings as a list, most severe first. For each: file and line, what is w
 
 ## 8. Open items
 
-The live backlog is [TODO.md](TODO.md). As of this revision it holds: program adoption decisions, future Jira synchronization, the deferred MkDocs site, diagram edge-crossing refinement, viewer verification of diagrams, and population of real implementation and acceptance records.
+The live backlog is [TODO.md](TODO.md). It holds program adoption decisions, the deferred MkDocs site, diagram edge-crossing refinement, viewer verification of diagrams, and population of real implementation and acceptance records. Jira synchronization and live issue checks are outside project scope; Jira is used to manage delivery work, with optional manual issue links in engineering records.
 
 ## Revision notes
 

@@ -84,7 +84,7 @@ Use the [implementation/acceptance standard](implementation-acceptance.md) for a
 
 ## Manual Jira references
 
-Control tables may include `Jira epic`; requirement and test tables may include `Jira stories`; evidence tables may include `Verification stories`. These optional columns contain direct issue-key links, with comma-separated links for multiple issues. Blank cells are allowed until actual work is created. Jira references supplement the existing engineering hierarchy and never substitute for evidence. See the [manual Jira standard](manual-jira-traceability.md) for syntax, local checks, the reciprocal-reference template and review responsibilities.
+Control tables may include `Jira epic`; requirement and test tables may include `Jira stories`; evidence tables may include `Verification stories`. These optional columns contain direct issue-key links, with comma-separated links for multiple issues. Blank cells are allowed when a link is not useful or available. Jira references supplement the existing engineering hierarchy and never substitute for evidence. The project does not require reciprocal links, live issue checks or synchronization. See the [manual Jira standard](manual-jira-traceability.md) for syntax and local-check limits.
 
 ## Repository maintenance
 
