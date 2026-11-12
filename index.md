@@ -38,6 +38,7 @@ The [ZTA Project Mermaid Standard](090_standards/mermaid-best-practices-zta.md) 
 | [Agent handoff and review instructions](900_project-admin/review-handoff-r1.0.1.md) | DOC-ZTA-REVIEW-HANDOFF-R101 | Documentation Engineering (proposed) | superseded |
 | [Agent handoff and review instructions](900_project-admin/review-handoff-r1.0.2.md) | DOC-ZTA-REVIEW-HANDOFF-R102 | Documentation Engineering (proposed) | draft |
 | [How to use this project](HOW-TO-USE.md) | DOC-ZTA-HOW-TO-USE | Architecture / Security Engineering (proposed) | draft |
+| [Project handoff for AI agents](handoff.md) | DOC-ZTA-AI-HANDOFF | Architecture / Security Engineering (proposed) | draft |
 | [Project assessment: Zero Trust Architecture Decomposition](request-review-codex.md) | DOC-CODEX-PROJECT-ASSESSMENT | Documentation Engineering (proposed) | draft |
 | [ZTA decomposition briefing — Supporting program delivery](zta-decomposition-briefing.md) | DOC-ZTA-MANAGEMENT-BRIEFING | Architecture / Security Engineering (proposed) | draft |
 | [ZTA decomposition — Questions and critical review](zta-decomposition-faq.md) | DOC-ZTA-FAQ | Architecture / Security Engineering (proposed) | draft |

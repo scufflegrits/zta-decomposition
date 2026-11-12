@@ -31,6 +31,8 @@ The documentation foundation and proposed workflow are well developed. The repos
 
 ## Start here
 
+For AI agent orientation and the current MACsec starting point, read the [project handoff](handoff.md).
+
 Read [How to use this project](HOW-TO-USE.md) for the working process, proposed roles and the single [program adoption checklist](HOW-TO-USE.md#program-adoption-checklist).
 
 For a new technical implementation, start with the [per-control implementation workflow](090_standards/implementation-workflow.md), copy the [implementation plan template](050_implementation/010_plans/implementation-plan-template.md), and use the [MACsec pilot plan](050_implementation/010_plans/macsec-pilot.md) as the worked example. For a control with heterogeneous devices, use a parent campaign plan for inventory/roll-up and child plans for distinct compatibility cohorts. Hardware-specific research is stored as a dated, scoped record in `080_references/020_implementation-research/` once exact inputs are available. For relevant PDFs, retain permitted originals with checksummed Markdown reading copies and source provenance; AI selects available local extraction tools for the active environment, including Cygwin or Debian.
